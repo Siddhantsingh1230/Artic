@@ -451,29 +451,17 @@ a {
 }
 
 [data-title]:after {
-  scale: .85;
   content: attr(data-title);
   position: absolute;
   font-family: metropolis;
-  font-size: 1rem;
-  bottom: -1.4rem;
-  left: 05%;
-  padding: 4px 4px 4px 8px;
-  color: #345789;
-  white-space: nowrap;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -moz-box-shadow: 0px 0px 4px #222;
-  -webkit-box-shadow: 0px 0px 4px #222;
-  box-shadow: 0px 0px 4px #222;
-  background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #cccccc));
-  background-image: -webkit-linear-gradient(top, #f8f8f8, #cccccc);
-  background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
-  background-image: -ms-linear-gradient(top, #f8f8f8, #cccccc);
-  background-image: -o-linear-gradient(top, #f8f8f8, #cccccc);
-  opacity: 0;
+  font-size: 0.55rem;
+  font-weight: normal;
+  left: 120%;
+  padding: 4px;
+  border-radius: 2px;
+  top: 0;
+  background-color: #345789;
+  color: white;
   z-index: 99999;
   visibility: hidden;
 }

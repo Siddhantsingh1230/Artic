@@ -18,11 +18,7 @@ const Navbar = () => {
           </div>
           <div className="notifications">
           <i data-title="Chat" className="ri-message-2-line"></i>
-            <i
-              className="fa-solid fa-bell fa-xs"
-              data-title="Noti"
-              style={{ color: "#ffffff"}}
-            ></i>
+          <i data-title="Notification" class="ri-notification-2-fill"></i>
           </div>
           <div className="user">
             <p data-title="User" className="userName">Dimitri</p>
