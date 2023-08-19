@@ -18,7 +18,7 @@ const Navbar = () => {
           </div>
           <div className="notifications">
           <i data-title="Chat" className="ri-message-2-line"></i>
-          <i data-title="Notification" class="ri-notification-2-fill"></i>
+          <i data-title="Notification" className="ri-notification-2-fill"></i>
           </div>
           <div className="user">
             <p data-title="User" className="userName">Dimitri</p>
