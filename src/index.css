@@ -135,7 +135,7 @@ a {
   font-family: metropolis;
   letter-spacing: 2px;
   font-weight: 900;
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -159,7 +159,7 @@ a {
   margin-left: 0.5rem;
   border: none;
   outline: none;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   color: rgb(206, 206, 206);
   width: 13rem;
 }
@@ -192,12 +192,13 @@ a {
   padding: 0.65rem;
   /* outline: 1px solid red; */
   justify-content: space-between;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
 }
 
 .notifications i {
   justify-content: space-between;
   opacity: 0.85;
+  font-size: 1.2rem;
   margin-inline: 0.5rem;
   transition: all ease 0.3s;
 }
@@ -211,19 +212,19 @@ a {
   justify-content: space-between;
   align-items: center;
   /* outline: 1px solid red; */
-  margin-right: 1.5rem;
+  margin-right: 2rem;
 }
 
 .user .userName {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-right: 0.85rem;
 }
 
 .user .userSprite {
-  height: 1.55rem;
-  width: 1.55rem;
-  outline: 1.65px solid white;
+  height: 1.65rem;
+  width: 1.65rem;
+  outline: 1.65px solid #3869AC;
   border-radius: 0.3rem;
 
 }
@@ -234,8 +235,8 @@ a {
   /* border: 1px solid red; */
   display: flex;
   align-items: center;
-  padding-left: 1rem;
-  height: 1rem;
+  padding-left: 1.5rem;
+  height: 1.5rem;
   margin-block: 1.55rem;
   position: relative;
 }
@@ -245,6 +246,7 @@ a {
   display: flex;
   align-items: center;
   transition: all ease 0.3s;
+  font-size: 1.35rem;
   height: 2rem;
 }
 
@@ -275,7 +277,7 @@ a {
 
   100% {
     opacity: 1;
-    height: 1rem;
+    height: 1.5rem;
   }
 }
 
@@ -293,8 +295,8 @@ a {
 }
 
 .trend .trendTitle {
-  font-size: 2.5rem;
-  width: 25rem;
+  font-size: 3.35rem;
+  width: 32rem;
   /* border: 1px solid white; */
   word-wrap: break-word;
 }
@@ -304,7 +306,7 @@ a {
   position: relative;
   border-radius: 1rem;
   cursor: pointer;
-  margin-right: 4rem;
+  margin-right: 5rem;
 }
 
 .trend .trendMedia:hover .trendContent {
@@ -313,20 +315,20 @@ a {
 }
 
 .trend .trendContent {
-  height: 12rem;
-  width: 20rem;
+  height: 14rem;
+  width: 22rem;
   object-fit: cover;
   transition: transform 0.3s;
   transform-origin: top right;
 }
 
 .trend .trendTitle p {
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
+  font-family: monospace;
+  /* letter-spacing: 1px; */
   font-weight: bolder;
   text-transform: none;
   margin-top: 1rem;
-  font-size: 0.55rem;
+  font-size: 0.85rem;
   color: #c1c1c1;
   transition: all ease 0.3s;
 }
@@ -347,18 +349,19 @@ a {
 .tales p {
   margin-bottom: 1rem;
   font-family: aerox;
+  font-size: 1.5rem;
 }
 
 .tales .cardContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  /* border: 1px solid red; */
 }
 
 .tales .card {
   display: flex;
   position: relative;
-  /* border: 1px solid red; */
   flex-direction: column;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -366,17 +369,17 @@ a {
 }
 
 .tales .card img {
-  height: 7rem;
-  width: 11rem;
+  height: 9rem;
+  width: 13rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
 .tales .card .taleTitle {
   margin-top: 0.5rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
   margin-inline: 0.2rem;
-  font-size: 0.65rem;
+  font-size: 0.825rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -387,17 +390,18 @@ a {
 }
 
 .tales .taleUser .taleUserSprite {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
   border-radius: 50%;
   /* border: 1px solid red; */
   margin-inline: 0.2rem;
+  margin-right:0.4rem;
 }
 
 .tales .taleUser p {
   opacity: 0.65;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   margin: 0;
 }
 
@@ -454,12 +458,13 @@ a {
   content: attr(data-title);
   position: absolute;
   font-family: metropolis;
-  font-size: 0.55rem;
+  font-size: 0.85rem;
   font-weight: normal;
   left: 120%;
-  padding: 4px;
-  border-radius: 2px;
-  top: 0;
+  padding: 7px;
+  border-radius: 4.5px;
+  top: 50%;
+  translate:0 -50%;
   background-color: #345789;
   color: white;
   z-index: 99999;
