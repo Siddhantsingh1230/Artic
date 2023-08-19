@@ -297,6 +297,7 @@ a {
 .trend .trendTitle {
   font-size: 3.35rem;
   width: 32rem;
+  font-family: aeon;
   /* border: 1px solid white; */
   word-wrap: break-word;
 }
@@ -530,7 +531,7 @@ circle {
 }
 /* Placeholder loading animation */
 .animated-background {
-  animation-duration: 1.25s;
+  animation-duration: 4.25s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-name: placeHolderShimmer;
