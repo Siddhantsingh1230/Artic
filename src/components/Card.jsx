@@ -5,7 +5,7 @@ const Card = () => {
     <>
       <div className="card">
         <div className="badge newBadge"></div>
-        <img src="icon/tale.jpg" alt="tale" />
+        <img src="icon/tale.jpg" className="animated-background" alt="tale" />
         <p className="taleTitle">Doom Eternal</p>
         <div className="taleUser">
             <img className='taleUserSprite' src="icon/userSprite.jpg" alt="taleuser" />
