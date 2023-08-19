@@ -5,9 +5,13 @@ import Loader from "./components/Loader";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(()=>{
+    if (document.readyState === "complete") {
       setIsLoading(false);
-    },1200);
+    } else {
+      window.addEventListener("load", () => {
+        setIsLoading(false);
+      });
+    }
   }, []);
   return <>{isLoading ? <Loader /> :<Home />}</>;
 };
