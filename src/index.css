@@ -395,7 +395,7 @@ a {
   border-radius: 50%;
   /* border: 1px solid red; */
   margin-inline: 0.2rem;
-  margin-right:0.4rem;
+  margin-right: 0.4rem;
 }
 
 .tales .taleUser p {
@@ -467,7 +467,7 @@ a {
   padding: 7px;
   border-radius: 4.5px;
   top: 50%;
-  translate:0 -50%;
+  translate: 0 -50%;
   background-color: #345789;
   color: white;
   z-index: 99999;
@@ -483,7 +483,7 @@ a {
 }
 
 /* Loader */
-.loader{
+.loader {
   height: 100%;
   width: 100%;
   background: #000;
@@ -491,6 +491,7 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 svg {
   width: 3.25em;
   transform-origin: center;
@@ -528,6 +529,7 @@ circle {
     stroke-dashoffset: -125px;
   }
 }
+
 /* Placeholder loading animation */
 .animated-background {
   animation-duration: 4.25s;
@@ -539,11 +541,109 @@ circle {
   background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
   position: relative;
 }
-@keyframes placeHolderShimmer{
-  0%{
-      background-position: -468px 0
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
   }
-  100%{
-      background-position: 468px 0
+
+  100% {
+    background-position: 468px 0
   }
+}
+
+.uploadContainer {
+  margin-left: 1.25rem;
+  margin-top: 0.6rem;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.uploadContainer .uploadTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.uploadContainer .uploadTitle span {
+  color: #3869AC;
+}
+
+.uploadContainer .uploadBox {
+  height: 50%;
+  width: 60%;
+  background-color: rgba(109, 190, 253, 0.2);
+  border: 2px solid #3869AC;
+  border-radius: 1rem;
+  margin-block: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #323232;
+}
+
+.uploadContainer .uploadBox i {
+  font-size: 1.5rem;
+  margin-bottom: 1.35rem;
+}
+.uploadContainer .uploadBox p {
+  color: #bebebe;
+}
+
+.uploadContainer .uploadBox span {
+  color: #006aff;
+  
+}
+
+.uploadContainer .captionInput {
+  padding: 0.65rem 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  background-color: #1b1b1b;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.uploadContainer .captionInput input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 99%;
+}
+
+.uploadContainer .captionInput input::-webkit-search-cancel-button {
+  position: relative;
+  right: -4px;
+}
+
+.uploadContainer .captionInput:focus-within {
+  outline: 2px solid #323232;
+}
+
+.uploadContainer .uploadAction {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+
+.uploadContainer .uploadAction button {
+  background: #345789;
+  outline: 2px solid #345789;
+  padding: 0.35rem 1rem;
+  color: #fff;
+  font-weight: 550;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.uploadContainer .uploadAction button:hover {
+  scale: 0.98;
+}
+
+.uploadContainer .uploadAction button:active {
+  opacity: 0.68;
 }
