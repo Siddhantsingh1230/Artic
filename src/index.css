@@ -461,7 +461,7 @@ a {
   content: attr(data-title);
   position: absolute;
   font-family: metropolis;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   font-weight: normal;
   left: 120%;
   padding: 7px;
