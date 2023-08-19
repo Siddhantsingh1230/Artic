@@ -409,25 +409,28 @@ a {
   display: none;
 }
 
-.newBadge {
+.tales .newBadge {
   display: block;
+  z-index: 999;
   position: absolute;
   top: 0.55rem;
   left: 0.5rem;
   background-color: #3869AC;
-  height: 1rem;
-  width: 1.65rem;
-  border-radius: 0.65rem;
+  height: 1.25rem;
+  width: 1.85rem;
+  border-radius: 0.55rem;
 }
 
-.newBadge::after {
+.tales .newBadge::after {
   content: "New";
+  z-index: 9999;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.5rem;
   position: absolute;
-  top: 0.2rem;
-  left: 0.325rem;
+  top: 0.35rem;
+  left: 0.4rem;
+  transform: translate(-50% -50%);
 }
 
 .cardContainer:hover .card:hover {

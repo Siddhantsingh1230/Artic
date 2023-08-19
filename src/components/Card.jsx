@@ -4,7 +4,7 @@ const Card = () => {
   return (
     <>
       <div className="card">
-        <div className="badge newBadge"></div>
+        <div className="newBadge"></div>
         <img src="icon/tale.jpg" className="animated-background" alt="tale" />
         <p className="taleTitle">Doom Eternal</p>
         <div className="taleUser">
