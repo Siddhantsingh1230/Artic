@@ -5,9 +5,9 @@ import Loader from "./components/Loader";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    window.onload = () => {
-      setIsLoading(false); // When everything is loaded, set isLoading to false
-    };
+    setTimeout(()=>{
+      setIsLoading(false);
+    },1200);
   }, []);
   return <>{isLoading ? <Loader /> :<Home />}</>;
 };
