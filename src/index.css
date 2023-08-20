@@ -697,6 +697,7 @@ circle {
   /* border: 1px solid red; */
   overflow: hidden;
   border-radius: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 
 .postMedia {
