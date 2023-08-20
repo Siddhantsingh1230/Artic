@@ -681,7 +681,8 @@ circle {
 .posts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
+  padding-left: 2rem;
   /* border: 1px solid red; */
   height: 100%;
   gap: 1.5rem;
