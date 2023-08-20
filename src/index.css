@@ -828,7 +828,7 @@ circle {
   padding: 1.4rem;
 }
 .setting h2{
-  font-size: 1.5rem;
+  font-size: 1.85rem;
   margin-bottom: 0.55rem;
   color: #e7e7e7;
 }
@@ -847,12 +847,12 @@ circle {
   flex-direction: column;
 }
 .userDetails p{
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin-bottom: .7rem;
   font-weight: 550;
 }
 .userDetails .userSettingName,.userDetails .userSettingEmail{
-  font-size: .75rem;
+  font-size: .95rem;
   padding: 0.5rem;
   background: #111111;
   outline: 1px solid rgb(168, 168, 168);  
@@ -870,7 +870,7 @@ circle {
 }
 .userDetails small{
   color: #7D8590;
-  font-size: .7rem;
+  font-size: .9rem;
   margin-block: .7rem;
 }
 p[contenteditable="true"]{
@@ -878,8 +878,8 @@ p[contenteditable="true"]{
 }
 .userImage{
   border: 1.5px solid white;
-  height: 10rem;
-  width: 10rem;
+  height: 12rem;
+  width: 12rem;
   border-radius: 50%;
   position: relative;
   margin-top: 1rem  ;
