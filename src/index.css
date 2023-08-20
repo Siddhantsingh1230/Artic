@@ -460,6 +460,7 @@ a {
   filter: blur(0);
 }
 
+
 /* For ToolTips */
 [data-title]:hover:after {
   opacity: 1;
@@ -817,4 +818,118 @@ circle {
   top: 50%;
   left: 20%;
   transform: translateY(-50%);
+}
+
+/* Setting page */
+.setting{
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 1.4rem;
+}
+.setting h2{
+  font-size: 1.5rem;
+  margin-bottom: 0.55rem;
+  color: #e7e7e7;
+}
+.setting hr{
+  border: 1px solid #323232;
+  width: 82%;
+  margin-bottom: 1rem;
+}
+.info{
+  display: flex;
+  gap: 10rem;
+
+}
+.userDetails{
+  display: flex;
+  flex-direction: column;
+}
+.userDetails p{
+  font-size: 0.85rem;
+  margin-bottom: .7rem;
+  font-weight: 550;
+}
+.userDetails .userSettingName,.userDetails .userSettingEmail{
+  font-size: .75rem;
+  padding: 0.5rem;
+  background: #111111;
+  outline: 1px solid rgb(168, 168, 168);  
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.userDetails .userSettingName input,.userDetails .userSettingEmail input{
+  margin-bottom: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.userDetails small{
+  color: #7D8590;
+  font-size: .7rem;
+  margin-block: .7rem;
+}
+p[contenteditable="true"]{
+  outline: none;
+}
+.userImage{
+  border: 1.5px solid white;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  position: relative;
+  margin-top: 1rem  ;
+  overflow: hidden;
+}
+/* .userImage p{
+  position: absolute;
+  z-index: 999;
+  top: 0rem;
+  left: -2rem;
+  font-size: .75rem;
+  color: white;
+} */
+.userImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 99999;
+  border-radius: 50%;
+}
+.setting button{
+  padding: 0.45rem 1rem;
+  border: none;
+  outline: none;
+  margin-right: .5rem;
+  border-radius: .35rem;
+}
+.setting .save{
+  background-color: #006aff;
+  font-weight: 550;
+  transition: all ease 0.3s;
+}
+.setting .delete{
+  background-color: #ff0000;
+  font-weight: 550;
+  transition: all ease 0.3s;
+}
+.setting .save:hover , .setting .delete:hover{
+  scale: 0.98;
+  opacity: 0.7;
+  cursor: pointer;
+  color: #111111;
+}
+.userImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shine-effect);
+  animation: shine 2s ease-in-out infinite;
 }
