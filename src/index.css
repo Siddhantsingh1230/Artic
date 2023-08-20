@@ -275,7 +275,7 @@ a {
   left: 0;
   height: 0rem;
   width: 3px;
-  background-color: #3869AC;
+  background-color: #006aff;
   animation: fall ease 0.3s forwards;
 }
 
@@ -479,7 +479,7 @@ a {
   border-radius: 4.5px;
   top: 50%;
   translate: 0 -50%;
-  background-color: #345789;
+  background-color: #006aff;
   color: white;
   z-index: 99999;
   visibility: hidden;
