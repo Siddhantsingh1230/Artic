@@ -33,7 +33,7 @@ const Setting = () => {
             </small>
             <p>Last name</p>
             <div className="userSettingName">
-              <i className="ri-user-line"></i>
+              <i className="ri-user-3-line"></i>
               <input onChange={(e)=>{
                 handleLastNameChange(e);
               }} value={lastName} type="text"/>
