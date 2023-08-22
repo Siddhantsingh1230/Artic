@@ -232,7 +232,7 @@ a {
   position: relative;
   display: inline-block;
 }
-.tooltip {
+.user .userName .tooltip {
   visibility: hidden;
   font-size: 0.75rem;
   font-weight: 650;
@@ -856,14 +856,14 @@ circle {
   padding: 1.4rem;
 }
 .setting h2{
-  font-size: 1.85rem;
+  font-size: 2.5rem;
   margin-bottom: 0.55rem;
   color: #e7e7e7;
 }
 .setting hr{
   border: 1px solid #323232;
-  width: 82%;
-  margin-bottom: 1rem;
+  width: 90%;
+  margin-bottom: 1.5rem;
 }
 .info{
   display: flex;
@@ -875,7 +875,7 @@ circle {
   flex-direction: column;
 }
 .userDetails p{
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: .7rem;
   font-weight: 550;
 }
@@ -906,12 +906,33 @@ p[contenteditable="true"]{
 }
 .userImage{
   border: 1.5px solid white;
-  height: 12rem;
-  width: 12rem;
+  height: 18rem;
+  width: 18rem;
   border-radius: 50%;
   position: relative;
   margin-top: 1rem  ;
   overflow: hidden;
+}
+.tooltip2 {
+  visibility: hidden;
+  font-size: 0.75rem;
+  font-weight: 650;
+  background-color: #006aff;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 6px;
+  position: absolute;
+  z-index: 999999999;
+  bottom:10%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.userImage:hover .tooltip2 {
+  visibility: visible;
+  opacity: 1;
 }
 /* .userImage p{
   position: absolute;
