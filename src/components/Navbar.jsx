@@ -17,11 +17,13 @@ const Navbar = () => {
             <input placeholder="Search" type="search" />
           </div>
           <div className="notifications">
-          <i data-title="Chat" className="ri-message-2-line"></i>
-          <i data-title="Notification" className="ri-notification-2-fill"></i>
+            <i data-title="Chat" className="ri-message-2-line"></i>
+            <i data-title="Notification" className="ri-notification-2-fill"></i>
           </div>
           <div className="user">
-            <p data-title="User" className="userName">Dimitri</p>
+            <div className="userName">Dimitri
+              <div className="tooltip">User</div>
+            </div>
             <img src="icon/userSprite.jpg" alt="userSprite" className="userSprite" />
           </div>
         </div>
