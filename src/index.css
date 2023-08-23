@@ -444,22 +444,22 @@ a {
   transform: translate(-50% -50%);
 }
 
-.cardContainer:hover .card:hover {
+.card:hover {
   transition: filter 0.3s ease;
-
 }
 
-.cardContainer:hover .card:hover>img {
+.card:hover>img {
   outline: 2px solid #3869AC;
 }
 
-.card:not(:hover) {
+.card:hover ~ .card {
   filter: blur(1.5px);
 }
 
-.cardContainer:not(:hover) .card {
+
+/* .cardContainer:not(:hover) .card {
   filter: blur(0);
-}
+} */
 
 
 /* For ToolTips */
