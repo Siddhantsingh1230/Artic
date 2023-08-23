@@ -3,6 +3,9 @@ import Spinner from "./Spinner";
 const Popup = ({ setRender }) => {
   // const [mediaType, setMediaType] = useState("image");
   const [loading, setLoading] = useState(true);
+  window.addEventListener("keyup",()=>{
+    setRender(false);
+  })
   const mediaType = "image";
   return (
     <>
