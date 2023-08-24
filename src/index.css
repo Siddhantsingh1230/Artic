@@ -1039,12 +1039,12 @@ p[contenteditable="true"]{
   gap: .65rem;
 }
 .mediaDetails img{
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.75rem;
+  width: 1.75rem;
   border-radius: 50%;
 }
 .mediaDetails p{
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
