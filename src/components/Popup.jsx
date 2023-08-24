@@ -5,8 +5,10 @@ const Popup = ({ setRender }) => {
   // const [mediaType, setMediaType] = useState("image");
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
-  window.addEventListener("keyup", () => {
-    setRender(false);
+  window.addEventListener("keydown", (e) => {
+    if(e.keyCode===27){
+      setRender(false);
+    }
   });
   const mediaType = "image";
   return (

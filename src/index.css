@@ -22,12 +22,10 @@ a {
   /*& For colors  */
   --shine-degree: 120deg;
   --shine-color: rgba(255, 255, 255, 0.2);
-  --shine-effect: linear-gradient(
-    var(--shine-degree),
-    transparent,
-    var(--shine-color),
-    transparent
-  );
+  --shine-effect: linear-gradient(var(--shine-degree),
+      transparent,
+      var(--shine-color),
+      transparent);
   --shine-transition: all 0.65s ease-in-out;
 }
 
@@ -232,6 +230,7 @@ a {
   position: relative;
   display: inline-block;
 }
+
 .user .userName .tooltip {
   visibility: hidden;
   font-size: 0.75rem;
@@ -449,7 +448,7 @@ a {
   position: absolute;
   top: 0.55rem;
   left: 0.5rem;
-  background-color:#006aff;
+  background-color: #006aff;
   height: 1.25rem;
   width: 1.85rem;
   border-radius: 0.55rem;
@@ -476,7 +475,7 @@ a {
   outline: 2px solid #3869AC;
 }
 
-.card:hover ~ .card {
+.card:hover~.card {
   filter: blur(1.5px);
 }
 
@@ -728,6 +727,7 @@ circle {
   overflow: hidden;
   border-radius: 0.7rem;
   margin-bottom: 0.5rem;
+  position: relative;
 }
 
 .postMedia {
@@ -738,13 +738,15 @@ circle {
   position: relative;
   overflow: hidden;
 }
-.postMedia img{
+
+.postMedia img {
   height: 100%;
   object-fit: cover;
   border-radius: 0.7rem;
-  position: relative;  
+  position: relative;
   z-index: 9999;
 }
+
 .postMedia::before {
   content: "";
   position: absolute;
@@ -852,71 +854,93 @@ circle {
   transform: translateY(-50%);
 }
 
+.editBtn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 99999;
+  cursor: pointer;
+  color: #006aff;
+}
+
 /* Setting page */
-.setting{
+.setting {
   height: 100%;
   width: 100%;
   /* border: 1px solid red; */
   padding: 1.4rem;
 }
-.setting h2{
+
+.setting h2 {
   font-size: 2.5rem;
   margin-bottom: 0.55rem;
   color: #e7e7e7;
 }
-.setting hr{
+
+.setting hr {
   border: 1px solid #323232;
   width: 90%;
   margin-bottom: 1.5rem;
 }
-.info{
+
+.info {
   display: flex;
   gap: 10rem;
 
 }
-.userDetails{
+
+.userDetails {
   display: flex;
   flex-direction: column;
 }
-.userDetails p{
+
+.userDetails p {
   font-size: 1.2rem;
   margin-bottom: .7rem;
   font-weight: 550;
 }
-.userDetails .userSettingName,.userDetails .userSettingEmail{
+
+.userDetails .userSettingName,
+.userDetails .userSettingEmail {
   font-size: .95rem;
   padding: 0.5rem;
   background: #111111;
-  outline: 1px solid rgb(168, 168, 168);  
+  outline: 1px solid rgb(168, 168, 168);
   border-radius: 0.25rem;
   display: flex;
   align-items: center;
   gap: .5rem;
 }
-.userDetails .userSettingName input,.userDetails .userSettingEmail input{
+
+.userDetails .userSettingName input,
+.userDetails .userSettingEmail input {
   margin-bottom: 0;
   width: 100%;
   border: none;
   outline: none;
   background: transparent;
 }
-.userDetails small{
+
+.userDetails small {
   color: #7D8590;
   font-size: .9rem;
   margin-block: .7rem;
 }
-p[contenteditable="true"]{
+
+p[contenteditable="true"] {
   outline: none;
 }
-.userImage{
+
+.userImage {
   border: 1.5px solid white;
   height: 18rem;
   width: 18rem;
   border-radius: 50%;
   position: relative;
-  margin-top: 1rem  ;
+  margin-top: 1rem;
   overflow: hidden;
 }
+
 .tooltip2 {
   visibility: hidden;
   font-size: 0.75rem;
@@ -928,16 +952,18 @@ p[contenteditable="true"]{
   padding: 6px;
   position: absolute;
   z-index: 999999999;
-  bottom:10%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .userImage:hover .tooltip2 {
   visibility: visible;
   opacity: 1;
 }
+
 /* .userImage p{
   position: absolute;
   z-index: 999;
@@ -946,7 +972,7 @@ p[contenteditable="true"]{
   font-size: .75rem;
   color: white;
 } */
-.userImage img{
+.userImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -954,29 +980,35 @@ p[contenteditable="true"]{
   z-index: 99999;
   border-radius: 50%;
 }
-.setting button{
+
+.setting button {
   padding: 0.45rem 1rem;
   border: none;
   outline: none;
   margin-right: .5rem;
   border-radius: .35rem;
 }
-.setting .save{
+
+.setting .save {
   background-color: #006aff;
   font-weight: 550;
   transition: all ease 0.3s;
 }
-.setting .delete{
+
+.setting .delete {
   background-color: #ff0000;
   font-weight: 550;
   transition: all ease 0.3s;
 }
-.setting .save:hover , .setting .delete:hover{
+
+.setting .save:hover,
+.setting .delete:hover {
   scale: 0.98;
   opacity: 0.7;
   cursor: pointer;
   color: #111111;
 }
+
 .userImage::after {
   content: "";
   position: absolute;
@@ -989,7 +1021,7 @@ p[contenteditable="true"]{
 
 /* Popup.jsx */
 
-.popupCard{
+.popupCard {
   position: fixed;
   z-index: 999999;
   height: 100vh;
@@ -1001,6 +1033,7 @@ p[contenteditable="true"]{
   justify-content: center;
   align-items: center;
 }
+
 .frame {
   height: 80%;
   width: 50%;
@@ -1010,17 +1043,20 @@ p[contenteditable="true"]{
   position: relative;
   box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.7);
 }
-.imgMedia{
+
+.imgMedia {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.vidMedia{
+
+.vidMedia {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}    
-.cancel{
+}
+
+.cancel {
   position: absolute;
   font-size: 1.5rem;
   color: #000;
@@ -1029,7 +1065,8 @@ p[contenteditable="true"]{
   cursor: pointer;
   z-index: 9999999;
 }
-.mediaDetails{
+
+.mediaDetails {
   display: flex;
   width: 100%;
   padding-left: 1rem;
@@ -1040,18 +1077,20 @@ p[contenteditable="true"]{
   /* border: 1px solid red; */
   gap: .65rem;
 }
-.mediaDetails img{
+
+.mediaDetails img {
   height: 1.75rem;
   width: 1.75rem;
   border-radius: 50%;
 }
-.mediaDetails p{
+
+.mediaDetails p {
   font-size: 0.95rem;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.sidePanel{
+.sidePanel {
   position: absolute;
   right: 1.5rem;
   display: flex;
@@ -1059,24 +1098,101 @@ p[contenteditable="true"]{
   align-items: center;
   flex-direction: column;
   bottom: 2.5rem;
-  gap:.75rem;
+  gap: .75rem;
 }
-.heart , .comments{
+
+.heart,
+.comments {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   cursor: pointer;
 }
-.sidePanel i{
+
+.sidePanel i {
   font-size: 1.55rem;
 }
-p.likeCount , p.commentCount{
+
+p.likeCount,
+p.commentCount {
   font-size: 0.85rem;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
 }
-.marquee{
+
+.marquee {
   cursor: pointer;
+}
+
+/* EditPost */
+.editPost {
+  position: fixed;
+  z-index: 999999;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editBoxContainer {
+  background: rgb(11, 11, 18);
+  height: 26rem;
+  width: 30rem;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.editBoxContainer h2 {
+  margin: 1rem;
+  opacity: 0.65;
+}
+
+.editBoxContainer h2 i {
+  font-size: 1rem;
+  margin-left: .25rem;
+}
+
+.editBoxContainer textarea {
+  margin: 1rem;
+  font-size: 1.2rem;
+  background: #161c29;
+  height: 60%;
+  width: 92.5%;
+  border: none;
+  padding: 0.5rem 0.55rem;
+  resize: none;
+  border-radius: 0.5rem;
+}
+
+.editBoxContainer button {
+  margin: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  color: #006aff;
+  outline: 1px solid #006aff;
+  background: transparent;
+  border-radius: 0.5rem;
+  width: 5rem;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  font-weight: 550;
+}
+
+.editBoxContainer button:hover {
+  outline: none;
+  background: #006aff;
+  color: black;
+}
+
+.editBoxContainer button:active {
+  scale: 0.96;
 }
