@@ -1015,9 +1015,10 @@ p[contenteditable="true"]{
   height: 100%;
   object-fit: cover;
 }
-.videoMedia{
+.vidMedia{
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }    
 .cancel{
   position: absolute;
@@ -1026,6 +1027,7 @@ p[contenteditable="true"]{
   right: .75rem;
   top: 0.5rem;
   cursor: pointer;
+  z-index: 9999999;
 }
 .mediaDetails{
   display: flex;

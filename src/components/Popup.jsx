@@ -27,7 +27,7 @@ const Popup = ({ setRender }) => {
             ></i>
           </div>
           {loading ? <Spinner /> : null}
-          {mediaType === "image" ? (
+          {mediaType === "image " ? (
             <img
               src="/icon/poster.jpg"
               alt=""
@@ -38,10 +38,14 @@ const Popup = ({ setRender }) => {
             />
           ) : (
             <video
-              onLoad={() => {
-                setLoading(false);
-              }}
-              src=""
+            onCanPlay={() => {
+              setLoading(false);
+            }}
+              
+              src="http://techslides.com/demos/sample-videos/small.mp4"
+              
+              autoPlay
+              loop
               className="vidMedia"
             ></video>
           )}
