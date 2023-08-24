@@ -64,7 +64,7 @@ const Popup = ({ setRender }) => {
               className="heart"
             >
               {liked ? (
-                <i style={{color:"red"}} class="ri-heart-fill"></i>
+                <i style={{color:"red"}} className="ri-heart-fill"></i>
               ) : (
                 <i className="ri-heart-line"></i>
               )}
