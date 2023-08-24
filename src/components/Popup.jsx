@@ -27,7 +27,7 @@ const Popup = ({ setRender }) => {
             ></i>
           </div>
           {loading ? <Spinner /> : null}
-          {mediaType === "image " ? (
+          {mediaType === "image" ? (
             <img
               src="/icon/poster.jpg"
               alt=""
