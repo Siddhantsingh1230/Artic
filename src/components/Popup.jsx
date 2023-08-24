@@ -70,7 +70,9 @@ const Popup = ({ setRender }) => {
               )}
               <p className="likeCount">20</p>
             </div>
-            <div className="comments">
+            <div onClick={(e)=>{
+              e.preventDefault();
+            }} className="comments">
               <i className="ri-chat-3-line"></i>
               <p className="commentCount">20</p>
             </div>
