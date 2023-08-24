@@ -7,7 +7,7 @@ const Content = () => {
       <div className="content">
         <div className="trend">
           <div className="trendTitle">
-            Play,Discover,
+            Play ,Discover,
             <br />
             Follow Popular Tales
             <p>

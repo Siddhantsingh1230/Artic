@@ -712,6 +712,7 @@ circle {
   flex-wrap: wrap;
   /* justify-content: center; */
   padding-left: 2rem;
+  padding-top: 1.85rem;
   /* border: 1px solid red; */
   height: 100%;
   gap: 1.5rem;
@@ -1116,7 +1117,7 @@ p[contenteditable="true"] {
 
 p.likeCount,
 p.commentCount {
-  font-size: 0.85rem;
+  font-size: 0.6rem;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
