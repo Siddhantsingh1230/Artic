@@ -814,7 +814,7 @@ circle {
 
 
 
-.edit-button {
+.view-button {
   width: 40px;
   height: 40px;
   border-radius: 0.5rem;
@@ -833,7 +833,7 @@ circle {
 }
 
 
-.edit-button:hover {
+.view-button:hover {
   width: 120px;
   border-radius: 50px;
   transition-duration: 0.3s;
@@ -843,8 +843,8 @@ circle {
   padding-right: 1rem;
 }
 
-.edit-button:hover::before {
-  content: "Edit";
+.view-button:hover::before {
+  content: "View";
   position: absolute;
   color: white;
   top: 50%;
