@@ -1127,6 +1127,81 @@ p.commentCount {
   cursor: pointer;
 }
 
+.commentSection{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #111111;
+  z-index: 9999999;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.back{
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.35rem;
+}
+.commentsArea{
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  overflow-y: auto;
+  padding-top: .35rem;
+}
+.comment{
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  margin: 1.5rem;
+}
+p.commentText{
+    margin: 0;
+    opacity: 0.75;
+    font-size: 0.9rem;
+    margin-top: 0.45rem;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 550;
+}
+.commentUser{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.commentUser img{
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}
+.commentUser p{
+  font-size: 1rem;
+  opacity: 0.85;
+  margin: 0;
+}
+.inputs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+.inputComment{
+  border: 2px solid #345789;
+  width: 80%;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  padding: 0.65rem;
+  background: #111111;
+  outline: none;
+}
+.inputs i{
+  font-size: 2rem;
+}
 /* EditPost */
 .editPost {
   position: fixed;

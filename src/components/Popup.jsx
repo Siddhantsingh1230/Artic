@@ -5,8 +5,9 @@ const Popup = ({ setRender }) => {
   // const [mediaType, setMediaType] = useState("image");
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
+  const [commentRender, setCommentRender] = useState(false);
   window.addEventListener("keydown", (e) => {
-    if(e.keyCode===27){
+    if (e.keyCode === 27) {
       setRender(false);
     }
   });
@@ -40,12 +41,10 @@ const Popup = ({ setRender }) => {
             />
           ) : (
             <video
-            onCanPlay={() => {
-              setLoading(false);
-            }}
-              
+              onCanPlay={() => {
+                setLoading(false);
+              }}
               src="http://techslides.com/demos/sample-videos/small.mp4"
-              
               autoPlay
               loop
               className="vidMedia"
@@ -70,19 +69,114 @@ const Popup = ({ setRender }) => {
               className="heart"
             >
               {liked ? (
-                <i style={{color:"red"}} className="ri-heart-fill"></i>
+                <i style={{ color: "red" }} className="ri-heart-fill"></i>
               ) : (
                 <i className="ri-heart-line"></i>
               )}
               <p className="likeCount">20</p>
             </div>
-            <div onClick={(e)=>{
-              e.stopPropagation();
-            }} className="comments">
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                setCommentRender(true);
+              }}
+              className="comments"
+            >
               <i className="ri-chat-3-line"></i>
               <p className="commentCount">20</p>
             </div>
           </div>
+          {commentRender?<div className="commentSection">
+          <div className="back">
+            <i
+              onClick={() => {
+                setCommentRender(false);
+              }}
+              className="ri-arrow-left-line"
+            ></i>
+          </div>
+            <div className="commentsArea">
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="/icon/Logo.png" alt="" />
+                  <p>Dimitri</p>
+                </div>
+                <p className="commentText">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
+                </p>
+              </div>
+            </div>
+            <div className="inputs">
+              <input type="text" placeholder="Type something.." className="inputComment" />
+              <i
+                className="fa-regular fa-circle-right"
+                style={{ color: "#345789" }}
+              />
+            </div>
+          </div>:null}
         </div>
       </div>
     </>
