@@ -5,7 +5,7 @@ const Upload = () => {
     <>
       <div className="uploadContainer">
         <div className="uploadTitle">
-          Create Tale <span>.</span>
+          Publish Tale <span>.</span>
         </div>
         <div className="uploadBox">
         <i className="ri-upload-2-line"></i>
