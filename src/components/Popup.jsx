@@ -5,7 +5,16 @@ const Popup = ({ setRender }) => {
   // const [mediaType, setMediaType] = useState("image");
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
-  const [commentRender, setCommentRender] = useState(false);
+  const [frameStyle, setFrameStyle] = useState({
+    height: "80%",
+    width: "50%",
+    borderRadius: "1rem",
+    background: "rgb(26, 30, 40)",
+    overflow: "hidden",
+    position: "relative",
+    boxShadow: "0 0 20px 10px rgba(0, 0, 0, 0.7)",
+  });
+  const [renderComments, setRenderComments] = useState(false);
   window.addEventListener("keydown", (e) => {
     if (e.keyCode === 27) {
       setRender(false);
@@ -17,6 +26,7 @@ const Popup = ({ setRender }) => {
       <div className="popupCard">
         <div
           className="frame"
+          style={frameStyle}
           onDoubleClick={() => {
             liked ? setLiked(false) : setLiked(true);
           }}
@@ -26,7 +36,8 @@ const Popup = ({ setRender }) => {
               onClick={() => {
                 setRender(false);
               }}
-              className="ri-close-fill"
+              className="cancelIcon fa-solid fa-arrow-left"
+              style={{color: "#ffffff",fontSize:"1rem"}}
             ></i>
           </div>
           {loading ? <Spinner /> : null}
@@ -76,108 +87,92 @@ const Popup = ({ setRender }) => {
               <p className="likeCount">20</p>
             </div>
             <div
-              onClick={(e) => {
-                e.stopPropagation();
-                setCommentRender(true);
-              }}
               className="comments"
+              onClick={() => {
+                setRenderComments(true);
+                setFrameStyle({
+                  height: "80%",
+                  width: "50%",
+                  borderRadius: "1rem 0 0 1rem",
+                  background: "rgb(26, 30, 40)",
+                  overflow: "hidden",
+                  position: "relative",
+                  boxShadow: "0 0 20px 10px rgba(0, 0, 0, 0.7)",
+                });
+              }}
             >
               <i className="ri-chat-3-line"></i>
               <p className="commentCount">20</p>
             </div>
           </div>
-          {commentRender?<div className="commentSection">
-          <div className="back">
-            <i
-              onClick={() => {
-                setCommentRender(false);
-              }}
-              className="ri-arrow-left-line"
-            ></i>
-          </div>
-            <div className="commentsArea">
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="/icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                </div>
-                <p className="commentText">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis cum tenetur fugit quam adipisci, consequuntur commodi dolorem ea sed. Dicta.
-                </p>
-              </div>
-            </div>
-            <div className="inputs">
-              <input type="text" placeholder="Type something.." className="inputComment" />
-              <i
-                className="fa-regular fa-circle-right"
-                style={{ color: "#345789" }}
-              />
-            </div>
-          </div>:null}
         </div>
+        {renderComments ? (
+          <div className="commentSection">
+            <i className="cancelComment fa-solid fa-xmark" style={{color: "#fff"}} onClick={()=>{
+              setRenderComments(false);
+              setFrameStyle({
+                height: "80%",
+                width: "50%",
+                borderRadius: "1rem",
+                background: "rgb(26, 30, 40)",
+                overflow: "hidden",
+                position: "relative",
+                boxShadow: "0 0 20px 10px rgba(0, 0, 0, 0.7)",
+              });
+            }}/>
+            <p>Comments</p>
+            <hr />
+            <div className="commentBox">
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="icon/Logo.png" alt="" />
+                  <p>Dimitri</p><p>•</p>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! 
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="icon/tale.jpg" alt="" />
+                  <p>Wisdom</p><p>•</p>
+                </div>
+                 Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="icon/Logo.png" alt="" />
+                  <p>Dimitri</p><p>•</p>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! 
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="icon/tale.jpg" alt="" />
+                  <p>Wisdom</p><p>•</p>
+                </div>
+                 Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="icon/Logo.png" alt="" />
+                  <p>Dimitri</p><p>•</p>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! 
+              </div>
+              <div className="comment">
+                <div className="commentUser">
+                  <img src="icon/tale.jpg" alt="" />
+                  <p>Wisdom</p><p>•</p>
+                </div>
+                 Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <hr />
+            <div className="commentInput">
+              <input placeholder="Type something.." type="text" />
+              <button>Post</button>
+            </div>
+          </div>
+        ) : null}
       </div>
     </>
   );

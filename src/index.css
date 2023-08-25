@@ -698,12 +698,9 @@ circle {
   align-items: center;
 }
 
-.loader p {
-  color: #006aff;
-  font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 550;
-
+.loader img{
+  height: 4.5rem;
+  width: 4.5rem;
 }
 
 /* Posts */
@@ -1061,10 +1058,17 @@ p[contenteditable="true"] {
   position: absolute;
   font-size: 1.5rem;
   color: #000;
-  right: .75rem;
+  left: .75rem;
   top: 0.5rem;
   cursor: pointer;
   z-index: 9999999;
+}
+.cancelIcon{
+  opacity: 0.85;
+  transition: all ease 0.1s;
+}
+.cancelIcon:hover{
+  opacity: 1;
 }
 
 .mediaDetails {
@@ -1127,81 +1131,6 @@ p.commentCount {
   cursor: pointer;
 }
 
-.commentSection{
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #111111;
-  z-index: 9999999;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
-.back{
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 1.35rem;
-}
-.commentsArea{
-  width: 100%;
-  height: 85%;
-  overflow: hidden;
-  overflow-y: auto;
-  padding-top: .35rem;
-}
-.comment{
-  display: flex;
-  flex-direction: column;
-  width: 93%;
-  margin: 1.5rem;
-}
-p.commentText{
-    margin: 0;
-    opacity: 0.75;
-    font-size: 0.9rem;
-    margin-top: 0.45rem;
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 550;
-}
-.commentUser{
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}
-.commentUser img{
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-}
-.commentUser p{
-  font-size: 1rem;
-  opacity: 0.85;
-  margin: 0;
-}
-.inputs{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  padding-bottom: 1rem;
-}
-.inputComment{
-  border: 2px solid #345789;
-  width: 80%;
-  font-size: 1rem;
-  border-radius: 0.75rem;
-  padding: 0.65rem;
-  background: #111111;
-  outline: none;
-}
-.inputs i{
-  font-size: 2rem;
-}
 /* EditPost */
 .editPost {
   position: fixed;
@@ -1272,3 +1201,109 @@ p.commentText{
 .editBoxContainer button:active {
   scale: 0.96;
 }
+/* Comment section */
+.commentSection{
+  display: flex;
+  flex-direction: column;
+  height:80%;
+  width: 20%;
+  background: #111111;
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+.cancelComment{
+  right: .75rem;
+  top: 0.75rem;
+  cursor: pointer;
+  z-index: 9999999;
+  position: absolute;
+  font-size: .75rem;
+  opacity: 0.85;
+  transition: all ease 0.2s;
+}
+
+.cancelComment:hover{
+  opacity: 1;
+}
+
+.commentSection p{
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  margin: 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.commentSection hr{
+  width: 100%;
+  border: 1px solid #252525;
+}
+.commentBox{
+  height: 80%;
+  width: 100%;
+  padding: 0.5rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.commentInput{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.65rem;
+  padding-right: 0.45rem;
+  
+}
+.commentInput input{
+  outline:none;
+  border: none;
+  background: transparent;
+  font-size: 0.75rem;
+}
+.commentInput button{
+  outline:none;
+  border: none;
+  background: #006aff;
+  color: black;
+  font-weight: 580;
+  font-size: 0.55rem;
+  padding: 0.45rem;
+  border-radius: 0.275rem;
+  transition: all ease 0.3s;
+}
+.commentInput button:hover{
+  opacity: 0.85;
+}
+.commentInput button:active{
+  scale: 0.95;
+}
+.comment{
+  width: 100%;
+  font-size: 0.55rem;
+  opacity: 0.86;
+  color: #acacac;
+  font-weight: 550;
+  margin-bottom: 0.85rem;
+  
+}
+.commentUser{
+  display: flex;
+  
+}
+.commentUser img{
+  height: 0.85rem;
+  width: 0.85rem;
+  border-radius: 50%;
+  margin-right: 0.45rem;
+}
+.commentUser p{
+  padding: 0;
+  margin: 0;
+  font-size: 0.65rem;
+  color: #006aff;
+  margin-right: 0.25rem;
+  margin-bottom: 0.35rem;
+  font-weight: 550;
+}
+
