@@ -1063,6 +1063,7 @@ p[contenteditable="true"] {
   cursor: pointer;
   z-index: 9999999;
 }
+
 .cancelIcon{
   opacity: 0.85;
   transition: all ease 0.1s;
@@ -1144,7 +1145,15 @@ p.commentCount {
   justify-content: center;
   align-items: center;
 }
-
+.editCancel{
+  position: absolute;
+  font-size: 1.5rem;
+  color: #000;
+  right: .75rem;
+  top: 0.5rem;
+  cursor: pointer;
+  z-index: 9999999;
+}
 .editBoxContainer {
   background: rgb(11, 11, 18);
   height: 26rem;

@@ -10,7 +10,7 @@ const EditPost = ({ setRender }) => {
     <>
       <div className="editPost">
         <div className="editBoxContainer">
-          <div className="cancel">
+          <div className="editCancel">
             <i
               onClick={() => {
                 setRender(false);
