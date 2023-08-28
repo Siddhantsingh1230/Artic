@@ -1368,7 +1368,7 @@ p.commentCount {
   background-repeat:no-repeat;
   background-size:cover;
   background-position: center center ;   
-   padding: 2rem;
+   /* padding: 2rem; */
   background-color: var(--newbg);
 }
 
@@ -1652,10 +1652,7 @@ p.commentCount {
 /* for mobile */
 
 @media(max-width:480px) {
-  .signIncontent{
-    width: 100%;
-    height: 100%;
-  }
+  
   .signInnav a {
     display: none;
   }
