@@ -1,10 +1,16 @@
-import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { serverURI } from "../App";
+import { toast } from "react-hot-toast";
+import Spinner from "./Spinner";
 
 const Login = () => {
   const [eyeClass, setEyeClass] = useState("fa-solid fa-eye-slash fa-xs");
   const [passType, setPassType] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
       setEyeClass("fa-solid fa-eye-slash fa-xs");
@@ -17,8 +23,26 @@ const Login = () => {
     }
   };
 
-  const loginHandler = (e) => {
+  const loginHandler = async (e) => {
     e.preventDefault();
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${serverURI}/users/login`,
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setLoading(false);
+    } catch (e) {
+      toast.error("Signup failed");
+      setLoading(false);
+    }
   };
   return (
     <>
@@ -54,6 +78,8 @@ const Login = () => {
                   placeholder="Email"
                   name="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 ></input>
                 <i
                   className="fa-solid fa-envelope fa-xs"
@@ -67,6 +93,8 @@ const Login = () => {
                   placeholder="Password"
                   name="password"
                   required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 ></input>
                 <i
                   className={eyeClass}
@@ -93,6 +121,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      {loading ? <Spinner /> : null}
     </>
   );
 };

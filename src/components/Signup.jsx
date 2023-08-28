@@ -1,10 +1,19 @@
-import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { serverURI } from "../App";
+import { toast } from "react-hot-toast";
+import Spinner from "./Spinner";
 
 const Signup = () => {
   const [eyeClass, setEyeClass] = useState("fa-solid fa-eye-slash fa-xs");
   const [passType, setPassType] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
       setEyeClass("fa-solid fa-eye-slash fa-xs");
@@ -16,8 +25,27 @@ const Signup = () => {
       setPassType("text");
     }
   };
-  const signupHandler = (e) => {
+
+  const signupHandler = async (e) => {
     e.preventDefault();
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${serverURI}/users/signup`,
+        { firstname, lastname, email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setLoading(false);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      setLoading(false);
+    }
   };
   return (
     <>
@@ -62,6 +90,8 @@ const Signup = () => {
                     type="text"
                     placeholder="First name"
                     required
+                    value={firstname}
+                    onChange={(e) => setFirstname(e.target.value)}
                   ></input>
                   <i
                     className="fa-solid fa-address-card fa-xs"
@@ -74,6 +104,8 @@ const Signup = () => {
                     type="text"
                     placeholder="Last name"
                     required
+                    value={lastname}
+                    onChange={(e) => setLastname(e.target.value)}
                   ></input>
                   <i
                     className="fa-solid fa-address-card fa-xs"
@@ -87,6 +119,8 @@ const Signup = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 ></input>
                 <i
                   className="fa-solid fa-envelope fa-xs"
@@ -99,6 +133,8 @@ const Signup = () => {
                   required
                   name="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 ></input>
                 <i
                   className={eyeClass}
@@ -109,12 +145,13 @@ const Signup = () => {
                 ></i>
               </div>
             </div>
-            <button type="submit" className="createbtn">
+            <button  type="submit" className="createbtn">
               Create account
             </button>
           </form>
         </div>
       </div>
+      {loading ? <Spinner /> : null}
     </>
   );
 };

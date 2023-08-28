@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Loader from "./components/Loader";
+import { Toaster } from "react-hot-toast";
 
+export const serverURI = "https://articverseapi.onrender.com";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -13,7 +15,7 @@ const App = () => {
       });
     }
   }, []);
-  return <>{isLoading ? <Loader /> :<Home />}</>;
+  return <>{isLoading ? <Loader /> :<Home />}<Toaster /></>;
 };
 
 export default App;
