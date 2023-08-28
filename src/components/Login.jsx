@@ -16,6 +16,10 @@ const Login = () => {
       setPassType("text");
     }
   };
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       <div className="wrapper">
@@ -30,10 +34,10 @@ const Login = () => {
               <p className="signInpara"> Artic</p>
             </span>
           </div>
-          <form className="LoginMain">
+          <form className="LoginMain" onSubmit={loginHandler}>
             <h1 className="h1tag">Login to Your Account</h1>
             <h6 className="h6tag">Your own world of imagination</h6>
-            <Link  className="atag" id="googleLoginBtn" to="/signup">
+            <Link className="atag" id="googleLoginBtn" to="/signup">
               <i
                 style={{ color: "#009eff", marginRight: "0.5rem" }}
                 className="fa-solid fa-user-plus icon "
@@ -75,7 +79,7 @@ const Login = () => {
                 <input type="checkbox" id="remember" name="remember" />
                 <label htmlFor="remember">Remember me</label>
               </div>
-              <Link  to="no-referer" className="borderLessbtn atag">
+              <Link to="no-referer" className="borderLessbtn atag">
                 Forgot Password ?
               </Link>
             </div>

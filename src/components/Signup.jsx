@@ -8,19 +8,25 @@ const Signup = () => {
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
       setEyeClass("fa-solid fa-eye-slash fa-xs");
-    //   console.log(passType);
+      //   console.log(passType);
       setPassType("password");
-      
     } else {
       setEyeClass("fa-solid fa-eye fa-xs");
-    //   console.log(passType);
+      //   console.log(passType);
       setPassType("text");
     }
+  };
+  const signupHandler = (e) => {
+    e.preventDefault();
   };
   return (
     <>
       <div className="wrapper">
-        <img alt="bgImage" className="svgImage" src="/imageset/Dotted-Line-PNG-Picture.png" />
+        <img
+          alt="bgImage"
+          className="svgImage"
+          src="/imageset/Dotted-Line-PNG-Picture.png"
+        />
         <div className="signIncontent">
           <div className="signInnav">
             <span className="appname">
@@ -30,17 +36,23 @@ const Signup = () => {
               ></i>
               <p className="signInpara"> Artic</p>
             </span>
-            <Link  className="atag join" href="no-referer">
+            <Link className="atag join" href="no-referer">
               Join
-            </Link >
+            </Link>
           </div>
-          <form className="signInmain">
-            <p className="signInpara" >START FOR FREE</p>
+          <form className="signInmain" onSubmit={signupHandler}>
+            <p className="signInpara">START FOR FREE</p>
             <h1 className="h1tag">
-              Create new account<Link  className="atag" to="no-referer">.</Link >
+              Create new account
+              <Link className="atag" to="no-referer">
+                .
+              </Link>
             </h1>
             <p className="signInpara">
-              Already A Member? <Link  className="atag" to="/">Log In</Link >
+              Already A Member?{" "}
+              <Link className="atag" to="/">
+                Log In
+              </Link>
             </p>
             <div className="inputs">
               <div className="name">
