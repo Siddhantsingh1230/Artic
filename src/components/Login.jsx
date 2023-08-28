@@ -52,6 +52,8 @@ const Login = () => {
                   autoComplete="email"
                   type="email"
                   placeholder="Email"
+                  name="email"
+                  required
                 ></input>
                 <i
                   className="fa-solid fa-envelope fa-xs"
@@ -63,6 +65,8 @@ const Login = () => {
                   type={passType}
                   autoComplete="current-password"
                   placeholder="Password"
+                  name="password"
+                  required
                 ></input>
                 <i
                   className={eyeClass}

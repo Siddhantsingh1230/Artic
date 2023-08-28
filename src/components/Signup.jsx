@@ -80,14 +80,14 @@ const Signup = () => {
                 </div>
               </div>
               <div className="inputDiv email">
-                <input type="email" placeholder="Email"></input>
+                <input type="email" name="email" placeholder="Email"></input>
                 <i
                   className="fa-solid fa-envelope fa-xs"
                   style={{ color: "#f4f5f6" }}
                 ></i>
               </div>
               <div className="inputDiv password">
-                <input type={passType} placeholder="Password"></input>
+                <input type={passType} name="password" placeholder="Password"></input>
                 <i
                   className={eyeClass}
                   style={{ color: "#f4f5f6" }}
