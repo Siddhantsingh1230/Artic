@@ -87,6 +87,7 @@ const Signup = () => {
                 ></i>
               </div>
               <div className="inputDiv password">
+                
                 <input type={passType} name="password" placeholder="Password"></input>
                 <i
                   className={eyeClass}
