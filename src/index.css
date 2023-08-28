@@ -3,6 +3,7 @@ html {
   height: 100%;
   width: 100%;
   background: #000;
+  overflow: hidden;
 }
 
 * {
@@ -27,6 +28,15 @@ a {
       var(--shine-color),
       transparent);
   --shine-transition: all 0.65s ease-in-out;
+  /* Signup login color */
+  --newbg: rgb(11, 11, 11);
+  --bgcolor: rgb(14, 12, 18);
+  --innerbg: black;
+  --text: white;
+  --lighttext: rgb(152, 150, 150);
+  --blue: #009eff;
+  --darkBlue: #0782cf;
+  --inputColor: rgb(32, 31, 35);
 }
 
 #root {
@@ -698,7 +708,7 @@ circle {
   align-items: center;
 }
 
-.loader img{
+.loader img {
   height: 4.5rem;
   width: 4.5rem;
 }
@@ -1064,11 +1074,12 @@ p[contenteditable="true"] {
   z-index: 9999999;
 }
 
-.cancelIcon{
+.cancelIcon {
   opacity: 0.85;
   transition: all ease 0.1s;
 }
-.cancelIcon:hover{
+
+.cancelIcon:hover {
   opacity: 1;
 }
 
@@ -1145,7 +1156,8 @@ p.commentCount {
   justify-content: center;
   align-items: center;
 }
-.editCancel{
+
+.editCancel {
   position: absolute;
   font-size: 1.5rem;
   color: #000;
@@ -1154,6 +1166,7 @@ p.commentCount {
   cursor: pointer;
   z-index: 9999999;
 }
+
 .editBoxContainer {
   background: rgb(11, 11, 18);
   height: 26rem;
@@ -1210,11 +1223,12 @@ p.commentCount {
 .editBoxContainer button:active {
   scale: 0.96;
 }
+
 /* Comment section */
-.commentSection{
+.commentSection {
   display: flex;
   flex-direction: column;
-  height:80%;
+  height: 80%;
   width: 20%;
   background: #111111;
   border-radius: 0 1rem 1rem 0;
@@ -1222,18 +1236,21 @@ p.commentCount {
   position: relative;
   animation: expand 0.3s ease-in-out;
 }
+
 @keyframes expand {
-  0%{
+  0% {
     width: 0;
     opacity: 0;
   }
-  100%{
+
+  100% {
     width: 20%;
     opacity: 1;
   }
-  
+
 }
-.cancelComment{
+
+.cancelComment {
   right: .75rem;
   top: 0.75rem;
   cursor: pointer;
@@ -1244,29 +1261,32 @@ p.commentCount {
   transition: all ease 0.2s;
 }
 
-.cancelComment:hover{
+.cancelComment:hover {
   opacity: 1;
 }
 
-.commentSection p{
+.commentSection p {
   font-size: 1rem;
   color: #fff;
   font-weight: 500;
   margin: 0.5rem;
   font-family: Arial, Helvetica, sans-serif;
 }
-.commentSection hr{
+
+.commentSection hr {
   width: 100%;
   border: 1px solid #252525;
 }
-.commentBox{
+
+.commentBox {
   height: 80%;
   width: 100%;
   padding: 0.5rem;
   overflow: hidden;
   overflow-y: auto;
 }
-.commentInput{
+
+.commentInput {
   width: 100%;
   height: 10%;
   display: flex;
@@ -1274,16 +1294,18 @@ p.commentCount {
   justify-content: space-between;
   padding-left: 0.65rem;
   padding-right: 0.45rem;
-  
+
 }
-.commentInput input{
-  outline:none;
+
+.commentInput input {
+  outline: none;
   border: none;
   background: transparent;
   font-size: 0.75rem;
 }
-.commentInput button{
-  outline:none;
+
+.commentInput button {
+  outline: none;
   border: none;
   background: #006aff;
   color: black;
@@ -1293,32 +1315,38 @@ p.commentCount {
   border-radius: 0.275rem;
   transition: all ease 0.3s;
 }
-.commentInput button:hover{
+
+.commentInput button:hover {
   opacity: 0.85;
 }
-.commentInput button:active{
+
+.commentInput button:active {
   scale: 0.95;
 }
-.comment{
+
+.comment {
   width: 100%;
   font-size: 0.55rem;
   opacity: 0.86;
   color: #acacac;
   font-weight: 550;
   margin-bottom: 0.85rem;
-  
+
 }
-.commentUser{
+
+.commentUser {
   display: flex;
-  
+
 }
-.commentUser img{
+
+.commentUser img {
   height: 0.85rem;
   width: 0.85rem;
   border-radius: 50%;
   margin-right: 0.45rem;
 }
-.commentUser p{
+
+.commentUser p {
   padding: 0;
   margin: 0;
   font-size: 0.65rem;
@@ -1328,3 +1356,435 @@ p.commentCount {
   font-weight: 550;
 }
 
+/* Login and Signup styling */
+
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  background-image: url("images/bg.png");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position: center center ;   
+   padding: 2rem;
+  background-color: var(--newbg);
+}
+
+.svgImage {
+  position: absolute;
+  right: -5rem;
+  bottom: 2rem;
+  /* border:1px solid red; */
+  height: 12rem;
+  opacity: 0.5;
+  margin: 0%;
+  filter: invert(1);
+  transform: rotate(330deg) scale(0.75);
+}
+
+.signIncontent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 0 0 2rem;
+  align-items: center;
+  position: relative;
+}
+
+.signInnav {
+  display: flex;
+  gap: 5rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.signInnav .signInpara {
+  color: var(--text);
+}
+
+.appname {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.appname .signInpara {
+  font-weight: 900;
+}
+
+.signInmain {
+  padding: 0rem 4rem;
+  margin: 4rem 0;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.LoginMain {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0rem 4rem;
+  margin: 3rem 0;
+}
+
+.LoginMain #googleLoginBtn {
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  width: 100%;
+  outline: 2px solid var(--blue);
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.h5tag {
+  width: 100%;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+  flex-direction: row;
+  margin: 1rem 0 0 0;
+  gap: 0.5rem;
+}
+
+.h5tag:before,
+.h5tag:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 0.8px solid white;
+  margin: auto;
+}
+
+.signInpara {
+  color: var(--lighttext);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.join {
+  display: none;
+  color: var(--lighttext);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all ease 0.3s;
+}
+
+.join:hover {
+  color: white;
+}
+
+.h1tag {
+  color: var(--text);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.h6tag {
+  font-size: 0.75rem;
+  color: var(--text);
+  margin: 0.25rem 0 2rem 0;
+  font-weight: 300;
+}
+
+.LoginMain .h1tag {
+  font-size: 1.5rem;
+  margin: 1.25rem 0 0 0;
+  padding: 0;
+}
+
+.atag {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.LoginMain .inputs {
+  margin: 1rem 0 0 0;
+  width: 100%;
+}
+
+.signInmain .inputs {
+  margin: 1rem 0 0 0;
+
+}
+
+.inputs {
+  width: fit-content;
+  display: flex;
+  margin: 1rem 0 1rem 0;
+  flex-direction: column;
+  justify-self: center;
+  gap: 0.5rem;
+
+}
+
+.name {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.inputDiv input {
+  background: none;
+  color: var(--text);
+  border: none;
+  width: 6.5rem;
+  outline: none;
+  font-weight: 700;
+}
+
+.email input {
+  width: 100%;
+}
+
+.password input {
+  width: 100%;
+}
+
+.inputDiv {
+  height: 2.25rem;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  background:var(--inputColor);
+  border-radius: 0.5rem;
+}
+
+.signInmain .inputs {
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.signInmain .inputDiv {
+  height: 2.5rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.createbtn,
+.loginBtn {
+  height: 2.25rem;
+  width: fit-content;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  background-color: var(--blue);
+  border: none;
+  outline: none;
+  color: var(--text);
+  transition: all ease 0.3s;
+}
+
+.loginBtn {
+  width: 100%;
+  height: 2.5rem;
+  justify-content: center;
+  border-radius: 0.5rem;
+  margin: 1rem 0 0 0;
+  font-size: 0.9rem;
+  transition: all ease 0.2s;
+  cursor: pointer;
+
+}
+
+.loginBtn:hover {
+  opacity: 0.86;
+}
+
+.createbtn:hover {
+  opacity: 0.92;
+  scale: 0.98;
+}
+
+.inputDiv:focus-within {
+  outline: 2px solid var(--blue);
+}
+
+#pwdcase {
+  font-size: 0.75rem;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  margin: 0.5rem 0 1rem 0;
+}
+
+#pwdcase span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+#rememberbtn {
+  background-color: black;
+  color: #009eff;
+  border: none;
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-group label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+}
+
+
+/* for mobile */
+
+@media(max-width:480px) {
+  .signInnav a {
+    display: none;
+  }
+
+  .appname .signInpara {
+    font-size: 1.5rem;
+  }
+
+  .LoginMain {
+    width: 95%;
+    padding: 0%;
+    height: 90%;
+    margin: 4rem 0 0 0;
+    justify-content: space-between;
+  }
+
+  .signInmain {
+    width: 95%;
+    padding: 0%;
+    height: 90%;
+    margin: 6rem 0 0 0;
+  }
+
+  .LoginMain #googleLoginBtn {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .createbtn {
+    width: 100%;
+    border-radius: 0.75rem;
+    height: 3rem;
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  .signInmain .inputs {
+    width: 100%;
+  }
+
+  .signInmain .inputDiv {
+    height: 3rem;
+    padding: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+    background:var(--inputColor);
+    border-radius: 0.75rem;
+  }
+
+  .signInmain .inputDiv input {
+    font-size: 1rem;
+  }
+
+  .inputDiv i {
+    font-size: large;
+  }
+
+  .h1tag .atag {
+    font-size: 2.5rem;
+  }
+
+  .h1tag {
+    font-size: 2rem;
+  }
+
+  .name {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .name .inputDiv input {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .signInnav {
+    display: flex;
+    gap: 5rem;
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+  }
+
+  .signIncontent {
+    height: 100%;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .loginBtn {
+    height: 3rem;
+    font-size: 1rem;
+  }
+
+  .inputDiv {
+    height: 3rem;
+    padding: 0.75rem;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+
+  .h6tag {
+    font-size: 1rem;
+  }
+
+  .inputs {
+    gap: 1rem;
+  }
+
+  .h5tag {
+    font-size: 1rem;
+  }
+
+  .form-group label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+  }
+
+  .atag {
+    font-size: 1rem;
+  }
+
+  #pwdcase {
+    margin: 0.2rem 0 1rem 0;
+  }
+
+  .svgImage {
+    display: none;
+  }
+  .wrapper {
+    background: none;
+  }
+
+}
