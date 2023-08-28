@@ -61,6 +61,7 @@ const Signup = () => {
                     name="firstname"
                     type="text"
                     placeholder="First name"
+                    required
                   ></input>
                   <i
                     className="fa-solid fa-address-card fa-xs"
@@ -72,6 +73,7 @@ const Signup = () => {
                     name="lastname"
                     type="text"
                     placeholder="Last name"
+                    required
                   ></input>
                   <i
                     className="fa-solid fa-address-card fa-xs"
@@ -80,15 +82,24 @@ const Signup = () => {
                 </div>
               </div>
               <div className="inputDiv email">
-                <input type="email" name="email" placeholder="Email"></input>
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                ></input>
                 <i
                   className="fa-solid fa-envelope fa-xs"
                   style={{ color: "#f4f5f6" }}
                 ></i>
               </div>
               <div className="inputDiv password">
-                
-                <input type={passType} name="password" placeholder="Password"></input>
+                <input
+                  type={passType}
+                  required
+                  name="password"
+                  placeholder="Password"
+                ></input>
                 <i
                   className={eyeClass}
                   style={{ color: "#f4f5f6" }}
