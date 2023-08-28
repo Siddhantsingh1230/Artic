@@ -39,8 +39,8 @@ const Login = () => {
       );
       toast.success(data.message);
       setLoading(false);
-    } catch (e) {
-      toast.error("Signup failed");
+    } catch (error) {
+      toast.error(error.response.data.message);
       setLoading(false);
     }
   };

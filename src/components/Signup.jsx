@@ -129,7 +129,7 @@ const Signup = () => {
               </div>
               <div className="inputDiv password">
                 <input
-                  type={passType}
+                  type={passType}fttrtrrtrtrttrtrtuiioji
                   required
                   name="password"
                   placeholder="Password"
