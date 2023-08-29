@@ -1,8 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState,useContext } from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
+import axios from "axios";
+import { serverURI } from "../App";
+import { toast } from "react-hot-toast";
+import Spinner from "./Spinner";
+import { Context } from "../index.js";
+
 const Sidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { setIsAuthenticated,setUser } = useContext(Context);
+  const [loading, setLoading] = useState(false);
+  const logout = async ()=>{
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        `${serverURI}/users/logout`,
+        {
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setLoading(false);
+      setIsAuthenticated(false);
+      setUser({});
+      navigate("/");
+
+    } catch (error) {
+      if (error) toast.error(error.response.data.message);
+      setLoading(false);
+    }
+
+  }
+
   useEffect(() => {
     let children = document.querySelector(".sidebar").children;
     if (location.pathname === "/") {
@@ -62,10 +93,11 @@ const Sidebar = () => {
             <i data-title="Settings" className="ri-settings-4-line"></i>
           </Link>
         </div>
-        <div data-active="0" className="item">
+        <div onClick={logout} data-active="0" className="item">
           <i data-title="Logout" className="warning ri-logout-circle-line"></i>
         </div>
       </div>
+      {loading ? <Spinner /> : null}
     </>
   );
 };

@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState , useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverURI } from "../App";
 import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
+import { Context } from "../index.js";
 
 const Signup = () => {
+  const { setIsAuthenticated } = useContext(Context);
   const [eyeClass, setEyeClass] = useState("fa-solid fa-eye-slash fa-xs");
   const [passType, setPassType] = useState("password");
   const [email, setEmail] = useState("");
@@ -13,6 +15,7 @@ const Signup = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
@@ -41,10 +44,14 @@ const Signup = () => {
         }
       );
       toast.success(data.message);
+      setIsAuthenticated(true);
       setLoading(false);
+      navigate("/");
     } catch (error) {
-      toast.error(error.response.data.message);
+      if (error) toast.error(error.response.data.message);
+      // console.log(error);
       setLoading(false);
+      setIsAuthenticated(false);
     }
   };
   return (
@@ -129,7 +136,7 @@ const Signup = () => {
               </div>
               <div className="inputDiv password">
                 <input
-                  type={passType}fttrtrrtrtrttrtrtuiioji
+                  type={passType}
                   required
                   name="password"
                   placeholder="Password"

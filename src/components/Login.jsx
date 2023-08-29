@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverURI } from "../App";
 import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
+import { Context } from "../index.js";
 
 const Login = () => {
   const [eyeClass, setEyeClass] = useState("fa-solid fa-eye-slash fa-xs");
@@ -11,6 +12,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { setIsAuthenticated } = useContext(Context);
+  const navigate = useNavigate();
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
       setEyeClass("fa-solid fa-eye-slash fa-xs");
@@ -39,9 +42,13 @@ const Login = () => {
       );
       toast.success(data.message);
       setLoading(false);
+      setIsAuthenticated(true);
+      navigate("/");
+
     } catch (error) {
-      toast.error(error.response.data.message);
+      if (error) toast.error(error.response.data.message);
       setLoading(false);
+      setIsAuthenticated(false);
     }
   };
   return (
@@ -61,7 +68,11 @@ const Login = () => {
           <form className="LoginMain" onSubmit={loginHandler}>
             <h1 className="h1tag">Login to Your Account</h1>
             <h6 className="h6tag">Your own world of imagination</h6>
-            <Link className="atag" id="googleLoginBtn" to="/signup">
+            <Link
+              className="atag googleLoginBtn"
+              id="googleLoginBtn"
+              to="/signup"
+            >
               <i
                 style={{ color: "#009eff", marginRight: "0.5rem" }}
                 className="fa-solid fa-user-plus icon "

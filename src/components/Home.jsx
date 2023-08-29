@@ -7,18 +7,24 @@ import Setting from "./Setting";
 import Upload from "./Upload";
 import Login from "./Login";
 import Signup from "./Signup";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Context } from "../index.js";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { Context } from "../index";
 
 const Home = () => {
-  const { isAutheticated } = useContext(Context);
+  const { isAuthenticated } = useContext(Context);
   return (
     <>
       <Router>
-        {!isAutheticated ? (
+        {!isAuthenticated ? (
           <Routes>
             <Route exact path="/" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
           <div className="homeWrapper">
@@ -30,6 +36,7 @@ const Home = () => {
                 <Route exact path="/posts" element={<Posts />} />
                 <Route exact path="/setting" element={<Setting />} />
                 <Route exact path="/upload" element={<Upload />} />
+                <Route exact path="*" element={<Navigate to="/" />} />
               </Routes>
             </div>
           </div>
