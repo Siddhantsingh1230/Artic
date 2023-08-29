@@ -1365,10 +1365,10 @@ p.commentCount {
   margin: 0;
   position: relative;
   background-image: url("images/bg.png");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position: center center ;   
-   /* padding: 2rem; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  /* padding: 2rem; */
   background-color: var(--newbg);
 }
 
@@ -1502,7 +1502,7 @@ p.commentCount {
 .atag {
   color: var(--blue);
   text-decoration: none;
-  
+
 }
 
 .LoginMain .inputs {
@@ -1556,7 +1556,7 @@ p.commentCount {
   gap: 0.5rem;
   justify-content: space-between;
   align-items: center;
-  background:var(--inputColor);
+  background: var(--inputColor);
   border-radius: 0.5rem;
 }
 
@@ -1603,9 +1603,11 @@ p.commentCount {
 .inputDiv:focus-within {
   outline: 2px solid var(--blue);
 }
+
 .inputDiv i {
   font-size: large;
 }
+
 #pwdcase {
   font-size: 1rem;
   display: flex;
@@ -1644,7 +1646,7 @@ p.commentCount {
 /* for mobile */
 
 @media(max-width:480px) {
-  
+
   .signInnav a {
     display: none;
   }
@@ -1668,7 +1670,7 @@ p.commentCount {
     margin: 6rem 0 0 0;
   }
 
-  
+
 
   .createbtn {
     width: 100%;
@@ -1689,7 +1691,7 @@ p.commentCount {
     gap: 0.75rem;
     justify-content: space-between;
     align-items: center;
-    background:var(--inputColor);
+    background: var(--inputColor);
     border-radius: 0.75rem;
   }
 
@@ -1705,8 +1707,10 @@ p.commentCount {
     font-size: 2.5rem;
   }
 
-  .h1tag {
-    font-size: 1.5rem;
+  .LoginMain .h1tag {
+    font-size: 1.8rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
   }
 
   .name {
@@ -1773,6 +1777,7 @@ p.commentCount {
   .svgImage {
     display: none;
   }
+
   .wrapper {
     background: none;
   }
@@ -1785,7 +1790,7 @@ p.commentCount {
   width: 100% !important;
   outline: 2px solid var(--blue) !important;
   text-align: center !important;
-  border-radius: 0.5rem ;  
+  border-radius: 0.5rem;
   color: white;
 }
 
@@ -1793,7 +1798,7 @@ p.commentCount {
 /* For Styling Auto Completion */
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
