@@ -1707,11 +1707,6 @@ p.commentCount {
     font-size: 2.5rem;
   }
 
-  .LoginMain .h1tag {
-    font-size: 1.8rem;
-    margin: 1.25rem 0 0;
-    padding: 0;
-  }
 
   .name {
     flex-direction: column;
@@ -1781,6 +1776,13 @@ p.commentCount {
   .wrapper {
     background: none;
   }
+
+  .LoginMain .h1tag {
+    font-size: 1.8rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+  }
+
 
 }
 
