@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Setting = () => {
-  const { setUser ,user } = useContext(Context);
+  const { setUser ,user ,setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
   const [name, setName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
@@ -58,7 +58,9 @@ const Setting = () => {
       toast.success(data.message);
       setLoading(false);
       setUser({});
+      setIsAuthenticated(false);
       navigate("/");
+      
     } catch (error) {
       if (error) toast.error(error.response.data.message);
       setLoading(false);
