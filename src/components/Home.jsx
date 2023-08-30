@@ -7,6 +7,7 @@ import Setting from "./Setting";
 import Upload from "./Upload";
 import Login from "./Login";
 import Signup from "./Signup";
+import ProfilePhoto from "./ProfilePhoto";
 import {
   BrowserRouter as Router,
   Routes,
@@ -36,6 +37,7 @@ const Home = () => {
                 <Route exact path="/posts" element={<Posts />} />
                 <Route exact path="/setting" element={<Setting />} />
                 <Route exact path="/upload" element={<Upload />} />
+                <Route exact path="/profilephoto" element={<ProfilePhoto />} />
                 <Route exact path="*" element={<Navigate to="/" />} />
               </Routes>
             </div>

@@ -66,6 +66,9 @@ const Setting = () => {
       setLoading(false);
     }
   }
+  const changeImage = () =>{
+    navigate("/profilephoto");
+  }
 
   return (
     <>
@@ -110,6 +113,7 @@ const Setting = () => {
         </div>
         <button onClick={updateProfile} className="save">Update</button>
         <button onClick={deleteProfile} className="delete">Delete</button>
+        <button onClick={changeImage} className="imageBtn">Change image</button>
       </div>
       {loading ? <Spinner /> : null}
     </>
