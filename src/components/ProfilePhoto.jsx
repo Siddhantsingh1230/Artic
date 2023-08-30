@@ -1,16 +1,14 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { serverURI } from "../App";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../index";
 
-
-
 const ProfilePhoto = () => {
-    const navigate =  useNavigate();
-    const { setUser  } = useContext(Context);
-    const [selectedFile, setSelectedFile] = useState(null);
+  const navigate = useNavigate();
+  const { setUser } = useContext(Context);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [labelStyle, setLabelStyle] = useState({
     outline: "1px solid #006aff",
     borderRadius: "50%",
@@ -41,22 +39,24 @@ const ProfilePhoto = () => {
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        color:"transparent"
+        color: "transparent",
       });
     }
   };
-  const submitHandler = (event) =>{
+  const submitHandler = (event) => {
     event.preventDefault();
     if (!selectedFile) {
-        toast.error('No image selected');
-        return;
-      }
+      toast.error("No image selected");
+      return;
+    }
     const formData = new FormData();
-      formData.append('image', selectedFile);
-      axios.post(`${serverURI}/setting/userphoto`, formData, {
+    formData.append("image", selectedFile);
+    axios
+      .post(`${serverURI}/setting/userphoto`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
+        withCredentials: true,
       })
       .then((response) => {
         toast.success(response.data.message);
@@ -66,17 +66,12 @@ const ProfilePhoto = () => {
       .catch((error) => {
         toast.error(error.response.data.message);
       });
-      
-  }
- 
-   
+  };
+
   return (
     <>
       <div className="profilePhoto">
-        <form
-          
-          onSubmit={submitHandler}
-        >
+        <form onSubmit={submitHandler}>
           <label style={labelStyle} className="custom-file-upload">
             <input
               onChange={setBg}
