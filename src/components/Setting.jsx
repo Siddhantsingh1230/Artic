@@ -1,12 +1,18 @@
 import React, { useState,useContext } from "react";
 import { Context } from "../index.js";
 import { serverURI } from "../App.jsx";
+import { toast } from "react-hot-toast";
+import Spinner from "./Spinner";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Setting = () => {
-  const { user } = useContext(Context);
+  const { setUser ,user } = useContext(Context);
+  const navigate = useNavigate();
   const [name, setName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
   const [email, setEmail] = useState(user.email);
+  const [loading ,setLoading] =useState(false);
   const handleNameChange=(e)=>{
     setName(e.target.value);
   }
@@ -16,6 +22,54 @@ const Setting = () => {
   const handleEmailChange=(e)=>{
     setEmail(e.target.value);
   }
+
+  const  updateProfile = async ()=>{
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${serverURI}/setting/update`,
+        { firstname:name,lastname:lastName,email:user.email,changeEmailTo:email},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setLoading(false);
+      setUser(data.user);
+      navigate("/");
+    } catch (error) {
+      if (error) toast.error(error.response.data.message);
+      setLoading(false);
+      setUser({});
+    }
+  }
+  const deleteProfile = async ()=>{
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${serverURI}/setting/delete`,
+        { id:user._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setLoading(false);
+      setUser(data.user);
+      navigate("/");
+    } catch (error) {
+      if (error) toast.error(error.response.data.message);
+      setLoading(false);
+      setUser({});
+    }
+  }
+
   return (
     <>
       <div className="setting">
@@ -57,9 +111,10 @@ const Setting = () => {
           <div className="tooltip2">{name +" "+ lastName}</div>
           </div>
         </div>
-        <button className="save">Update</button>
-        <button className="delete">Delete</button>
+        <button onClick={updateProfile} className="save">Update</button>
+        <button onClick={deleteProfile} className="delete">Delete</button>
       </div>
+      {loading ? <Spinner /> : null}
     </>
   );
 };
