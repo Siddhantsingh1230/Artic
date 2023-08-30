@@ -49,13 +49,9 @@ const Setting = () => {
   const deleteProfile = async ()=>{
     try {
       setLoading(true);
-      const { data } = await axios.post(
-        `${serverURI}/setting/delete`,
-        { id:user._id },
+      const { data } = await axios.get(
+        `${serverURI}/setting/deleteprofile`,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
           withCredentials: true,
         }
       );
