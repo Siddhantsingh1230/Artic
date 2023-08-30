@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../index";
+import Spinner from "./Spinner";
 
 const ProfilePhoto = () => {
   const navigate = useNavigate();
