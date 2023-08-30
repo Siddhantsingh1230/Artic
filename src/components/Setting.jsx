@@ -107,7 +107,7 @@ const Setting = () => {
             </div>
             <small>Your verified email.</small>
           </div>
-          <div className="userImage" ><img src={`${serverURI}/profile_images/${user.profileImageURL}`} alt="" />
+          <div onClick={()=>navigate("/profilephoto")} className="userImage" ><img src={`${serverURI}/profile_images/${user.profileImageURL}`} alt="" />
           <div className="tooltip2">{name +" "+ lastName}</div>
           </div>
         </div>
