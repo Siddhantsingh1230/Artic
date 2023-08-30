@@ -271,6 +271,7 @@ a {
   width: 1.65rem;
   outline: 1.65px solid #3869ac;
   border-radius: 0.3rem;
+  object-fit: cover;
 }
 
 /* Sidebar */
@@ -533,7 +534,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 99999;
+  z-index: 99999999;
   position: absolute;
   top: 0;
   left: 0;

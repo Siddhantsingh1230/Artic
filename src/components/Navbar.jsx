@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../index.js";
+import { serverURI } from "../App.jsx";
 
 const Navbar = () => {
   const { user } = useContext(Context);
@@ -30,7 +31,7 @@ const Navbar = () => {
               <div className="tooltip">User</div>
             </div>
             <img
-              src="icon/userSprite.jpg"
+              src={`${serverURI}/profile_images/${user.profileImageURL}`}
               alt="userSprite"
               className="userSprite"
             />

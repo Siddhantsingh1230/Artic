@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
+import { Context } from "../index.js";
+import { serverURI } from "../App.jsx";
 
 const Setting = () => {
-  const [name, setName] = useState("Dimitri");
-  const [lastName, setLastName] = useState("Machovich");
-  const [email, setEmail] = useState("Dimitri1230@gmail.com");
+  const { user } = useContext(Context);
+  const [name, setName] = useState(user.firstname);
+  const [lastName, setLastName] = useState(user.lastname);
+  const [email, setEmail] = useState(user.email);
   const handleNameChange=(e)=>{
     setName(e.target.value);
   }
@@ -50,7 +53,7 @@ const Setting = () => {
             </div>
             <small>Your verified email.</small>
           </div>
-          <div className="userImage" ><img src="icon/userSprite.jpg" alt="" />
+          <div className="userImage" ><img src={`${serverURI}/profile_images/${user.profileImageURL}`} alt="" />
           <div className="tooltip2">{name +" "+ lastName}</div>
           </div>
         </div>
