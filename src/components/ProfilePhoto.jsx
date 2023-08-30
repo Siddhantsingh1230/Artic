@@ -7,6 +7,7 @@ import { Context } from "../index";
 
 const ProfilePhoto = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const { setUser } = useContext(Context);
   const [selectedFile, setSelectedFile] = useState(null);
   const [labelStyle, setLabelStyle] = useState({
@@ -44,6 +45,7 @@ const ProfilePhoto = () => {
     }
   };
   const submitHandler = (event) => {
+    setLoading(true);
     event.preventDefault();
     if (!selectedFile) {
       toast.error("No image selected");
@@ -61,9 +63,11 @@ const ProfilePhoto = () => {
       .then((response) => {
         toast.success(response.data.message);
         setUser(response.data.user);
+        setLoading(false);
         navigate("/");
       })
       .catch((error) => {
+        setLoading(false);
         toast.error(error.response.data.message);
       });
   };
@@ -86,6 +90,7 @@ const ProfilePhoto = () => {
           <button type="submit">Change</button>
         </form>
       </div>
+      {loading ? <Spinner /> : null}
     </>
   );
 };
