@@ -57,12 +57,11 @@ const Setting = () => {
       );
       toast.success(data.message);
       setLoading(false);
-      setUser(data.user);
+      setUser({});
       navigate("/");
     } catch (error) {
       if (error) toast.error(error.response.data.message);
       setLoading(false);
-      setUser({});
     }
   }
 
