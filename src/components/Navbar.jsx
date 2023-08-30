@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../index.js";
 
 const Navbar = () => {
+  const { user } = useContext(Context);
   return (
     <>
       <div className="navBar">
         <div className="logoContainer">
           <img src="/icon/Logo.png" alt="logo" className="logo" />
-          <div data-title="Artic" className="title">ARTIC</div>
+          <div data-title="Artic" className="title">
+            ARTIC
+          </div>
         </div>
         <div className="navUtils">
           <div className="search">
@@ -21,10 +25,15 @@ const Navbar = () => {
             <i data-title="Notification" className="ri-notification-2-fill"></i>
           </div>
           <div className="user">
-            <div className="userName">Dimitri
+            <div className="userName">
+              {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img src="icon/userSprite.jpg" alt="userSprite" className="userSprite" />
+            <img
+              src="icon/userSprite.jpg"
+              alt="userSprite"
+              className="userSprite"
+            />
           </div>
         </div>
       </div>

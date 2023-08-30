@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverURI } from "../App";
 import { toast } from "react-hot-toast";
@@ -12,7 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { setIsAuthenticated } = useContext(Context);
+  const { setIsAuthenticated, setUser } = useContext(Context);
   const navigate = useNavigate();
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
@@ -43,12 +43,13 @@ const Login = () => {
       toast.success(data.message);
       setLoading(false);
       setIsAuthenticated(true);
+      setUser(data.user);
       navigate("/");
-
     } catch (error) {
       if (error) toast.error(error.response.data.message);
       setLoading(false);
       setIsAuthenticated(false);
+      setUser({});
     }
   };
   return (

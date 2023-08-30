@@ -1,5 +1,5 @@
-import { useState , useContext } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverURI } from "../App";
 import { toast } from "react-hot-toast";
@@ -7,7 +7,7 @@ import Spinner from "./Spinner";
 import { Context } from "../index.js";
 
 const Signup = () => {
-  const { setIsAuthenticated } = useContext(Context);
+  const { setIsAuthenticated, setUser } = useContext(Context);
   const [eyeClass, setEyeClass] = useState("fa-solid fa-eye-slash fa-xs");
   const [passType, setPassType] = useState("password");
   const [email, setEmail] = useState("");
@@ -47,11 +47,13 @@ const Signup = () => {
       setIsAuthenticated(true);
       setLoading(false);
       navigate("/");
+      setUser(data.user);
     } catch (error) {
       if (error) toast.error(error.response.data.message);
       // console.log(error);
       setLoading(false);
       setIsAuthenticated(false);
+      setUser({});
     }
   };
   return (
@@ -152,7 +154,7 @@ const Signup = () => {
                 ></i>
               </div>
             </div>
-            <button  type="submit" className="createbtn">
+            <button type="submit" className="createbtn">
               Create account
             </button>
           </form>

@@ -1,24 +1,13 @@
-import React, { useState,useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Home from "./components/Home";
 import Loader from "./components/Loader";
 import { Toaster } from "react-hot-toast";
 import { Context } from "./index.js";
 import axios from "axios";
 
-
-
 export const serverURI = "https://articverseapi.onrender.com";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   if (document.readyState === "complete") {
-  //     setIsLoading(false);
-  //   } else {
-  //     window.addEventListener("load", () => {
-  //       setIsLoading(false);
-  //     });
-  //   }
-  // }, []);
   const { setIsAuthenticated, setUser } = useContext(Context);
   const userAuthentication = () => {
     setIsLoading(true);
@@ -45,10 +34,10 @@ const App = () => {
   useEffect(() => {
     userAuthentication();
   }, []);
-  
+
   return (
     <>
-      {isLoading ? <Loader /> : <Home/>}
+      {isLoading ? <Loader /> : <Home />}
       <Toaster />
     </>
   );
