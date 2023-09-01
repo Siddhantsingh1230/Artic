@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../index.js";
 import { serverURI } from "../App.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { user } = useContext(Context);
+  const navigate = useNavigate();
   const [profileURL, setProfileURL] = useState("");
   const getProfilePhoto = async () => {
     try {
@@ -22,7 +24,7 @@ const Navbar = () => {
 
   useEffect(() => {
     getProfilePhoto();
-  }, []);
+  }, [user]);
   return (
     <>
       <div className="navBar">
@@ -49,7 +51,7 @@ const Navbar = () => {
               {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img src={profileURL} alt="userSprite" className="userSprite" />
+            <img onClick={() => navigate("/profilephoto")} src={profileURL} alt="userSprite" className="userSprite" />
           </div>
         </div>
       </div>

@@ -272,6 +272,7 @@ a {
   outline: 1.65px solid #3869ac;
   border-radius: 0.3rem;
   object-fit: cover;
+  cursor: pointer;
 }
 
 /* Sidebar */
