@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../index.js";
 import { serverURI } from "../App.jsx";
+import axios from "axios";
 
 const Navbar = () => {
   const { user } = useContext(Context);
