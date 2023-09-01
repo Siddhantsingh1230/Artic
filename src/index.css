@@ -617,6 +617,15 @@ circle {
   color: #3869ac;
 }
 
+.uploadContainer form {
+  height: 100%;
+  width: 100%;
+}
+
+.uploadContainer .uploadBox input[type="file"] {
+  display: none;
+} 
+
 .uploadContainer .uploadBox {
   height: 50%;
   width: 60%;
@@ -735,7 +744,6 @@ circle {
   border-radius: 0.7rem;
   margin-bottom: 0.5rem;
   position: relative;
-  
 }
 
 .postMedia {
@@ -1005,7 +1013,7 @@ p[contenteditable="true"] {
   font-weight: 550;
   transition: all ease 0.3s;
 }
-.setting .imageBtn{
+.setting .imageBtn {
   background-color: #fff;
   font-weight: 550;
   transition: all ease 0.3s;
@@ -1013,7 +1021,8 @@ p[contenteditable="true"] {
 }
 
 .setting .save:hover,
-.setting .delete:hover ,.setting .imageBtn:hover{
+.setting .delete:hover,
+.setting .imageBtn:hover {
   opacity: 0.7;
   cursor: pointer;
   color: #111111;
@@ -1799,13 +1808,13 @@ select:-webkit-autofill:focus {
 }
 
 /* Profie Photo */
-.profilePhoto{
+.profilePhoto {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.profilePhoto form{
+.profilePhoto form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1821,17 +1830,18 @@ select:-webkit-autofill:focus {
   height: 17rem;
   width: 17rem;
   display: flex;
-  justify-content: center;align-items: center;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   opacity: 0.75;
   transition: all ease 0.2s;
 }
-.custom-file-upload i{
+.custom-file-upload i {
   color: #006aff;
   font-size: 2rem;
   opacity: 0.35;
 }
-.profilePhoto form button{
+.profilePhoto form button {
   outline: none;
   border: none;
   color: #000;
@@ -1843,7 +1853,7 @@ select:-webkit-autofill:focus {
   transition: all ease 0.2s;
   background: #fff;
 }
-.profilePhoto form button:hover{
+.profilePhoto form button:hover {
   opacity: 0.85;
   background: #006aff;
 }
