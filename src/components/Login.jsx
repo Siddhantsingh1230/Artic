@@ -11,6 +11,7 @@ const Login = () => {
   const [passType, setPassType] = useState("password");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const { setIsAuthenticated, setUser } = useContext(Context);
   const navigate = useNavigate();
@@ -25,14 +26,14 @@ const Login = () => {
       setPassType("text");
     }
   };
-
+  
   const loginHandler = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/users/login`,
-        { email, password },
+        { email, password, remember },
         {
           headers: {
             "Content-Type": "application/json",
@@ -120,7 +121,20 @@ const Login = () => {
 
             <div id="pwdcase">
               <div className="form-group">
-                <input type="checkbox" id="remember" name="remember" />
+                <input
+                  type="checkbox"
+                  id="remember"
+                  onChange={() => {
+                    if(remember){
+                      setRemember(false);
+                    }else{
+                      setRemember(true)
+                    }
+                    
+                  }}
+                  checked={remember}
+                  name="remember"
+                />
                 <label htmlFor="remember">Remember me</label>
               </div>
               <Link to="no-referer" className="borderLessbtn atag">
