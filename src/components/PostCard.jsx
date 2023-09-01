@@ -27,7 +27,9 @@ const PostCard = () => {
             />
           </div>
           {renderPopup ? <Popup setRender={setRenderPopup} /> : null}
-          <div className="postMedia">
+          <div onClick={() => {
+          setRenderPopup(true);
+        }} className="postMedia">
             <img src="icon/tale.jpg" alt="postMedia" />
           </div>
           <div className="postAction">

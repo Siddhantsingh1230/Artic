@@ -85,7 +85,7 @@ const Sidebar = () => {
         </div>
         <div data-active="0" className="item">
           <Link to="/setting">
-            <i data-title="profile" className="ri-settings-4-line"></i>
+            <i data-title="Profile" className="ri-settings-4-line"></i>
           </Link>
         </div>
         <div onClick={logout} data-active="0" className="item">

@@ -735,6 +735,7 @@ circle {
   border-radius: 0.7rem;
   margin-bottom: 0.5rem;
   position: relative;
+  
 }
 
 .postMedia {
@@ -744,6 +745,7 @@ circle {
   border-radius: 0.7rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .postMedia img {

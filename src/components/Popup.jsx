@@ -31,13 +31,15 @@ const Popup = ({ setRender }) => {
             liked ? setLiked(false) : setLiked(true);
           }}
         >
-          <div className="cancel">
+          <div
+            onClick={() => {
+              setRender(false);
+            }}
+            className="cancel"
+          >
             <i
-              onClick={() => {
-                setRender(false);
-              }}
               className="cancelIcon fa-solid fa-arrow-left"
-              style={{color: "#ffffff",fontSize:"1rem"}}
+              style={{ color: "#ffffff", fontSize: "1rem" }}
             ></i>
           </div>
           {loading ? <Spinner /> : null}
@@ -108,62 +110,84 @@ const Popup = ({ setRender }) => {
         </div>
         {renderComments ? (
           <div className="commentSection">
-            <i className="cancelComment fa-solid fa-xmark" style={{color: "#fff"}} onClick={()=>{
-              setRenderComments(false);
-              setFrameStyle({
-                height: "80%",
-                width: "50%",
-                borderRadius: "1rem",
-                background: "rgb(26, 30, 40)",
-                overflow: "hidden",
-                position: "relative",
-                boxShadow: "0 0 20px 10px rgba(0, 0, 0, 0.7)",
-              });
-            }}/>
+            <i
+              className="cancelComment fa-solid fa-xmark"
+              style={{ color: "#fff" }}
+              onClick={() => {
+                setRenderComments(false);
+                setFrameStyle({
+                  height: "80%",
+                  width: "50%",
+                  borderRadius: "1rem",
+                  background: "rgb(26, 30, 40)",
+                  overflow: "hidden",
+                  position: "relative",
+                  boxShadow: "0 0 20px 10px rgba(0, 0, 0, 0.7)",
+                });
+              }}
+            />
             <p>Comments</p>
             <hr />
             <div className="commentBox">
               <div className="comment">
                 <div className="commentUser">
                   <img src="icon/Logo.png" alt="" />
-                  <p>Dimitri</p><p>•</p>
+                  <p>Dimitri</p>
+                  <p>•</p>
                 </div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
+                odio eaque, iure reprehenderit aliquid!
               </div>
               <div className="comment">
                 <div className="commentUser">
                   <img src="icon/tale.jpg" alt="" />
-                  <p>Wisdom</p><p>•</p>
+                  <p>Wisdom</p>
+                  <p>•</p>
                 </div>
-                 Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
+                odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit.
               </div>
               <div className="comment">
                 <div className="commentUser">
                   <img src="icon/Logo.png" alt="" />
-                  <p>Dimitri</p><p>•</p>
+                  <p>Dimitri</p>
+                  <p>•</p>
                 </div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
+                odio eaque, iure reprehenderit aliquid!
               </div>
               <div className="comment">
                 <div className="commentUser">
                   <img src="icon/tale.jpg" alt="" />
-                  <p>Wisdom</p><p>•</p>
+                  <p>Wisdom</p>
+                  <p>•</p>
                 </div>
-                 Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
+                odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit.
               </div>
               <div className="comment">
                 <div className="commentUser">
                   <img src="icon/Logo.png" alt="" />
-                  <p>Dimitri</p><p>•</p>
+                  <p>Dimitri</p>
+                  <p>•</p>
                 </div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
+                odio eaque, iure reprehenderit aliquid!
               </div>
               <div className="comment">
                 <div className="commentUser">
                   <img src="icon/tale.jpg" alt="" />
-                  <p>Wisdom</p><p>•</p>
+                  <p>Wisdom</p>
+                  <p>•</p>
                 </div>
-                 Consectetur ex expedita cupiditate tempore. Consequatur deserunt odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
+                odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit
+                amet consectetur adipisicing elit.
               </div>
             </div>
             <hr />
