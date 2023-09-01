@@ -91,7 +91,7 @@ const ProfilePhoto = () => {
               accept="image/*"
               required
             />
-            Upload
+            <i className="ri-image-add-fill"></i>
           </label>
 
           <button type="submit">Change</button>
