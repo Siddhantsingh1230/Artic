@@ -30,7 +30,7 @@ const Setting = () => {
 
   useEffect(() => {
     getProfilePhoto();
-  }, []);
+  }, [user]);
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
