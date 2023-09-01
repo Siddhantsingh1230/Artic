@@ -51,7 +51,7 @@ const Navbar = () => {
               {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img onClick={() => navigate("/profilephoto")} src={profileURL} alt="userSprite" className="userSprite" />
+            <img onClick={() => navigate("/setting")} src={profileURL} alt="userSprite" className="userSprite" />
           </div>
         </div>
       </div>

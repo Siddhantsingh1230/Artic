@@ -498,8 +498,8 @@ a {
 /* For ToolTips */
 [data-title]:hover:after {
   opacity: 1;
-  transition: all 0.1s ease 0.5s;
-  visibility: visible;
+  transition: none;
+  display: block;
 }
 
 [data-title]:after {
@@ -516,7 +516,7 @@ a {
   background-color: #006aff;
   color: white;
   z-index: 99999;
-  visibility: hidden;
+  display: none;
 }
 
 [data-title] {
