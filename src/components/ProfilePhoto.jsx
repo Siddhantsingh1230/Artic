@@ -69,7 +69,11 @@ const ProfilePhoto = () => {
       })
       .catch((error) => {
         setLoading(false);
-        toast.error(error.response.data.message);
+        if (error.response) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error("Request failed");
+        }
       });
   };
 

@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { Context } from "./index.js";
 import axios from "axios";
 
-export const serverURI = "https://articverseapi.onrender.com";
+export const serverURI = "https://articverse.cyclic.app";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { setIsAuthenticated, setUser } = useContext(Context);

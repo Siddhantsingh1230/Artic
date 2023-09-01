@@ -1,9 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../index.js";
 import { serverURI } from "../App.jsx";
 
 const Navbar = () => {
   const { user } = useContext(Context);
+  const [profileURL, setProfileURL] = useState("");
+  const getProfilePhoto = async () => {
+    try {
+      const { data } = await axios.get(
+        `${serverURI}/read/${user.profileImageURL}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setProfileURL(data.fileUrl);
+    } catch (error) {
+      console.log("error");
+    }
+  };
+
+  useEffect(() => {
+    getProfilePhoto();
+  }, []);
   return (
     <>
       <div className="navBar">
@@ -30,11 +48,7 @@ const Navbar = () => {
               {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img
-              src={`${serverURI}/profile_images/${user.profileImageURL}`}
-              alt="userSprite"
-              className="userSprite"
-            />
+            <img src={profileURL} alt="userSprite" className="userSprite" />
           </div>
         </div>
       </div>

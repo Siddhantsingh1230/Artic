@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../index.js";
 import { serverURI } from "../App.jsx";
 import { toast } from "react-hot-toast";
@@ -7,28 +7,51 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Setting = () => {
-  const { setUser ,user ,setIsAuthenticated } = useContext(Context);
+  const { setUser, user, setIsAuthenticated } = useContext(Context);
   const navigate = useNavigate();
   const [name, setName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
   const [email, setEmail] = useState(user.email);
-  const [loading ,setLoading] =useState(false);
-  const handleNameChange=(e)=>{
-    setName(e.target.value);
-  }
-  const handleLastNameChange=(e)=>{
-    setLastName(e.target.value);
-  }
-  const handleEmailChange=(e)=>{
-    setEmail(e.target.value);
-  }
+  const [loading, setLoading] = useState(false);
+  const [profileURL, setProfileURL] = useState("");
+  const getProfilePhoto = async () => {
+    try {
+      const { data } = await axios.get(
+        `${serverURI}/read/${user.profileImageURL}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setProfileURL(data.fileUrl);
+    } catch (error) {
+      console.log("error");
+    }
+  };
 
-  const  updateProfile = async ()=>{
+  useEffect(() => {
+    getProfilePhoto();
+  }, []);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const updateProfile = async () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/setting/update`,
-        { firstname:name,lastname:lastName,email:user.email,changeEmailTo:email},
+        {
+          firstname: name,
+          lastname: lastName,
+          email: user.email,
+          changeEmailTo: email,
+        },
         {
           headers: {
             "Content-Type": "application/json",
@@ -45,30 +68,26 @@ const Setting = () => {
       setLoading(false);
       setUser({});
     }
-  }
-  const deleteProfile = async ()=>{
+  };
+  const deleteProfile = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(
-        `${serverURI}/setting/deleteprofile`,
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${serverURI}/setting/deleteprofile`, {
+        withCredentials: true,
+      });
       toast.success(data.message);
       setLoading(false);
       setUser({});
       setIsAuthenticated(false);
       navigate("/");
-      
     } catch (error) {
       if (error) toast.error(error.response.data.message);
       setLoading(false);
     }
-  }
-  const changeImage = () =>{
+  };
+  const changeImage = () => {
     navigate("/profilephoto");
-  }
+  };
 
   return (
     <>
@@ -80,9 +99,13 @@ const Setting = () => {
             <p>First name</p>
             <div className="userSettingName">
               <i className="ri-user-line"></i>
-              <input onChange={(e)=>{
-                handleNameChange(e);
-              }} value={name} type="text"/>
+              <input
+                onChange={(e) => {
+                  handleNameChange(e);
+                }}
+                value={name}
+                type="text"
+              />
             </div>
             <small>
               Your name may appear around Artic wherever you contribute or are
@@ -91,29 +114,45 @@ const Setting = () => {
             <p>Last name</p>
             <div className="userSettingName">
               <i className="ri-user-3-line"></i>
-              <input onChange={(e)=>{
-                handleLastNameChange(e);
-              }} value={lastName} type="text"/>
+              <input
+                onChange={(e) => {
+                  handleLastNameChange(e);
+                }}
+                value={lastName}
+                type="text"
+              />
             </div>
             <small>
-              Your first name and last name make up your identity across Articverse.
+              Your first name and last name make up your identity across
+              Articverse.
             </small>
             <p>Public Email</p>
             <div className="userSettingEmail">
               <i className="ri-verified-badge-line"></i>
-              <input onChange={(e)=>{
-                handleEmailChange(e);
-              }} value={email} type="text"/>
+              <input
+                onChange={(e) => {
+                  handleEmailChange(e);
+                }}
+                value={email}
+                type="text"
+              />
             </div>
             <small>Your verified email.</small>
           </div>
-          <div onClick={()=>navigate("/profilephoto")} className="userImage" ><img src={`${serverURI}/profile_images/${user.profileImageURL}`} alt="" />
-          <div className="tooltip2">{name +" "+ lastName}</div>
+          <div onClick={() => navigate("/profilephoto")} className="userImage">
+            <img src={profileURL} alt="" />
+            <div className="tooltip2">{name + " " + lastName}</div>
           </div>
         </div>
-        <button onClick={updateProfile} className="save">Update</button>
-        <button onClick={deleteProfile} className="delete">Delete</button>
-        <button onClick={changeImage} className="imageBtn">Change image</button>
+        <button onClick={updateProfile} className="save">
+          Update
+        </button>
+        <button onClick={deleteProfile} className="delete">
+          Delete
+        </button>
+        <button onClick={changeImage} className="imageBtn">
+          Change image
+        </button>
       </div>
       {loading ? <Spinner /> : null}
     </>
