@@ -498,7 +498,7 @@ a {
 /* For ToolTips */
 [data-title]:hover:after {
   opacity: 1;
-  transition: none;
+  transition: all 0.1s ease 0.5s;
   display: block;
 }
 
@@ -940,6 +940,7 @@ p[contenteditable="true"] {
   position: relative;
   margin-top: 1rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .tooltip2 {
