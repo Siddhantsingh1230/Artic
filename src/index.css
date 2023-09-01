@@ -1827,6 +1827,7 @@ select:-webkit-autofill:focus {
 .custom-file-upload i{
   color: #006aff;
   font-size: 2rem;
+  opacity: 0.85;
 }
 .profilePhoto form button{
   outline: none;
