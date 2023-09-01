@@ -14,8 +14,9 @@ const ProfilePhoto = () => {
   const [labelStyle, setLabelStyle] = useState({
     outline: "1px solid #006aff",
     borderRadius: "50%",
-    height: "17rem",
-    width: "17rem",
+    marginTop: "2rem",
+    height: "18rem",
+    width: "18rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -29,8 +30,9 @@ const ProfilePhoto = () => {
       setLabelStyle({
         outline: "1px solid #006aff",
         borderRadius: "50%",
-        height: "17rem",
-        width: "17rem",
+        marginTop: "2rem",
+        height: "18rem",
+        width: "18rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
