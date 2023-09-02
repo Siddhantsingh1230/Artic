@@ -1,10 +1,31 @@
 import React, { useState } from "react";
 import Popup from "./Popup";
 import EditPost from "./EditPost";
+import axios from "axios";
 
-const PostCard = () => {
+const PostCard = ({post}) => {
   const [renderPopup, setRenderPopup] = useState(false);
   const [renderEditPage, setRenderEditPage] = useState(false);
+  const [imgURL, setImgURL] = useState("");
+
+  const getPostPhoto = async () => {
+    try {
+      const { data } = await axios.get(
+        `${serverURI}/read/${post.postURL}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setImgURL(data.fileUrl);
+    } catch (error) {
+      console.log("error");
+    }
+
+    useEffect(() => {
+      getPostPhoto();
+    }, [])
+    
+  };
   return (
     <>
       {renderEditPage ? (
@@ -30,7 +51,7 @@ const PostCard = () => {
           <div onClick={() => {
           setRenderPopup(true);
         }} className="postMedia">
-            <img src="icon/tale.jpg" alt="postMedia" />
+            <img src={imgURL} alt="postMedia" />
           </div>
           <div className="postAction">
             <button
