@@ -34,7 +34,7 @@ const EditPost = ({ setRender, postCaption, _id }) => {
       navigate("/");
     } catch (error) {
       if(error.data.message){
-        toast.error(data.message);
+        toast.error(error.data.message);
       }
       setLoading(false);
     }
