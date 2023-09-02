@@ -1639,9 +1639,14 @@ p.commentCount {
   gap: 4px;
 }
 
+.form-group input[type="checkbox"]{
+  cursor: pointer;
+}
+
 .form-group label {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /* for mobile */

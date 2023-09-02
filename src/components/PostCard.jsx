@@ -21,7 +21,7 @@ const PostCard = () => {
               style={{
                 color: "white",
                 fontSize: "1.5rem",
-                textShadow: "0px 0px 3px black,0px 0px 5px black,0px 0px 3px black",
+                filter:"dropShadow(0 0 10px black)",
               }}
               className="fa-solid fa-ellipsis-vertical"
             />
