@@ -35,7 +35,6 @@ const Upload = () => {
     const formData = new FormData();
     formData.append("posts", selectedFile);
     formData.append("postCaption",caption);
-    formData.append("userID",user._id);
     axios
       .post(`${serverURI}/posts/upload`, formData, {
         headers: {
