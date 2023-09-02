@@ -807,7 +807,9 @@ circle {
 
 .postMedia img {
   height: 100%;
+  width: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 0.7rem;
   position: relative;
   z-index: 9999;
