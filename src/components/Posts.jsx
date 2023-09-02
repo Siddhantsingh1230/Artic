@@ -31,7 +31,7 @@ const Posts = () => {
   return (
     <>
       <div className="posts">
-        {posts.length>0?(posts.map((item) => <PostCard post={item} key={item._id} />)):(<div className="noPosts"><p>No Posts 💔<Link to={"/upload"}>+</Link></p></div>)}
+        {posts.length>0?(posts.map((item) => <PostCard post={item} key={item._id} />)):(<div className="noPosts"><p>No Posts <Link to={"/upload"}>+</Link></p></div>)}
       </div>
       {loading ? <Spinner /> : null}
     </>

@@ -1942,7 +1942,8 @@ select:-webkit-autofill:focus {
   cursor: pointer;
   color: #006aff;
   text-decoration: none;
+  transition: all ease 0.3s;
 }
 .noPosts a:hover{
-  text-decoration: underline;
+  color: white;
 }
