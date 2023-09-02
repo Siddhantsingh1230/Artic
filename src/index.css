@@ -1936,9 +1936,10 @@ p.commentCount {
     width: 100%;
     height: 90%;
     margin-top: 0%;
+    overflow: hidden;
   }
   .uploadPreview .imgPreview {
-    height: 300px;
+    max-height: 300px;
     width: 100%;
     object-fit: cover;
     object-position: center;
