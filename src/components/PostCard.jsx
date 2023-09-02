@@ -32,7 +32,7 @@ const PostCard = ({post}) => {
   return (
     <>
       {renderEditPage ? (
-        <EditPost postCaption={post.postCaption} setRender={setRenderEditPage} />
+        <EditPost _id={post._id} postCaption={post.postCaption} setRender={setRenderEditPage} />
       ) : (
         <div className="postContainer ">
           <div
