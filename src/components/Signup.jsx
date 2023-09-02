@@ -49,7 +49,7 @@ const Signup = () => {
       navigate("/");
       setUser(data.user);
     } catch (error) {
-      if (error) toast.error(error.response.data.message);
+      if (error.response.data) toast.error(error.response.data.message);
       // console.log(error);
       setLoading(false);
       setIsAuthenticated(false);
