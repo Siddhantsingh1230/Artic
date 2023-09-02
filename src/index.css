@@ -605,9 +605,21 @@ circle {
   margin-left: 1.25rem;
   margin-top: 0.6rem;
   width: 100%;
+  height: 100%;
+  position: relative;
   /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.uploadSection1{
+  width: 45%;
+  height: 100%;
+}
+.uploadSection2{
+  width: 50%;
+  height: 100%;
+}
 .uploadContainer .uploadTitle {
   font-size: 2.5rem;
   font-weight: 800;
@@ -622,13 +634,14 @@ circle {
   width: 100%;
 }
 
+
 .uploadContainer .uploadBox input[type="file"] {
   display: none;
 } 
 
 .uploadContainer .uploadBox {
   height: 50%;
-  width: 60%;
+  width: 95%;
   background-color: rgba(109, 190, 253, 0.2);
   border: 2px solid #3869ac;
   border-radius: 1rem;
@@ -639,6 +652,39 @@ circle {
   align-items: center;
   justify-content: center;
   color: #323232;
+  position: relative;
+}
+.uploadSection2  .uploadTitle{
+  color: transparent;
+}
+.uploadPreview{
+  height: 72%;
+  width: 80%;
+  margin-block: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  outline: 1.5px solid #006aff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.uploadPreview p{
+  opacity: 0.25;
+  font-size: 1.5rem;
+  font-weight: 550;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  transition: all ease 0.3s;
+}
+
+.uploadPreview p:hover{
+  opacity: 1;
+  color: #006aff;
+}
+.uploadPreview .imgPreview{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .uploadContainer .uploadBox i {
@@ -658,7 +704,7 @@ circle {
   padding: 0.65rem 0.5rem;
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 95%;
   background-color: #1b1b1b;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
@@ -696,6 +742,7 @@ circle {
   border: none;
   transition: all ease 0.3s;
   cursor: pointer;
+  font-size: 1.25rem;
 }
 
 .uploadContainer .uploadAction button:hover {
@@ -705,6 +752,8 @@ circle {
 .uploadContainer .uploadAction button:active {
   opacity: 0.68;
 }
+
+
 
 /* loader */
 .loader {
