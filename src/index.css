@@ -1932,6 +1932,8 @@ select:-webkit-autofill:focus {
   color: white;
   font-size: 2rem;
   transition: all ease 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
 
 }
 .noPosts p:hover{
