@@ -2024,7 +2024,7 @@ p.commentCount {
     content: "";
     position: absolute;
     top: 80%;
-    left: 50%;
+    left: 2rem;
     height: 0rem;
     width: 0px;
     background-color: #006aff;
