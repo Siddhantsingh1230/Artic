@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Spinner from "./Spinner";
 import Marquee from "react-fast-marquee";
-const Popup = ({ setRender }) => {
+const Popup = ({ setRender, data , imgURL }) => {
   // const [mediaType, setMediaType] = useState("image");
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
@@ -43,9 +43,9 @@ const Popup = ({ setRender }) => {
             ></i>
           </div>
           {loading ? <Spinner /> : null}
-          {mediaType === "image" ? (
+          {data.postType === "image" ? (
             <img
-              src="/icon/poster.jpg"
+              src={imgURL}
               alt=""
               className="imgMedia"
               onLoad={() => {
@@ -71,7 +71,7 @@ const Popup = ({ setRender }) => {
               speed={34}
               pauseOnHover={true}
             >
-              <p>Zeus Made him cry.</p>
+              <p>{data.postCaption}</p>
             </Marquee>
           </div>
           <div className="sidePanel">
@@ -86,7 +86,7 @@ const Popup = ({ setRender }) => {
               ) : (
                 <i className="ri-heart-line"></i>
               )}
-              <p className="likeCount">20</p>
+              <p className="likeCount">{data.postLikes}</p>
             </div>
             <div
               className="comments"

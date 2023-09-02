@@ -50,7 +50,7 @@ const PostCard = ({post}) => {
               className="fa-solid fa-ellipsis-vertical"
             />
           </div>
-          {renderPopup ? <Popup setRender={setRenderPopup} /> : null}
+          {renderPopup ? <Popup imgURL={imgURL} data={post} setRender={setRenderPopup} /> : null}
           <div onClick={() => {
           setRenderPopup(true);
         }} className="postMedia">

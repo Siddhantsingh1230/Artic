@@ -1187,6 +1187,7 @@ p[contenteditable="true"] {
   align-items: center;
   flex-direction: column;
   cursor: pointer;
+  text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black;
 }
 
 .sidePanel i {
