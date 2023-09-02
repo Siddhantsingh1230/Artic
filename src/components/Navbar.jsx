@@ -1,30 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../index.js";
-import { serverURI } from "../App.jsx";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { user } = useContext(Context);
+  const { user,profileURL } = useContext(Context);
   const navigate = useNavigate();
-  const [profileURL, setProfileURL] = useState("");
-  const getProfilePhoto = async () => {
-    try {
-      const { data } = await axios.get(
-        `${serverURI}/read/${user.profileImageURL}`,
-        {
-          withCredentials: true,
-        }
-      );
-      setProfileURL(data.fileUrl);
-    } catch (error) {
-      console.log("error");
-    }
-  };
-
-  useEffect(() => {
-    getProfilePhoto();
-  }, [user]);
   return (
     <>
       <div className="navBar">

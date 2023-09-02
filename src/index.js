@@ -9,6 +9,7 @@ export const Context = createContext({ isAuthenticated: false });
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
+  const [profileURL, setProfileURL] = useState("");
   return (
     <Context.Provider
       value={{
@@ -16,6 +17,8 @@ const AppWrapper = () => {
         setIsAuthenticated,
         user,
         setUser,
+        profileURL,
+        setProfileURL
       }}
     >
       <App />

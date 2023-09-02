@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
@@ -8,6 +8,8 @@ import Upload from "./Upload";
 import Login from "./Login";
 import Signup from "./Signup";
 import ProfilePhoto from "./ProfilePhoto";
+import axios from "axios";
+import { serverURI } from "../App";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,7 +19,25 @@ import {
 import { Context } from "../index";
 
 const Home = () => {
-  const { isAuthenticated } = useContext(Context);
+  const { isAuthenticated,setProfileURL,user } = useContext(Context);
+  useEffect(()=>{
+    const getProfilePhoto = async () => {
+      try {
+        const { data } = await axios.get(
+          `${serverURI}/read/${user.profileImageURL}`,
+          {
+            withCredentials: true,
+          }
+        );
+        setProfileURL(data.fileUrl);
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    if(isAuthenticated){
+      getProfilePhoto();
+    }
+  },[isAuthenticated]);
   return (
     <>
       <Router>

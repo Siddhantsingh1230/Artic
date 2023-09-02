@@ -45,7 +45,7 @@ const PostCard = ({post}) => {
               style={{
                 color: "white",
                 fontSize: "1.5rem",
-                textShadow: "0 0 10px black, 0 0 10px black, 0 0 3px black",
+                textShadow: "0 0 2px black, 0 0 4px black, 0 0 6px black",
               }}
               className="fa-solid fa-ellipsis-vertical"
             />
@@ -54,7 +54,7 @@ const PostCard = ({post}) => {
           <div onClick={() => {
           setRenderPopup(true);
         }} className="postMedia">
-            <img src={imgURL} alt="postMedia" />
+            <img src={imgURL} alt="" />
           </div>
           <div className="postAction">
             <button

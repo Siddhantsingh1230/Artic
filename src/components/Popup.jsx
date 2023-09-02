@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import Spinner from "./Spinner";
 import Marquee from "react-fast-marquee";
+import { Context } from "../index";
+
+
 const Popup = ({ setRender, data , imgURL }) => {
-  // const [mediaType, setMediaType] = useState("image");
+  const{profileURL} = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -64,7 +67,7 @@ const Popup = ({ setRender, data , imgURL }) => {
             ></video>
           )}
           <div className="mediaDetails">
-            <img src="./icon/Logo.png" alt="" />
+            <img src={profileURL} alt="" />
             <Marquee
               className="marquee"
               style={{ width: "80%", borderRadius: "5rem 0 0 5rem " }}

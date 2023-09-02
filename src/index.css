@@ -1139,6 +1139,7 @@ p[contenteditable="true"] {
 .cancelIcon {
   opacity: 0.85;
   transition: all ease 0.1s;
+  text-shadow: 0 0 5px black, 0 0 2px black, 0 0 2px black;
 }
 
 .cancelIcon:hover {
@@ -1161,6 +1162,7 @@ p[contenteditable="true"] {
   height: 1.75rem;
   width: 1.75rem;
   border-radius: 50%;
+  border: 1.5px solid #006aff;
 }
 
 .mediaDetails p {
@@ -1187,7 +1189,7 @@ p[contenteditable="true"] {
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  text-shadow: 0 0 10px black, 0 0 10px black, 0 0 3px black;
+  text-shadow:0 0 5px black, 0 0 2px black, 0 0 2px black;
 }
 
 .sidePanel i {

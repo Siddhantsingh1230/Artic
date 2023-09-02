@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../index.js";
 import { serverURI } from "../App.jsx";
 import { toast } from "react-hot-toast";
@@ -7,30 +7,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Setting = () => {
-  const { setUser, user, setIsAuthenticated } = useContext(Context);
+  const { setUser, user, setIsAuthenticated,profileURL } = useContext(Context);
   const navigate = useNavigate();
   const [name, setName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
   const [email, setEmail] = useState(user.email);
   const [loading, setLoading] = useState(false);
-  const [profileURL, setProfileURL] = useState("");
-  const getProfilePhoto = async () => {
-    try {
-      const { data } = await axios.get(
-        `${serverURI}/read/${user.profileImageURL}`,
-        {
-          withCredentials: true,
-        }
-      );
-      setProfileURL(data.fileUrl);
-    } catch (error) {
-      console.log("error");
-    }
-  };
-
-  useEffect(() => {
-    getProfilePhoto();
-  }, []);
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
