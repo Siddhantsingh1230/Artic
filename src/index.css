@@ -1937,6 +1937,12 @@ p.commentCount {
     height: 90%;
     margin-top: 0%;
   }
+  .uploadPreview .imgPreview {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
   .uploadSection2 .uploadTitle {
     display: none;
   }
@@ -2037,7 +2043,7 @@ p.commentCount {
       height: 0;
       width: 0;
     }
-  
+
     100% {
       opacity: 1;
       height: 1.5rem;
