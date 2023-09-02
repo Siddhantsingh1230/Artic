@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-const EditPost = ({ setRender }) => {
+const EditPost = ({ setRender,postCaption }) => {
+  const[caption,setCaption]=useState(postCaption);
   window.addEventListener("keydown", (e) => {
     if(e.keyCode===27){
         setRender(false);
@@ -19,7 +20,7 @@ const EditPost = ({ setRender }) => {
             ></i>
           </div>
           <h2>Edit caption <i className="fa-solid fa-pen" style={{color: "#ffffff",}} /></h2>
-          <textarea></textarea>
+          <textarea onChange={(e)=>setCaption(e.target.value)} >{postCaption}</textarea>
           <button>Update</button>
         </div>
       </div>
