@@ -5,11 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
 
-
 const EditPost = ({ setRender, postCaption, _id }) => {
   const [caption, setCaption] = useState(postCaption);
   const [loading, setLoading] = useState(false);
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
   window.addEventListener("keydown", (e) => {
     if (e.keyCode === 27) {
       setRender(false);
@@ -20,7 +19,7 @@ const EditPost = ({ setRender, postCaption, _id }) => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `${serverURI}/posts/upload`,
+        `${serverURI}/posts/update`,
         { _id, postCaption:caption },
         {
           headers: {
@@ -32,13 +31,13 @@ const EditPost = ({ setRender, postCaption, _id }) => {
       toast.success(data.message);
       setLoading(false);
       navigate("/");
+      // console.log(_id, caption);
     } catch (error) {
-      if(error.data.message){
+      if (error.data.message) {
         toast.error(error.data.message);
       }
       setLoading(false);
     }
-
   };
 
   return (
@@ -57,10 +56,11 @@ const EditPost = ({ setRender, postCaption, _id }) => {
             Edit caption{" "}
             <i className="fa-solid fa-pen" style={{ color: "#ffffff" }} />
           </h2>
-          <textarea onChange={(e) => setCaption(e.target.value)}>
-            {postCaption}
-          </textarea>
-          <button onClick={sendUpdate} >Update</button>
+          <textarea
+            value={caption}
+            onChange={(e) => setCaption(e.target.value)}
+          ></textarea>
+          <button onClick={sendUpdate}>Update</button>
         </div>
       </div>
       {loading ? <Spinner /> : null}

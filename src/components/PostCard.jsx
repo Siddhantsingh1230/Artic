@@ -3,11 +3,16 @@ import Popup from "./Popup";
 import EditPost from "./EditPost";
 import axios from "axios";
 import { serverURI } from "../App";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import Spinner from "./Spinner";
 
 const PostCard = ({post}) => {
   const [renderPopup, setRenderPopup] = useState(false);
+  const navigate = useNavigate();
   const [renderEditPage, setRenderEditPage] = useState(false);
   const [imgURL, setImgURL] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getPostPhoto = async () => {
     try {
@@ -25,6 +30,30 @@ const PostCard = ({post}) => {
     
     
   };
+
+  const deletePost = async () =>{
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        `${serverURI}/posts/delete`,
+        { post },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+      setLoading(false);
+      navigate("/");
+    } catch (error) {
+      if(error.data.message){
+        toast.error(error.data.message);
+      }
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
     getPostPhoto();
@@ -65,12 +94,13 @@ const PostCard = ({post}) => {
             >
               <i className="fa-regular fa-eye" />
             </button>
-            <button className="delete-button">
+            <button onClick={deletePost} className="delete-button">
               <i className="fa-solid fa-trash" style={{ color: "#ffffff" }} />
             </button>
           </div>
         </div>
       )}
+      {loading ? <Spinner /> : null}
     </>
   );
 };
