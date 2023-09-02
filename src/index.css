@@ -1838,6 +1838,190 @@ p.commentCount {
     margin: 1.25rem 0 0;
     padding: 0;
   }
+
+  /* home page design  */
+
+  [data-title]:hover:after {
+    display: none;
+}
+  .homeBody{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .trend {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0.75rem 0.75rem;
+  }
+  .tales p {
+    margin-bottom: 0.5rem;
+    font-family: aerox;
+    font-size: 1.25rem;
+}
+  .trend .trendMedia {
+    display: flex;
+    width: 90;
+    margin-top: 0%;
+    margin-right: 0%;
+    align-items: center;
+    justify-content: center;;
+  }
+  .trend .trendContent {
+    width: 100%;
+    height: 57%;
+  }
+  .trend .trendTitle {
+    font-size: 1.25rem;
+    width: fit-content;
+    padding: 0.5rem;
+    padding-top: 1.5rem;
+  }
+  .homeBody .sidebar {
+    height: 10%;
+    width: 100%;
+    display:flex ;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    /* border: 1px solid red; */
+  }
+  .sidebar ,.item{
+    display: flex;
+    flex-direction: row;
+  }
+  .homeBody .content {
+    width: 100%;
+    
+  }
+  [data-title]:after{
+    display: none;
+  }
+  .navBar .search {
+    display: none;
+  }
+  .user .userName{
+    display: none;
+  }
+  .tales .cardContainer {
+    justify-content: center;
+  }
+  .tales .card {
+   width: 90%;
+   height: 90%;
+  }
+  .tales .card img{
+    width: 100%;
+    height: 12rem;
+   }
+
+   .tales p {
+    margin-bottom: 1rem;
+  }
+
+  /* upload page */
+  
+  .uploadContainer{
+    width: 90%;
+    margin-left:0;
+    margin-bottom: 1rem;
+    flex-direction: column-reverse;
+  }
+  .uploadSection1 {
+    width: 100%;
+    height: 55%;
+  }
+  .uploadSection2 {
+    width: 100%;
+    height: 45%;
+  }
+  .uploadPreview{
+    width: 100%;
+    height: 90%;
+    margin-top: 0%;
+  }
+  .uploadSection2 .uploadTitle {
+    display: none;
+  }
+  .uploadContainer .uploadBox {
+    width: 100%;
+  }
+  .uploadContainer .captionInput {
+  width: 100%;
+  }
+  .uploadContainer .uploadTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+  .uploadContainer .uploadAction button {
+    font-size: 1rem;
+  }
+
+  /* post page */
+  .posts {
+    justify-content: center;
+    padding-left: 0rem;
+    gap: 0.5rem;
+  }
+  .postContainer {
+    height: 50%;
+    width: 82.5%;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    border-radius: 0.7rem;
+    position: relative;
+  }
+  .postMedia{
+    width: 100%;
+    height:80%
+  }
+
+  /* settings page */
+  .info {
+    display: flex;
+    gap: 10rem;
+    flex-direction: column-reverse;
+  }
+  .setting {
+    height: 92.5%;
+  }
+  .setting h2{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .setting hr {
+    border: 1px solid #323232;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .userImage {
+    height: 50%;
+    width: 50%;
+    align-self: center;
+  }
+  .info {
+    gap: 1rem;
+  }
+  .userDetails small {
+    display: none;
+  }
+  .setting button {
+    padding: 0.45rem 0.45rem;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .userDetails .userSettingName, .userDetails .userSettingEmail {
+    font-size: 1rem;
+    padding: 0.5rem;
+    background: #111111;
+    outline: 1px solid rgb(168, 168, 168);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem
+}
 }
 
 .LoginMain #googleLoginBtn {
@@ -1949,3 +2133,4 @@ select:-webkit-autofill:focus {
 .noPosts a:hover{
   color: white;
 }
+
