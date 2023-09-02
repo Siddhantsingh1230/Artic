@@ -1916,3 +1916,33 @@ select:-webkit-autofill:focus {
   opacity: 0.85;
   background: #006aff;
 }
+
+
+/* No Post */
+
+.noPosts{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noPosts p{
+  opacity: 0.35;
+  color: white;
+  font-size: 2rem;
+  transition: all ease 0.3s;
+
+}
+.noPosts p:hover{
+  opacity: 1;
+}
+.noPosts a{
+  font-size: 2.25rem;
+  cursor: pointer;
+  color: #006aff;
+  text-decoration: none;
+}
+.noPosts a:hover{
+  text-decoration: underline;
+}
