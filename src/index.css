@@ -1921,6 +1921,7 @@ p.commentCount {
   .uploadContainer {
     width: 90%;
     margin-left: 0;
+    height: 85%;
     margin-bottom: 1rem;
     flex-direction: column-reverse;
   }
