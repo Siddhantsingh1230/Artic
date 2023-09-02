@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Popup from "./Popup";
 import EditPost from "./EditPost";
 import axios from "axios";
+import { serverURI } from "../App";
 
 const PostCard = ({post}) => {
   const [renderPopup, setRenderPopup] = useState(false);
@@ -21,11 +22,13 @@ const PostCard = ({post}) => {
       console.log("error");
     }
 
-    useEffect(() => {
-      getPostPhoto();
-    }, [])
+    
     
   };
+
+  useEffect(() => {
+    getPostPhoto();
+  }, []);
   return (
     <>
       {renderEditPage ? (
