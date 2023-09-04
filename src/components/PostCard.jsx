@@ -94,7 +94,11 @@ const PostCard = ({post}) => {
             >
               <i className="fa-regular fa-eye" />
             </button>
-            <button onClick={deletePost} className="delete-button">
+            <button onClick={()=>{
+          if(window.confirm("Delete! You can't undo this action")){
+            deletePost();
+          }
+        }} className="delete-button">
               <i className="fa-solid fa-trash" style={{ color: "#ffffff" }} />
             </button>
           </div>

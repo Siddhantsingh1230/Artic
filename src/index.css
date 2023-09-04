@@ -809,7 +809,7 @@ circle {
   object-position: center;
   border-radius: 0.7rem;
   position: relative;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .postMedia::before {
@@ -972,7 +972,7 @@ circle {
 }
 
 .userDetails .userSettingName input,
-.userDetails .userSettingEmail input {
+.userDetails .userSettingEmail input ,.settingEmail{
   margin-bottom: 0;
   width: 100%;
   border: none;
@@ -2160,4 +2160,10 @@ select:-webkit-autofill:focus {
 }
 .noPosts a:hover {
   color: white;
+}
+
+.ellipsis {
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0 0 2px black, 0 0 4px black, 0 0 6px black;
 }

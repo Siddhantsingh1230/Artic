@@ -1,7 +1,7 @@
-import React, { createContext, useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React, { createContext, useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
 
 //Global context
 export const Context = createContext({ isAuthenticated: false });
@@ -18,7 +18,7 @@ const AppWrapper = () => {
         user,
         setUser,
         profileURL,
-        setProfileURL
+        setProfileURL,
       }}
     >
       <App />
@@ -26,10 +26,9 @@ const AppWrapper = () => {
   );
 };
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AppWrapper/>
+    <AppWrapper />
   </React.StrictMode>
 );

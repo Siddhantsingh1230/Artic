@@ -18,8 +18,6 @@ const Setting = () => {
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
   };
-  
-
   const updateProfile = async () => {
     try {
       setLoading(true);
@@ -107,10 +105,7 @@ const Setting = () => {
             <p>Public Email</p>
             <div className="userSettingEmail">
               <i className="ri-verified-badge-line"></i>
-              <input
-                value={user.email}
-                type="text"
-              />
+              <div className="settingEmail">{user.email}</div>
             </div>
             <small>Your verified email.</small>
           </div>
@@ -122,7 +117,11 @@ const Setting = () => {
         <button onClick={updateProfile} className="save">
           Update
         </button>
-        <button onClick={deleteProfile} className="delete">
+        <button onClick={()=>{
+          if(window.confirm("Delete! You can't undo this action")){
+            deleteProfile();
+          }
+        }} className="delete">
           Delete
         </button>
         <button onClick={changeImage} className="imageBtn">

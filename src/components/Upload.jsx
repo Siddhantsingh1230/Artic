@@ -1,16 +1,14 @@
-import React, { useState ,useContext } from "react";
+import React, { useState  } from "react";
 import axios from "axios";
 import { serverURI } from "../App";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Spinner from "./Spinner";
-import { Context } from "../index";
 
 
 
 const Upload = () => {
   const [previewURL, setPreviewURL] = useState("");
-  const {user} = useContext(Context);
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [caption,setCaption] =useState("");

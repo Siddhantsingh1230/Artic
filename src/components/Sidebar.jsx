@@ -88,7 +88,11 @@ const Sidebar = () => {
             <i data-title="Profile" className="ri-settings-4-line"></i>
           </Link>
         </div>
-        <div onClick={logout} data-active="0" className="item">
+        <div onClick={()=>{
+          if(window.confirm("Do you want to Logout ?")){
+            logout();
+          }
+        }} data-active="0" className="item">
           <i data-title="Logout" className="warning ri-logout-circle-line"></i>
         </div>
       </div>

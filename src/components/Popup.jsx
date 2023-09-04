@@ -23,7 +23,6 @@ const Popup = ({ setRender, data , imgURL }) => {
       setRender(false);
     }
   });
-  const mediaType = "image";
   return (
     <>
       <div className="popupCard">
