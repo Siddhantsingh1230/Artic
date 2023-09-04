@@ -31,11 +31,20 @@ const Signup = () => {
 
   const signupHandler = async (e) => {
     e.preventDefault();
+    if (email.trim().length === 0) {
+      return toast.error("Email is empty");
+    } else if (firstname.trim().length === 0) {
+      return toast.error("Input valid FirstName");
+    } else if (lastname.trim().length === 0) {
+      return toast.error("Input valid LastName");
+    } else if (password.trim().length === 0) {
+      return toast.error("Password is empty");
+    }
     try {
       setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/users/signup`,
-        { firstname, lastname, email, password },
+        { firstname:firstname.trim(), lastname:lastname.trim(), email:email.trim(), password },
         {
           headers: {
             "Content-Type": "application/json",
