@@ -11,7 +11,6 @@ const Setting = () => {
   const navigate = useNavigate();
   const [name, setName] = useState(user.firstname);
   const [lastName, setLastName] = useState(user.lastname);
-  const [email, setEmail] = useState(user.email);
   const [loading, setLoading] = useState(false);
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -19,9 +18,7 @@ const Setting = () => {
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
   };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  
 
   const updateProfile = async () => {
     try {
@@ -32,7 +29,6 @@ const Setting = () => {
           firstname: name,
           lastname: lastName,
           email: user.email,
-          changeEmailTo: email,
         },
         {
           headers: {
@@ -78,7 +74,7 @@ const Setting = () => {
         <hr />
         <div className="info">
           <div className="userDetails">
-            <p>First name</p>
+            <p>First Name</p>
             <div className="userSettingName">
               <i className="ri-user-line"></i>
               <input
@@ -93,7 +89,7 @@ const Setting = () => {
               Your name may appear around Artic wherever you contribute or are
               mentioned.
             </small>
-            <p>Last name</p>
+            <p>Last Name</p>
             <div className="userSettingName">
               <i className="ri-user-3-line"></i>
               <input
@@ -112,10 +108,7 @@ const Setting = () => {
             <div className="userSettingEmail">
               <i className="ri-verified-badge-line"></i>
               <input
-                onChange={(e) => {
-                  handleEmailChange(e);
-                }}
-                value={email}
+                value={user.email}
                 type="text"
               />
             </div>

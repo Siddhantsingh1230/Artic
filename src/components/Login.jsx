@@ -26,14 +26,20 @@ const Login = () => {
       setPassType("text");
     }
   };
-  
+
   const loginHandler = async (e) => {
     e.preventDefault();
+    //Error Checking in Input
+    if (email.trim().length===0) {
+      return toast.error("Email is empty");
+    }else if(password.trim().length===0){
+      return toast.error("Password is empty");
+    }
     try {
       setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/users/login`,
-        { email, password, remember },
+        { email:email.trim(), password, remember },
         {
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +53,9 @@ const Login = () => {
       setUser(data.user);
       navigate("/");
     } catch (error) {
-      if (error.response.data) {toast.error(error.response.data.message)};
+      if (error.response.data) {
+        toast.error(error.response.data.message);
+      }
       setLoading(false);
       setIsAuthenticated(false);
       setUser({});
@@ -125,12 +133,11 @@ const Login = () => {
                   type="checkbox"
                   id="remember"
                   onChange={() => {
-                    if(remember){
+                    if (remember) {
                       setRemember(false);
-                    }else{
-                      setRemember(true)
+                    } else {
+                      setRemember(true);
                     }
-                    
                   }}
                   checked={remember}
                   name="remember"
