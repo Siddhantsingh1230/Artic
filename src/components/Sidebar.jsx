@@ -6,6 +6,7 @@ import { serverURI } from "../App";
 import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
 import { Context } from "../index.js";
+import { ConfirmBox } from "../utils/ConfirmBox";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -88,11 +89,17 @@ const Sidebar = () => {
             <i data-title="Profile" className="ri-settings-4-line"></i>
           </Link>
         </div>
-        <div onClick={()=>{
-          if(window.confirm("Do you want to Logout ?")){
-            logout();
-          }
-        }} data-active="0" className="item">
+        <div
+          onClick={() => {
+            ConfirmBox(
+              "Logout",
+              "You have to Login to use Artic again !",
+              logout
+            );
+          }}
+          data-active="0"
+          className="item"
+        >
           <i data-title="Logout" className="warning ri-logout-circle-line"></i>
         </div>
       </div>

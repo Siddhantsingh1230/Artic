@@ -972,7 +972,8 @@ circle {
 }
 
 .userDetails .userSettingName input,
-.userDetails .userSettingEmail input ,.settingEmail{
+.userDetails .userSettingEmail input,
+.settingEmail {
   margin-bottom: 0;
   width: 100%;
   border: none;
@@ -2166,4 +2167,142 @@ select:-webkit-autofill:focus {
   color: white;
   font-size: 1.5rem;
   text-shadow: 0 0 2px black, 0 0 4px black, 0 0 6px black;
+}
+
+/* Custom Confirm box Styling */
+.confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.25rem;
+  box-sizing: border-box;
+  opacity: 0;
+  animation-name: confirm---open;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+}
+
+.confirm--close {
+  animation-name: confirm---close;
+}
+
+.confirm__window {
+  width: 100%;
+  max-width: 600px;
+  background: #131417;
+  font-size: 14px;
+  font-family: aerox;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(0.75);
+  animation-name: confirm__window---open;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s;
+  border: none;
+  outline: none;
+}
+
+.confirm__titlebar,.confirm__content{
+
+  padding: 1.25rem;
+}
+.confirm__buttons {
+  padding: 1rem;
+}
+.confirm__titlebar {
+  background:#131417;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #000000;
+}
+
+.confirm__title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #006aff;
+}
+
+.confirm__close {
+  background: none;
+  outline: none;
+  border: none;
+  transform: scale(2.5);
+  color: #ffffff;
+  transition: color 0.15s;
+}
+
+.confirm__close:hover {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.confirm__content {
+  font-size: 1.35rem;
+  font-weight: 550;
+  color:rgb(255, 255, 255);
+  background:#131417;
+}
+
+.confirm__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.confirm__button {
+  padding: 0.4em 0.8em;
+  border: 2px solid #006aff;
+  border-radius: 5px;
+  color: #006aff;
+  background: transparent;
+  font-weight: bold;
+  font-size: 1.1em;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
+  margin-left: 0.6em;
+  cursor: pointer;
+  outline: none;
+}
+
+.confirm__button--fill {
+  background: #006aff;
+  color: #ffffff;
+}
+
+.confirm__button:focus {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes confirm---open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirm---close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes confirm__window---open {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

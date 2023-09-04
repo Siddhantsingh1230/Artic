@@ -5,6 +5,8 @@ import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ConfirmBox } from "../utils/ConfirmBox.js";
+
 
 const Setting = () => {
   const { setUser, user, setIsAuthenticated,profileURL } = useContext(Context);
@@ -117,11 +119,13 @@ const Setting = () => {
         <button onClick={updateProfile} className="save">
           Update
         </button>
-        <button onClick={()=>{
-          if(window.confirm("Delete! You can't undo this action")){
-            deleteProfile();
-          }
-        }} className="delete">
+        <button onClick={() => {
+                ConfirmBox(
+                  "Delete Profile",
+                  "This action cannot be undone !",
+                  deleteProfile
+                );
+              }} className="delete">
           Delete
         </button>
         <button onClick={changeImage} className="imageBtn">

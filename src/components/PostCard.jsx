@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Popup from "./Popup";
 import EditPost from "./EditPost";
 import axios from "axios";
@@ -6,8 +6,9 @@ import { serverURI } from "../App";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
+import { ConfirmBox } from "../utils/ConfirmBox";
 
-const PostCard = ({post}) => {
+const PostCard = ({ post }) => {
   const [renderPopup, setRenderPopup] = useState(false);
   const navigate = useNavigate();
   const [renderEditPage, setRenderEditPage] = useState(false);
@@ -16,22 +17,16 @@ const PostCard = ({post}) => {
 
   const getPostPhoto = async () => {
     try {
-      const { data } = await axios.get(
-        `${serverURI}/read/${post.postURL}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${serverURI}/read/${post.postURL}`, {
+        withCredentials: true,
+      });
       setImgURL(data.fileUrl);
     } catch (error) {
       console.log("error");
     }
-
-    
-    
   };
 
-  const deletePost = async () =>{
+  const deletePost = async () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
@@ -48,12 +43,12 @@ const PostCard = ({post}) => {
       setLoading(false);
       navigate("/");
     } catch (error) {
-      if(error.data.message){
+      if (error.data.message) {
         toast.error(error.data.message);
       }
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     getPostPhoto();
@@ -61,7 +56,11 @@ const PostCard = ({post}) => {
   return (
     <>
       {renderEditPage ? (
-        <EditPost _id={post._id} postCaption={post.postCaption} setRender={setRenderEditPage} />
+        <EditPost
+          _id={post._id}
+          postCaption={post.postCaption}
+          setRender={setRenderEditPage}
+        />
       ) : (
         <div className="postContainer ">
           <div
@@ -79,10 +78,15 @@ const PostCard = ({post}) => {
               className="fa-solid fa-ellipsis-vertical"
             />
           </div>
-          {renderPopup ? <Popup imgURL={imgURL} data={post} setRender={setRenderPopup} /> : null}
-          <div onClick={() => {
-          setRenderPopup(true);
-        }} className="postMedia">
+          {renderPopup ? (
+            <Popup imgURL={imgURL} data={post} setRender={setRenderPopup} />
+          ) : null}
+          <div
+            onClick={() => {
+              setRenderPopup(true);
+            }}
+            className="postMedia"
+          >
             <img src={imgURL} alt="" />
           </div>
           <div className="postAction">
@@ -94,11 +98,16 @@ const PostCard = ({post}) => {
             >
               <i className="fa-regular fa-eye" />
             </button>
-            <button onClick={()=>{
-          if(window.confirm("Delete! You can't undo this action")){
-            deletePost();
-          }
-        }} className="delete-button">
+            <button
+              onClick={() => {
+                ConfirmBox(
+                  "Delete Post",
+                  "This action cannot be undone !",
+                  deletePost
+                );
+              }}
+              className="delete-button"
+            >
               <i className="fa-solid fa-trash" style={{ color: "#ffffff" }} />
             </button>
           </div>
