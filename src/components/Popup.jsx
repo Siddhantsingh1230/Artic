@@ -128,9 +128,6 @@ const Popup = ({ setRender, post, imgURL }) => {
               src={imgURL}
               alt=""
               className="imgMedia"
-              onLoad={() => {
-                setLoading(false);
-              }}
             />
           ) : (
             <video
