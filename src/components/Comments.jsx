@@ -1,17 +1,15 @@
 import React from "react";
 
-const Comments = () => {
+const Comments = ({photoURL,comment}) => {
   return (
     <>
       <div className="comment">
         <div className="commentUser">
-          <img src="icon/Logo.png" alt="" />
-          <p>Dimitri</p>
+          <img src={photoURL} alt="" />
+          <p>{comment.userName}</p>
           <p>•</p>
         </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur ex
-        expedita cupiditate tempore. Consequatur deserunt odio eaque, iure
-        reprehenderit aliquid!
+        {comment.comment}
       </div>
     </>
   );

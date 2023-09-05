@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 import { Context } from "../index";
 import axios from "axios";
 import { serverURI } from "../App";
-import Comments from "./Comments";
+import Comment from "./Comments";
 
 const Popup = ({ setRender, post, imgURL }) => {
   const { profileURL, user } = useContext(Context);
@@ -103,11 +103,11 @@ const Popup = ({ setRender, post, imgURL }) => {
       }
     }
   };
-  const getComments = async () =>{
+  const getComments = async () => {
     try {
       const { data } = await axios.post(
         `${serverURI}/comments/getAllComments`,
-        {  postID: post._id },
+        { postID: post._id },
         {
           headers: {
             "Content-Type": "application/json",
@@ -118,11 +118,11 @@ const Popup = ({ setRender, post, imgURL }) => {
       setComments(data.comments);
       setCommentProfileURL(data.profileURLArray);
     } catch (error) {
-      console.log("Comment fetch failed-",error);
+      console.log("Comment fetch failed-", error);
       setComments([]);
       setCommentProfileURL([]);
     }
-  }
+  };
   useEffect(() => {
     isLiked();
     getComments();
@@ -228,12 +228,15 @@ const Popup = ({ setRender, post, imgURL }) => {
             <p>Comments</p>
             <hr />
             <div className="commentBox">
-              <Comment/>
-              <Comment/>
-              <Comment/>
-              <Comment/>
-              <Comment/>
-              <Comment/>
+              {comments.length > 0
+                ? comments.map((comment, i) => {
+                    return (
+                      <>
+                        <Comment key={i} photoURL={commentProfileURL[i]} comment={comment} />
+                      </>
+                    );
+                  })
+                : <p className="emptyComment" >No comments</p>}
             </div>
             <hr />
             <div className="commentInput">

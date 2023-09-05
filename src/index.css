@@ -2400,3 +2400,7 @@ select:-webkit-autofill:focus {
 .check:hover{
   opacity: 0.65;
 }
+.emptyComment{
+  color: white;
+  opacity: 0.65;
+}
