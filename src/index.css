@@ -1738,10 +1738,18 @@ p.commentCount {
   font-size: 1.35rem !important;
 }
 .cropper-image {
-  width: 90% !important;
-  height: 80% !important;
-  border: 1.5px solid #1f1f1f !important;
+  width: 100% !important;
+  height: 100% !important;
+  /* border: 1.5px solid #1f1f1f !important; */
   border-radius: 0.5rem !important;
+}
+.cropper-zoom-buttons {
+  position: absolute ;
+  top: 05px !important;
+  right: 10px;
+  display: flex;
+  flex-direction: row !important;
+  gap: 0.35rem !important;
 }
 .cropper-media {
   height: 100% !important;
@@ -2126,6 +2134,7 @@ p.commentCount {
   }
   .check{
     margin-right: 0 !important;
+    margin-bottom: 1rem;
   }
 }
 
