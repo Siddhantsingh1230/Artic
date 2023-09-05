@@ -17,6 +17,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Context } from "../index";
+import ProfilePreview from "./ProfilePreview";
 
 const Home = () => {
   const { isAuthenticated,setProfileURL,user } = useContext(Context);
@@ -58,6 +59,7 @@ const Home = () => {
                 <Route exact path="/setting" element={<Setting />} />
                 <Route exact path="/upload" element={<Upload />} />
                 <Route exact path="/profilephoto" element={<ProfilePhoto />} />
+                <Route exact path="/dpreview" element={<ProfilePreview />} />
                 <Route exact path="*" element={<Navigate to="/" />} />
               </Routes>
             </div>

@@ -1701,6 +1701,59 @@ p.commentCount {
   cursor: pointer;
 }
 
+
+/* styling cropper */
+.cropper-container {
+  height: 100% !important ;
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.cropper-actions {
+  position: absolute;
+  bottom: 0;
+  right: 0.35rem;
+  margin: 0;
+}
+.cropper-action {
+  margin: 0 !important;
+  padding: 0.35rem 1rem;
+  background-color: #006aff !important;
+  margin: 1rem !important;
+  display: none !important;
+}
+.cropper-drag-handle {
+  border: 1px dashed #006aff !important;
+}
+
+.cropper-zoom-out {
+  background-color: #006aff !important;
+  color: white !important;
+  font-size: 1.35rem !important;
+}
+.cropper-zoom-in {
+  color: #006aff !important;
+  font-size: 1.35rem !important;
+}
+.cropper-image {
+  width: 90% !important;
+  height: 80% !important;
+  border: 1.5px solid #1f1f1f !important;
+  border-radius: 0.5rem !important;
+}
+.cropper-media {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain !important;
+}
+
+
+
+
+
+
 /* for mobile */
 
 @media (max-width: 480px) {
@@ -2053,6 +2106,24 @@ p.commentCount {
       width: 3px;
     }
   }
+  /* For ProfilePhoto Preview */
+  .dpreviewback {
+    visibility: visible !important;
+  }
+  .profileActions i {
+    font-size: 1.5rem !important;
+    margin-inline: 0.35rem !important;
+  }
+  .cropper-action {
+    background-color: #006aff !important;
+    margin: 0px !important;
+    
+  }
+  .cropper-actions {
+    margin: 0px !important;
+    padding: 0px !important;
+    
+  }
 }
 
 .LoginMain #googleLoginBtn {
@@ -2212,15 +2283,15 @@ select:-webkit-autofill:focus {
   outline: none;
 }
 
-.confirm__titlebar,.confirm__content{
-
+.confirm__titlebar,
+.confirm__content {
   padding: 1.25rem;
 }
 .confirm__buttons {
   padding: 1rem;
 }
 .confirm__titlebar {
-  background:#131417;
+  background: #131417;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2250,8 +2321,8 @@ select:-webkit-autofill:focus {
 .confirm__content {
   font-size: 1.35rem;
   font-weight: 550;
-  color:rgb(255, 255, 255);
-  background:#131417;
+  color: rgb(255, 255, 255);
+  background: #131417;
 }
 
 .confirm__buttons {
@@ -2305,4 +2376,65 @@ select:-webkit-autofill:focus {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.profilePreview {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  background: #000;
+  justify-content: center;
+  align-items: center;
+}
+.profileActions {
+  position: absolute;
+  top: 0rem;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profileActions i {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.profileActions .dpreviewUpload:hover {
+  color: #006aff;
+  scale: 0.95;
+}
+.dpreviewback {
+  visibility: hidden;
+}
+.profileImagePreview {
+  height: 30rem;
+  width: 30rem;
+}
+.profileImagePreview img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.profileActions input[type="file"] {
+  display: none;
+}
+
+.check{
+  font-size: 1.25rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: #006aff;
+  cursor: pointer;
+  height: 2.5rem;
+  border: 1px solid #006aff;
+}
+.check:hover{
+  color: #ffffff;
+  
 }

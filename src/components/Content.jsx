@@ -18,7 +18,7 @@ const Content = () => {
             <img
               className="trendContent"
               src="icon/poster.jpg"
-              alt="trendContent"
+              alt=""
             />
           </div>
         </div>
