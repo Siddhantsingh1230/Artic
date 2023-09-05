@@ -27,6 +27,7 @@ const Popup = ({ setRender, post, imgURL }) => {
   });
   const isLiked = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/likes/isliked`,
         { userID: user._id, postID: post._id },
@@ -39,14 +40,14 @@ const Popup = ({ setRender, post, imgURL }) => {
       );
       if (data.message) {
         setLiked(true);
-        console.log(data.message);
       } else {
         setLiked(false);
-        console.log(data.message);
       }
+      setLoading(false);
     } catch (error) {
       console.log("like:fetch error", error);
       setLiked(false);
+      setLoading(false);
     }
   };
   const like = async () => {
@@ -65,7 +66,6 @@ const Popup = ({ setRender, post, imgURL }) => {
       );
       if (data.message=="Liked") {
         setLiked(true);
-        // console.log(data);
       } else {
         setLiked(false);
       }
@@ -90,7 +90,6 @@ const Popup = ({ setRender, post, imgURL }) => {
       );
       if (data.message=="unliked") {
         setLiked(false);
-        // console.log(data);
       } else {
         setLiked(true);
       }
