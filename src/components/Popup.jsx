@@ -1,11 +1,12 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Spinner from "./Spinner";
 import Marquee from "react-fast-marquee";
 import { Context } from "../index";
+import axios from "axios";
+import { serverURI } from "../App";
 
-
-const Popup = ({ setRender, data , imgURL }) => {
-  const{profileURL} = useContext(Context);
+const Popup = ({ setRender, data, imgURL }) => {
+  const { profileURL } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -23,6 +24,31 @@ const Popup = ({ setRender, data , imgURL }) => {
       setRender(false);
     }
   });
+  const isLiked = async () => {
+    try {
+      const { data } = await axios.post(
+        `${serverURI}/users/login`,
+        { userID, postID },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      if (data.message) {
+        setLiked(true);
+      } else {
+        setLiked(false);
+      }
+    } catch (error) {
+      console.log("like:fetch error");
+      setLiked(false);
+    }
+  };
+  useEffect(() => {
+    isLiked();
+  }, []);
   return (
     <>
       <div className="popupCard">
