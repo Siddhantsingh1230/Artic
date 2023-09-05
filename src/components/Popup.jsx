@@ -52,7 +52,7 @@ const Popup = ({ setRender, post, imgURL }) => {
   };
   const like = async () => {
     setLiked(true);
-    setPostLikes(postLikes+1);
+    setPostLikes(postLikes + 1);
     try {
       const { data } = await axios.post(
         `${serverURI}/likes/liked`,
@@ -64,7 +64,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data.message=="Liked") {
+      if (data.message == "Liked") {
         setLiked(true);
       } else {
         setLiked(false);
@@ -76,26 +76,28 @@ const Popup = ({ setRender, post, imgURL }) => {
   };
   const unlike = async () => {
     setLiked(false);
-    setPostLikes(postLikes-1);
-    try {
-      const { data } = await axios.post(
-        `${serverURI}/likes/unliked`,
-        { userID: user._id, postID: post._id },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
+    if (postLikes !== 0) {
+      setPostLikes(postLikes - 1);
+      try {
+        const { data } = await axios.post(
+          `${serverURI}/likes/unliked`,
+          { userID: user._id, postID: post._id },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        if (data.message == "unliked") {
+          setLiked(false);
+        } else {
+          setLiked(true);
         }
-      );
-      if (data.message=="unliked") {
-        setLiked(false);
-      } else {
+      } catch (error) {
+        console.log("Cant Unlike-", error.data.message);
         setLiked(true);
       }
-    } catch (error) {
-      console.log("Cant Unlike-", error.data.message);
-      setLiked(true);
     }
   };
   useEffect(() => {
@@ -124,11 +126,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           </div>
           {loading ? <Spinner /> : null}
           {post.postType === "image" ? (
-            <img
-              src={imgURL}
-              alt=""
-              className="imgMedia"
-            />
+            <img src={imgURL} alt="" className="imgMedia" />
           ) : (
             <video
               onCanPlay={() => {
