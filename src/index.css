@@ -2164,57 +2164,6 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Profie Photo */
-.profilePhoto {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.profilePhoto form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-}
-.profilePhoto input[type="file"] {
-  display: none;
-}
-
-.custom-file-upload {
-  outline: 1px solid #686868;
-  border-radius: 50%;
-  height: 17rem;
-  width: 17rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  opacity: 0.75;
-  transition: all ease 0.2s;
-}
-.custom-file-upload i {
-  color: #006aff;
-  font-size: 2rem;
-  opacity: 0.35;
-}
-.profilePhoto form button {
-  outline: none;
-  border: none;
-  color: #000;
-  padding: 0.5rem 1.25rem;
-  font-weight: 550;
-  border-radius: 0.35rem;
-  cursor: pointer;
-  font-size: 1.25rem;
-  transition: all ease 0.2s;
-  background: #fff;
-}
-.profilePhoto form button:hover {
-  opacity: 0.85;
-  background: #006aff;
-}
-
 /* No Post */
 
 .noPosts {
