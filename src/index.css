@@ -819,10 +819,10 @@ circle {
   width: 100%;
   height: 100%;
   background: var(--shine-effect);
-  animation: shine 2s ease-in-out infinite;
+  animation: shinean 2s ease-in-out infinite;
 }
 
-@keyframes shine {
+@keyframes shinean {
   0% {
     left: -100%;
     transition-property: left;
@@ -1084,7 +1084,7 @@ p[contenteditable="true"] {
   width: 100%;
   height: 100%;
   background: var(--shine-effect);
-  animation: shine 2s ease-in-out infinite;
+  animation: shinean 2s ease-in-out infinite;
 }
 
 /* Popup.jsx */
