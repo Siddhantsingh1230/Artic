@@ -2405,3 +2405,24 @@ select:-webkit-autofill:focus {
   color: white;
   opacity: 0.65;
 }
+
+/* Popup heart animation */
+@keyframes animateLike {
+	0% {
+		scale: 0;
+	}
+	5% {
+		scale: 1;
+	}
+	10% {
+		scale: 0.89;
+	}
+	20%,
+	35% {
+		scale: .95;
+	}
+	40%,
+	100% {
+		scale: 0;
+	}
+}

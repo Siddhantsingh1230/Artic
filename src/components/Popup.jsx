@@ -13,6 +13,17 @@ const Popup = ({ setRender, post, imgURL }) => {
   const [commentText, setCommentText] = useState("");
   const [commentLoading, setCommentLoading] = useState(false);
   const [commentsLength, setCommentsLength] = useState(0);
+  const [bigHeartStyle, setBigHeartStyle] = useState({
+    display: "none",
+    textShadow: "0 0 10px black",
+    fontSize: "6rem",
+    color: "red",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+    animation: "animateLike 3s  ease-in-out forwards",
+  });
   const [postLikes, setPostLikes] = useState(post.postLikes);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -58,6 +69,17 @@ const Popup = ({ setRender, post, imgURL }) => {
   const like = async () => {
     setLiked(true);
     setPostLikes(postLikes + 1);
+    setBigHeartStyle({
+      display: "block",
+      textShadow: "0 0 10px black",
+      fontSize: "6rem",
+      color: "red",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%,-50%)",
+      animation: "animateLike 3s  ease-in-out forwards",
+    });
     try {
       const { data } = await axios.post(
         `${serverURI}/likes/liked`,
@@ -81,6 +103,17 @@ const Popup = ({ setRender, post, imgURL }) => {
   };
   const unlike = async () => {
     setLiked(false);
+    setBigHeartStyle({
+      display: "none",
+      textShadow: "0 0 10px black",
+      fontSize: "6rem",
+      color: "red",
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%,-50%)",
+      animation: "animateLike 3s  ease-in-out forwards",
+    });
     if (postLikes !== 0) {
       setPostLikes(postLikes - 1);
       try {
@@ -166,6 +199,7 @@ const Popup = ({ setRender, post, imgURL }) => {
             liked ? unlike() : like();
           }}
         >
+          <i className="ri-heart-3-fill bigheart" style={bigHeartStyle}></i>
           <div
             onClick={() => {
               setRender(false);
@@ -214,7 +248,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               ) : (
                 <i className="ri-heart-line"></i>
               )}
-              <p className="likeCount">{postLikes}</p>
+              {postLikes ? <p className="likeCount">{postLikes}</p> : null}
             </div>
             <div
               className="comments"
