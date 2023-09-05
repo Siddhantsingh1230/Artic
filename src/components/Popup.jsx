@@ -5,11 +5,13 @@ import { Context } from "../index";
 import axios from "axios";
 import { serverURI } from "../App";
 import Comment from "./Comments";
+import { toast } from "react-hot-toast";
 
 const Popup = ({ setRender, post, imgURL }) => {
   const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
   const [commentProfileURL, setCommentProfileURL] = useState([]);
   const [postLikes, setPostLikes] = useState(post.postLikes);
   const [liked, setLiked] = useState(false);
@@ -123,10 +125,29 @@ const Popup = ({ setRender, post, imgURL }) => {
       setCommentProfileURL([]);
     }
   };
+  const addComment = async () => {
+    try {
+      const { data } = await axios.post(
+        `${serverURI}/comments/createComment`,
+        { userID: user._id, postID: post._id ,userName:user.firstname,comment:commentText},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      setComments([]);
+      toast.success(data.message);
+    } catch (error) {
+      console.log("Failed to write comment", error);
+    }
+  };
+
   useEffect(() => {
     isLiked();
     getComments();
-  }, []);
+  }, [comments]);
   return (
     <>
       <div className="popupCard">
@@ -228,20 +249,31 @@ const Popup = ({ setRender, post, imgURL }) => {
             <p>Comments</p>
             <hr />
             <div className="commentBox">
-              {comments.length > 0
-                ? comments.map((comment, i) => {
-                    return (
-                      <>
-                        <Comment key={i} photoURL={commentProfileURL[i]} comment={comment} />
-                      </>
-                    );
-                  })
-                : <p className="emptyComment" >No comments</p>}
+              {comments.length > 0 ? (
+                comments.map((comment, i) => {
+                  return (
+                    <>
+                      <Comment
+                        key={i}
+                        photoURL={commentProfileURL[i]}
+                        comment={comment}
+                      />
+                    </>
+                  );
+                })
+              ) : (
+                <p className="emptyComment">No comments</p>
+              )}
             </div>
             <hr />
             <div className="commentInput">
-              <input placeholder="Type something.." type="text" />
-              <button>Post</button>
+              <input
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                placeholder="Type something.."
+                type="text"
+              />
+              <button onClick={addComment}>Post</button>
             </div>
           </div>
         ) : null}
