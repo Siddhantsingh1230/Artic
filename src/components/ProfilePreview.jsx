@@ -18,7 +18,7 @@ const ProfilePreview = () => {
   };
 
   const saveEditedImg = (editedImg) => {
-    console.log("Cropped Image:", editedImg);
+    // console.log("Cropped Image:", editedImg);
     if (!selectedFile) {
       toast.error("No image selected");
       return;
