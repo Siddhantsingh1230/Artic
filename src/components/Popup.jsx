@@ -27,7 +27,7 @@ const Popup = ({ setRender, data, imgURL }) => {
   const isLiked = async () => {
     try {
       const { data } = await axios.post(
-        `${serverURI}/users/login`,
+        `${serverURI}/likes/isliked`,
         { userID, postID },
         {
           headers: {
