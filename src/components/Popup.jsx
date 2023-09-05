@@ -42,7 +42,7 @@ const Popup = ({ setRender, data, imgURL }) => {
         setLiked(false);
       }
     } catch (error) {
-      console.log("like:fetch error");
+      console.log("like:fetch error",error);
       setLiked(false);
     }
   };
