@@ -37,11 +37,12 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data) {
+      if (data.message) {
         setLiked(true);
-        console.log(data);
+        console.log(data.message);
       } else {
         setLiked(false);
+        console.log(data.message);
       }
     } catch (error) {
       console.log("like:fetch error", error);
@@ -99,7 +100,7 @@ const Popup = ({ setRender, post, imgURL }) => {
     }
   };
   useEffect(() => {
-    // isLiked();
+    isLiked();
   }, []);
   return (
     <>
