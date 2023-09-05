@@ -6,7 +6,7 @@ import axios from "axios";
 import { serverURI } from "../App";
 
 const Popup = ({ setRender, post, imgURL }) => {
-  const { profileURL,user } = useContext(Context);
+  const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -28,7 +28,7 @@ const Popup = ({ setRender, post, imgURL }) => {
     try {
       const { data } = await axios.post(
         `${serverURI}/likes/isliked`,
-        { userID:user._id, postID:post._id },
+        { userID: user._id, postID: post._id },
         {
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +43,53 @@ const Popup = ({ setRender, post, imgURL }) => {
         setLiked(false);
       }
     } catch (error) {
-      console.log("like:fetch error",error);
+      console.log("like:fetch error", error);
+      setLiked(false);
+    }
+  };
+  const like = async () => {
+    try {
+      const { data } = await axios.post(
+        `${serverURI}/likes/liked`,
+        { userID: user._id, postID: post._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      if (data) {
+        setLiked(true);
+        console.log(data);
+      } else {
+        setLiked(false);
+      }
+    } catch (error) {
+      console.log("Cant Like ", error);
+      setLiked(false);
+    }
+  };
+  const unlike = async () => {
+    try {
+      const { data } = await axios.post(
+        `${serverURI}/likes/unliked`,
+        { userID: user._id, postID: post._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      if (data) {
+        setLiked(true);
+        console.log(data);
+      } else {
+        setLiked(false);
+      }
+    } catch (error) {
+      console.log("Cant Unlike", error);
       setLiked(false);
     }
   };
@@ -57,7 +103,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           className="frame"
           style={frameStyle}
           onDoubleClick={() => {
-            liked ? setLiked(false) : setLiked(true);
+            liked ? unlike() : like();
           }}
         >
           <div
@@ -106,7 +152,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           <div className="sidePanel">
             <div
               onClick={() => {
-                liked ? setLiked(false) : setLiked(true);
+                liked ? unlike() : like();
               }}
               className="heart"
             >
