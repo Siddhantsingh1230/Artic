@@ -2124,6 +2124,9 @@ p.commentCount {
     padding: 0px !important;
     
   }
+  .check{
+    margin-right: 0 !important;
+  }
 }
 
 .LoginMain #googleLoginBtn {
@@ -2423,7 +2426,7 @@ select:-webkit-autofill:focus {
 }
 
 .check{
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -2433,8 +2436,9 @@ select:-webkit-autofill:focus {
   cursor: pointer;
   height: 2.5rem;
   border: 1px solid #006aff;
+  margin-right:1.75rem;
+  transition: all ease 0.3s;
 }
 .check:hover{
-  color: #ffffff;
-  
+  opacity: 0.65;
 }

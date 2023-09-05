@@ -64,7 +64,7 @@ const Setting = () => {
     }
   };
   const changeImage = () => {
-    navigate("/profilephoto");
+    navigate("/dpreview");
   };
 
   return (
@@ -111,7 +111,7 @@ const Setting = () => {
             </div>
             <small>Your verified email.</small>
           </div>
-          <div onClick={() => navigate("/profilephoto")} className="userImage">
+          <div onClick={() => navigate("/dpreview")} className="userImage">
             <img src={profileURL} alt="" />
             <div className="tooltip2">{name + " " + lastName}</div>
           </div>

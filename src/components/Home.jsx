@@ -38,7 +38,7 @@ const Home = () => {
     if(isAuthenticated){
       getProfilePhoto();
     }
-  },[isAuthenticated]);
+  },[isAuthenticated,user]);
   return (
     <>
       <Router>
