@@ -59,9 +59,9 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data) {
+      if (data.message=="Liked") {
         setLiked(true);
-        console.log(data);
+        // console.log(data);
       } else {
         setLiked(false);
       }
@@ -82,15 +82,15 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data) {
-        setLiked(true);
-        console.log(data);
-      } else {
+      if (data.message=="unliked") {
         setLiked(false);
+        // console.log(data);
+      } else {
+        setLiked(true);
       }
     } catch (error) {
-      console.log("Cant Unlike", error);
-      setLiked(false);
+      console.log("Cant Unlike-", error.data.message);
+      setLiked(true);
     }
   };
   useEffect(() => {
