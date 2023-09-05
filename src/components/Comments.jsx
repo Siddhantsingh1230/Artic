@@ -1,11 +1,11 @@
 import React from "react";
 
-const Comments = ({photoURL,comment}) => {
+const Comments = ({comment}) => {
   return (
     <>
       <div className="comment">
         <div className="commentUser">
-          <img src={photoURL} alt="" />
+          <img src="icon/Logo.png" alt="" />
           <p>{comment.userName}</p>
           <p>•</p>
         </div>

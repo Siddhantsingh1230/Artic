@@ -5,14 +5,14 @@ import { Context } from "../index";
 import axios from "axios";
 import { serverURI } from "../App";
 import Comment from "./Comments";
-import { toast } from "react-hot-toast";
 
 const Popup = ({ setRender, post, imgURL }) => {
   const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
-  const [commentProfileURL, setCommentProfileURL] = useState([]);
+  const [commentLoading, setCommentLoading] = useState(false);
+  const [commentsLength, setCommentsLength] = useState(0);
   const [postLikes, setPostLikes] = useState(post.postLikes);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -69,7 +69,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data.message == "Liked") {
+      if (data.message === "Liked") {
         setLiked(true);
       } else {
         setLiked(false);
@@ -94,7 +94,7 @@ const Popup = ({ setRender, post, imgURL }) => {
             withCredentials: true,
           }
         );
-        if (data.message == "unliked") {
+        if (data.message === "unliked") {
           setLiked(false);
         } else {
           setLiked(true);
@@ -118,18 +118,23 @@ const Popup = ({ setRender, post, imgURL }) => {
         }
       );
       setComments(data.comments);
-      setCommentProfileURL(data.profileURLArray);
+      setCommentsLength(data.comments.length);
     } catch (error) {
       console.log("Comment fetch failed-", error);
       setComments([]);
-      setCommentProfileURL([]);
     }
   };
   const addComment = async () => {
+    setCommentLoading(true);
     try {
       const { data } = await axios.post(
         `${serverURI}/comments/createComment`,
-        { userID: user._id, postID: post._id ,userName:user.firstname,comment:commentText},
+        {
+          userID: user._id,
+          postID: post._id,
+          userName: user.firstname,
+          comment: commentText,
+        },
         {
           headers: {
             "Content-Type": "application/json",
@@ -137,17 +142,20 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      setComments([]);
-      toast.success(data.message);
+      setComments(data.comments);
+      setCommentsLength(data.comments.length);
+      setCommentText("");
+      setCommentLoading(false);
     } catch (error) {
-      console.log("Failed to write comment", error);
+      console.log("Failed to write comment", error.response.data.message);
+      setCommentLoading(false);
     }
   };
 
   useEffect(() => {
     isLiked();
     getComments();
-  }, [comments]);
+  }, []);
   return (
     <>
       <div className="popupCard">
@@ -224,7 +232,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               }}
             >
               <i className="ri-chat-3-line"></i>
-              <p className="commentCount">20</p>
+              <p className="commentCount">{commentsLength}</p>
             </div>
           </div>
         </div>
@@ -249,17 +257,11 @@ const Popup = ({ setRender, post, imgURL }) => {
             <p>Comments</p>
             <hr />
             <div className="commentBox">
-              {comments.length > 0 ? (
+              {commentLoading ? (
+                <Spinner />
+              ) : comments.length > 0 ? (
                 comments.map((comment, i) => {
-                  return (
-                    <>
-                      <Comment
-                        key={i}
-                        photoURL={commentProfileURL[i]}
-                        comment={comment}
-                      />
-                    </>
-                  );
+                  return <Comment key={i} comment={comment} />;
                 })
               ) : (
                 <p className="emptyComment">No comments</p>

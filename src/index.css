@@ -1363,6 +1363,7 @@ p.commentCount {
   border: none;
   background: transparent;
   font-size: 0.75rem;
+  width: 80%;
 }
 
 .commentInput button {
