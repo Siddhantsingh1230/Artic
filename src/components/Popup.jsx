@@ -72,7 +72,7 @@ const Popup = ({ setRender, post, imgURL }) => {
             ></i>
           </div>
           {loading ? <Spinner /> : null}
-          {data.postType === "image" ? (
+          {post.postType === "image" ? (
             <img
               src={imgURL}
               alt=""
@@ -100,7 +100,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               speed={34}
               pauseOnHover={true}
             >
-              <p>{data.postCaption}</p>
+              <p>{post.postCaption}</p>
             </Marquee>
           </div>
           <div className="sidePanel">
@@ -115,7 +115,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               ) : (
                 <i className="ri-heart-line"></i>
               )}
-              <p className="likeCount">{data.postLikes}</p>
+              <p className="likeCount">{post.postLikes}</p>
             </div>
             <div
               className="comments"
