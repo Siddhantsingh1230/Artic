@@ -26,7 +26,7 @@ const Popup = ({ setRender, data, imgURL }) => {
   });
   const isLiked = async () => {
     try {
-      const { data } = await axios.post(
+      const { datain } = await axios.post(
         `${serverURI}/likes/isliked`,
         { userID:user._id, postID:data._id },
         {
@@ -36,7 +36,7 @@ const Popup = ({ setRender, data, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data.message) {
+      if (datain.message) {
         setLiked(true);
       } else {
         setLiked(false);
