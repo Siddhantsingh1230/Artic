@@ -36,8 +36,9 @@ const Popup = ({ setRender, post, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (data.message) {
+      if (data) {
         setLiked(true);
+        console.log(data);
       } else {
         setLiked(false);
       }
