@@ -4,10 +4,13 @@ import Marquee from "react-fast-marquee";
 import { Context } from "../index";
 import axios from "axios";
 import { serverURI } from "../App";
+import Comments from "./Comments";
 
 const Popup = ({ setRender, post, imgURL }) => {
   const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState([]);
+  const [commentProfileURL, setCommentProfileURL] = useState([]);
   const [postLikes, setPostLikes] = useState(post.postLikes);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -100,8 +103,29 @@ const Popup = ({ setRender, post, imgURL }) => {
       }
     }
   };
+  const getComments = async () =>{
+    try {
+      const { data } = await axios.post(
+        `${serverURI}/comments/getAllComments`,
+        {  postID: post._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      setComments(data.comments);
+      setCommentProfileURL(data.profileURLArray);
+    } catch (error) {
+      console.log("Comment fetch failed-",error);
+      setComments([]);
+      setCommentProfileURL([]);
+    }
+  }
   useEffect(() => {
     isLiked();
+    getComments();
   }, []);
   return (
     <>
@@ -204,66 +228,12 @@ const Popup = ({ setRender, post, imgURL }) => {
             <p>Comments</p>
             <hr />
             <div className="commentBox">
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                  <p>•</p>
-                </div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
-                odio eaque, iure reprehenderit aliquid!
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="icon/tale.jpg" alt="" />
-                  <p>Wisdom</p>
-                  <p>•</p>
-                </div>
-                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
-                odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit
-                amet consectetur adipisicing elit.
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                  <p>•</p>
-                </div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
-                odio eaque, iure reprehenderit aliquid!
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="icon/tale.jpg" alt="" />
-                  <p>Wisdom</p>
-                  <p>•</p>
-                </div>
-                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
-                odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit
-                amet consectetur adipisicing elit.
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="icon/Logo.png" alt="" />
-                  <p>Dimitri</p>
-                  <p>•</p>
-                </div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
-                odio eaque, iure reprehenderit aliquid!
-              </div>
-              <div className="comment">
-                <div className="commentUser">
-                  <img src="icon/tale.jpg" alt="" />
-                  <p>Wisdom</p>
-                  <p>•</p>
-                </div>
-                Consectetur ex expedita cupiditate tempore. Consequatur deserunt
-                odio eaque, iure reprehenderit aliquid! Lorem ipsum dolor sit
-                amet consectetur adipisicing elit.
-              </div>
+              <Comment/>
+              <Comment/>
+              <Comment/>
+              <Comment/>
+              <Comment/>
+              <Comment/>
             </div>
             <hr />
             <div className="commentInput">
