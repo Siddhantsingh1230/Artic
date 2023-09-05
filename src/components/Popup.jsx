@@ -8,6 +8,7 @@ import { serverURI } from "../App";
 const Popup = ({ setRender, post, imgURL }) => {
   const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
+  const [postLikes, setPostLikes] = useState(post.postLikes);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
     height: "80%",
@@ -48,6 +49,8 @@ const Popup = ({ setRender, post, imgURL }) => {
     }
   };
   const like = async () => {
+    setLiked(true);
+    setPostLikes(postLikes+1);
     try {
       const { data } = await axios.post(
         `${serverURI}/likes/liked`,
@@ -71,6 +74,8 @@ const Popup = ({ setRender, post, imgURL }) => {
     }
   };
   const unlike = async () => {
+    setLiked(false);
+    setPostLikes(postLikes-1);
     try {
       const { data } = await axios.post(
         `${serverURI}/likes/unliked`,
@@ -161,7 +166,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               ) : (
                 <i className="ri-heart-line"></i>
               )}
-              <p className="likeCount">{post.postLikes}</p>
+              <p className="likeCount">{postLikes}</p>
             </div>
             <div
               className="comments"
