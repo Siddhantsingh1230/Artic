@@ -5,7 +5,7 @@ import { Context } from "../index";
 import axios from "axios";
 import { serverURI } from "../App";
 
-const Popup = ({ setRender, data, imgURL }) => {
+const Popup = ({ setRender, post, imgURL }) => {
   const { profileURL,user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
@@ -26,9 +26,9 @@ const Popup = ({ setRender, data, imgURL }) => {
   });
   const isLiked = async () => {
     try {
-      const { datain } = await axios.post(
+      const { data } = await axios.post(
         `${serverURI}/likes/isliked`,
-        { userID:user._id, postID:data._id },
+        { userID:user._id, postID:post._id },
         {
           headers: {
             "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const Popup = ({ setRender, data, imgURL }) => {
           withCredentials: true,
         }
       );
-      if (datain.message) {
+      if (data.message) {
         setLiked(true);
       } else {
         setLiked(false);

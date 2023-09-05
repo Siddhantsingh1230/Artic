@@ -79,7 +79,7 @@ const PostCard = ({ post }) => {
             />
           </div>
           {renderPopup ? (
-            <Popup imgURL={imgURL} data={post} setRender={setRenderPopup} />
+            <Popup imgURL={imgURL} post={post} setRender={setRenderPopup} />
           ) : null}
           <div
             onClick={() => {
