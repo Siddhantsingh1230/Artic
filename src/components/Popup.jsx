@@ -94,7 +94,7 @@ const Popup = ({ setRender, post, imgURL }) => {
     }
   };
   useEffect(() => {
-    isLiked();
+    // isLiked();
   }, []);
   return (
     <>
