@@ -6,7 +6,7 @@ import axios from "axios";
 import { serverURI } from "../App";
 
 const Popup = ({ setRender, data, imgURL }) => {
-  const { profileURL } = useContext(Context);
+  const { profileURL,user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const [frameStyle, setFrameStyle] = useState({
@@ -28,7 +28,7 @@ const Popup = ({ setRender, data, imgURL }) => {
     try {
       const { data } = await axios.post(
         `${serverURI}/likes/isliked`,
-        { userID, postID },
+        { userID:user._id, postID:data._id },
         {
           headers: {
             "Content-Type": "application/json",
