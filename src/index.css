@@ -2284,6 +2284,9 @@ p.commentCount {
     background: #000 !important;
     padding-block: 1rem;
   }
+  .popupCard{
+    overflow: scroll !important;
+  }
   .imgMedia{
     object-fit: contain !important;
   }
