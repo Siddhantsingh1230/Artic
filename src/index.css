@@ -2282,6 +2282,9 @@ p.commentCount {
     width: 100% !important;
     border-radius: 0 !important;
   }
+  .imgMedia{
+    object-fit: contain !important;
+  }
 }
 
 .LoginMain #googleLoginBtn {
