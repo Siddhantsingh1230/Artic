@@ -11,21 +11,29 @@ const Chat = ({ setRender }) => {
   const [loading, setLoading] = useState(false);
   const [Chats, setChats] = useState([]);
   const getChat = async () => {
+    setLoading(true);
     try {
       const { data } = await axios.get(`${serverURI}/chats/getchat`, {
         withCredentials: true,
       });
       setChats(data.chats);
+      setLoading(false);
+      console.log(data.chats);
     } catch (error) {
       console.log("warning", error);
+      setLoading(false);
     }
   };
   const addChat = async () => {
     try {
-      setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/chats/addchat`,
-        { userID:user._id, userName:user.firstname, userProfileURL:profileURL, chatMessage:inputChat },
+        {
+          userID: user._id,
+          userName: user.firstname,
+          userProfileURL: user.profileImageURL,
+          chatMessage: inputChat,
+        },
         {
           headers: {
             "Content-Type": "application/json",
@@ -33,11 +41,10 @@ const Chat = ({ setRender }) => {
           withCredentials: true,
         }
       );
-      setLoading(false);
+
       setChats(data.chats);
     } catch (error) {
       if (error) console.log(error.response.data.message);
-      setLoading(false);
     }
   };
   useEffect(() => {
@@ -53,6 +60,7 @@ const Chat = ({ setRender }) => {
     <>
       <div className="chatContainer">
         <div className="chatFrame">
+          {loading ? <Spinner /> : null}
           <div className="chatNav">
             <i
               onClick={() => setRender(false)}
@@ -63,16 +71,15 @@ const Chat = ({ setRender }) => {
             </p>
           </div>
           <div className="chatBody">
-            {Chats.length > 0 ? (
+            {Chats.length !== 0 ? (
               Chats.map((chat, i) => {
-                <ChatText chat={chat} />;
+                return <ChatText chat={chat} key={i} />;
               })
             ) : (
               <p className="emptyChats">No chats... </p>
             )}
           </div>
           <div className="chatActions">
-            {loading ? <Spinner /> : null}
             <input
               value={inputChat}
               onChange={(e) => setInputChat(e.target.value)}
