@@ -1,15 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Popup from "./Popup";
+import axios from "axios";
+import { serverURI } from "../App";
 
-const Card = () => {
+const Card = ({ post }) => {
   const [render, setRender] = useState(false);
+  const [photoURL, setPhotoURL] = useState("");
+  const [profilePhotoURL, setProfilePhotoURL] = useState("");
   const renderPopup = () => {
     setRender(true);
   };
+  const getPhoto = async () => {
+    try {
+      const { data } = await axios.get(
+        `${serverURI}/read/${post.postURL}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setPhotoURL(data.fileUrl);
+    } catch (error) {
+      console.log("error",error);
+    }
+  };
+  const getProfilePhoto = async () => {
+    try {
+      const { data } = await axios.get(
+        `${serverURI}/read/${post.userProfileLink}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setProfilePhotoURL(data.fileUrl);
+    } catch (error) {
+      console.log("error",error);
+    }
+  };
+  
+  useEffect(() => {
+    getPhoto();
+    getProfilePhoto();
+  }, []);
   return (
     <>
       {render ? (
-        <Popup setRender={setRender} />
+        <Popup post={post} imgURL={photoURL} setRender={setRender} />
       ) : (
         <div
           className="card"
@@ -18,15 +53,15 @@ const Card = () => {
           }}
         >
           <div className="newBadge"></div>
-          <img src="icon/tale.jpg" className="animated-background" alt="tale" />
-          <p className="taleTitle">Doom Eternal</p>
+          <img src={photoURL} className="animated-background" alt="" />
+          <p className="taleTitle">{post.postCaption}</p>
           <div className="taleUser">
             <img
               className="taleUserSprite"
-              src="icon/userSprite.jpg"
-              alt="taleuser"
+              src={profilePhotoURL}
+              alt=""
             />
-            <p>Mr.Something</p>
+            <p>{post.userName}</p>
           </div>
         </div>
       )}

@@ -1894,6 +1894,11 @@ p.commentCount {
   color: white;
   font-size: .95rem;
 }
+.emptyContent{
+  opacity: 0.65;
+  color: white;
+  font-size: 1.5rem;
+}
 
 
 /* for mobile */

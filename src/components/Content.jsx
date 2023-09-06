@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import axios from "axios";
+import { serverURI } from "../App";
 
 const Content = () => {
+  const [content, setContent] = useState([]);
+  const getContent = async () => {
+    try {
+      const { data } = await axios.get(`${serverURI}/content/getAllContent`, {
+        withCredentials: true,
+      });
+      setContent(data.content);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  useEffect(() => {
+    getContent();
+  }, []);
   return (
     <>
       <div className="content">
@@ -15,17 +31,19 @@ const Content = () => {
             </p>
           </div>
           <div className="trendMedia">
-            <img
-              className="trendContent"
-              src="icon/poster.jpg"
-              alt=""
-            />
+            <img className="trendContent" src="icon/poster.jpg" alt="" />
           </div>
         </div>
         <div className="tales">
           <p className="topics">Tale Fortune</p>
           <div className="cardContainer">
-            {Array.apply(0, Array(10)).map((x, i)=><Card key={i} />)}
+            {content.length > 0 ? (
+              content.map((post, i) => {
+                return <Card post={post} key={i} />;
+              })
+            ) : (
+              <p className="emptyContent">No Posts</p>
+            )}
           </div>
         </div>
       </div>
