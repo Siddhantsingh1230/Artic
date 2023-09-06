@@ -5,7 +5,7 @@ const Comments = ({comment}) => {
     <>
       <div className="comment">
         <div className="commentUser">
-          <img src="icon/Logo.png" alt="" />
+          <img src={comment.userProfileURL} alt="" />
           <p>{comment.userName}</p>
           <p>•</p>
         </div>

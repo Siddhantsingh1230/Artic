@@ -167,6 +167,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           postID: post._id,
           userName: user.firstname,
           comment: commentText,
+          userProfileURL:profileURL,
         },
         {
           headers: {

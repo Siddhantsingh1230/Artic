@@ -1376,6 +1376,7 @@ p.commentCount {
   padding: 0.45rem;
   border-radius: 0.275rem;
   transition: all ease 0.3s;
+  cursor: pointer;
 }
 
 .commentInput button:hover {
