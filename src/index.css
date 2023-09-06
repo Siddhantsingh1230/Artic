@@ -3,7 +3,7 @@ html {
   height: 100%;
   width: 100%;
   background: #000;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 * {
@@ -2278,8 +2278,8 @@ p.commentCount {
     width: 100%;
   }
   .frame {
-    height: 100% !important;
-    width: 100% !important;
+    height: 100svh!important;
+    width: 100svw !important;
     border-radius: 0 !important;
     background: #000 !important;
   }
