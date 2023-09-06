@@ -34,6 +34,7 @@ const Card = ({ post }) => {
       setProfilePhotoURL(data.fileUrl);
     } catch (error) {
       console.log("error",error);
+      console.log(post);
     }
   };
   
