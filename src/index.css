@@ -2291,11 +2291,17 @@ p.commentCount {
     object-fit: contain !important;
     /* height: 95% !important; */
   }
+  p.likeCount, p.commentCount {
+    font-size: 0.6rem;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }
   .mediaDetails {
-    bottom: 2.55rem !important;
+    bottom:3% !important;
   }
   .sidePanel {
-    bottom: 50% !important;
+    bottom: 10% !important;
   }
 }
 
