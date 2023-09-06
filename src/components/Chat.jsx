@@ -17,7 +17,7 @@ const Chat = ({ setRender }) => {
       });
       setChats(data.chats);
     } catch (error) {
-      console.log("error", error);
+      console.log("warning", error);
     }
   };
   const addChat = async () => {
