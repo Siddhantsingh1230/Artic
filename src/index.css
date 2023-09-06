@@ -2291,6 +2291,12 @@ p.commentCount {
     object-fit: contain !important;
     /* height: 95% !important; */
   }
+  .mediaDetails {
+    bottom: 2.55rem !important;
+  }
+  .sidePanel {
+    bottom: 50% !important;
+  }
 }
 
 .LoginMain #googleLoginBtn {
