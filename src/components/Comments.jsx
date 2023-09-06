@@ -7,7 +7,7 @@ const Comments = ({comment}) => {
   const fetchProfilePhoto = async ()=>{
     try {
       const { data } = await axios.get(
-        `${serverURI}/read/${comment.profileImageURL}`,
+        `${serverURI}/read/${comment.userProfileURL}`,
         {
           withCredentials: true,
         }
