@@ -2278,18 +2278,18 @@ p.commentCount {
     width: 100%;
   }
   .frame {
-    height: 95% !important;
+    height: 100% !important;
     width: 100% !important;
     border-radius: 0 !important;
     background: #000 !important;
-    padding-block: 1rem;
+    padding-block: 1rem !important;
   }
   .popupCard{
-    overflow-y: scroll !important;
     background: #000 !important;
   }
   .imgMedia{
     object-fit: contain !important;
+    /* height: 95% !important; */
   }
 }
 
