@@ -2278,8 +2278,8 @@ p.commentCount {
     width: 100%;
   }
   .frame {
-    height: 100svh !important;
-    width: 100svw !important;
+    height: 100% !important;
+    width: 100% !important;
     border-radius: 0 !important;
     background: #000 !important;
     padding-block: 1rem;
