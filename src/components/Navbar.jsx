@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../index.js";
 import { useNavigate } from "react-router-dom";
+import Chat from "./Chat.jsx";
 
 const Navbar = () => {
-  const { user,profileURL } = useContext(Context);
+  const { user, profileURL } = useContext(Context);
+  const [renderChat, setrenderChat] = useState(false);
   const navigate = useNavigate();
   return (
     <>
@@ -23,7 +25,7 @@ const Navbar = () => {
             <input placeholder="Search" type="search" />
           </div>
           <div className="notifications">
-            <i data-title="Chat" className="ri-message-2-line"></i>
+            <i onClick={()=>setrenderChat(true)} data-title="Chat" className="ri-message-2-line"></i>
             <i data-title="Notification" className="ri-notification-2-fill"></i>
           </div>
           <div className="user">
@@ -31,10 +33,15 @@ const Navbar = () => {
               {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img onClick={() => navigate("/setting")} src={profileURL}  className="userSprite" />
+            <img
+              onClick={() => navigate("/setting")}
+              src={profileURL}
+              className="userSprite"
+            />
           </div>
         </div>
       </div>
+      {renderChat ? <Chat setRender={setrenderChat} /> : null}
     </>
   );
 };

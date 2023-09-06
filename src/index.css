@@ -1703,7 +1703,6 @@ p.commentCount {
   cursor: pointer;
 }
 
-
 /* styling cropper */
 .cropper-container {
   height: 100% !important ;
@@ -1746,7 +1745,7 @@ p.commentCount {
   border-radius: 0.5rem !important;
 }
 .cropper-zoom-buttons {
-  position: absolute ;
+  position: absolute;
   top: 05px !important;
   right: 10px;
   display: flex;
@@ -1759,11 +1758,137 @@ p.commentCount {
   object-fit: contain !important;
 }
 
-
-
-
-
-
+/* Chat Styles */
+.chatContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999999;
+}
+.chatFrame {
+  height: 100%;
+  width: 30%;
+  background: #000;
+}
+.chatNav {
+  height: 10%;
+  background: #000000;
+  border-bottom: 1px solid #2e2e2e;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.25rem;
+}
+.chatNav i {
+  font-size: 1.5rem;
+  opacity: 0.65;
+  transition: all ease 0.3s;
+}
+.chatNav p {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 0.55rem;
+  color: #006aff;
+  font-size: 1.35rem;
+  font-weight: 550;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.chatNav img {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all ease 0.453s;
+}
+.chatNav img:hover {
+  border: 1px solid #006aff;
+  scale: 1.162;
+}
+.chatNav i:hover {
+  opacity: 1;
+}
+.chatBody {
+  height: 80%;
+  background: #000000;
+  width: 100%;
+  border-bottom: 1px solid #2e2e2e;
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 1rem;
+}
+.chatTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.chatDetails {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.chatDetails img {
+  height: 1.05rem;
+  width: 1.05rem;
+  border-radius: 50%;
+  outline: 1px solid #0059d6;
+}
+.chatDetails p {
+  font-size: 0.75rem;
+  color: #0059d6;
+  font-weight: 500;
+}
+.chatText {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: white;
+}
+.chatActions {
+  height: 10%;
+  width: 100%;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+.chatActions input {
+  border: none;
+  outline: none;
+  height: 95%;
+  width: 80%;
+  background: #111111;
+  color: white;
+  border-radius: 0.35rem;
+  padding-inline: 0.5rem;
+  font-size: 0.95rem;
+}
+.chatActions button {
+  background: #006aff;
+  color: #000;
+  height: 85.55%;
+  width: 15%;
+  outline: none;
+  border: none;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  font-size: 0.95rem;
+  font-weight: 550;
+}
+.chatActions button:hover {
+  background-color: #0059d6;
+}
 /* for mobile */
 
 @media (max-width: 480px) {
@@ -2127,16 +2252,18 @@ p.commentCount {
   .cropper-action {
     background-color: #006aff !important;
     margin: 0px !important;
-    
   }
   .cropper-actions {
     margin: 0px !important;
     padding: 0px !important;
-    
   }
-  .check{
+  .check {
     margin-right: 0 !important;
     margin-bottom: 1rem;
+  }
+  .chatFrame {
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -2385,7 +2512,7 @@ select:-webkit-autofill:focus {
   display: none;
 }
 
-.check{
+.check {
   font-size: 1.05rem;
   padding: 1rem;
   display: flex;
@@ -2396,34 +2523,34 @@ select:-webkit-autofill:focus {
   cursor: pointer;
   height: 2.5rem;
   border: 1px solid #006aff;
-  margin-right:1.75rem;
+  margin-right: 1.75rem;
   transition: all ease 0.3s;
 }
-.check:hover{
+.check:hover {
   opacity: 0.65;
 }
-.emptyComment{
+.emptyComment {
   color: white;
   opacity: 0.65;
 }
 
 /* Popup heart animation */
 @keyframes animateLike {
-	0% {
-		scale: 0;
-	}
-	5% {
-		scale: 1;
-	}
-	10% {
-		scale: 0.89;
-	}
-	20%,
-	35% {
-		scale: .95;
-	}
-	40%,
-	100% {
-		scale: 0;
-	}
+  0% {
+    scale: 0;
+  }
+  5% {
+    scale: 1;
+  }
+  10% {
+    scale: 0.89;
+  }
+  20%,
+  35% {
+    scale: 0.95;
+  }
+  40%,
+  100% {
+    scale: 0;
+  }
 }
