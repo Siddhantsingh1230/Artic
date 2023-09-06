@@ -2288,7 +2288,7 @@ p.commentCount {
   }
   .imgMedia {
     object-fit: contain !important;
-    /* height: 95% !important; */
+    height: 95% !important;
   }
   p.likeCount,
   p.commentCount {
