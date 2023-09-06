@@ -2316,7 +2316,18 @@ p.commentCount {
     margin-right: 0.25rem;
     margin-bottom: 0.35rem;
     font-weight: 550;
-}
+  }
+  /* popup card styling */
+  .popupCard{
+    flex-direction: column;
+  } 
+  .commentSection{
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+  .commentInput{
+    height: 20%;
+  }
 }
 
 .LoginMain #googleLoginBtn {
@@ -2606,3 +2617,5 @@ select:-webkit-autofill:focus {
     scale: 0;
   }
 }
+
+
