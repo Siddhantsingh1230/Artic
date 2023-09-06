@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { serverURI } from "../App";
+import axios from "axios";
 
 const Comments = ({comment}) => {
   const [profilePhoto,setProfilePhoto] = useState("");
