@@ -1889,17 +1889,16 @@ p.commentCount {
 .chatActions button:hover {
   background-color: #0059d6;
 }
-.emptyChats{
+.emptyChats {
   opacity: 0.65;
   color: white;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
-.emptyContent{
+.emptyContent {
   opacity: 0.65;
   color: white;
   font-size: 1.5rem;
 }
-
 
 /* for mobile */
 
@@ -2284,24 +2283,30 @@ p.commentCount {
     background: #000 !important;
     padding-block: 1rem !important;
   }
-  .popupCard{
+  .popupCard {
     background: #000 !important;
   }
-  .imgMedia{
+  .imgMedia {
     object-fit: contain !important;
     /* height: 95% !important; */
   }
-  p.likeCount, p.commentCount {
+  p.likeCount,
+  p.commentCount {
     font-size: 0.6rem;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
   }
   .mediaDetails {
-    bottom:10% !important;
+    bottom: 10% !important;
   }
   .sidePanel {
     bottom: 17% !important;
+  }
+  .mediaDetails p {
+    font-size: 0.95rem;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
