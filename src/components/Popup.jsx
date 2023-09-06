@@ -249,7 +249,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               ) : (
                 <i className="ri-heart-line"></i>
               )}
-              {postLikes ? <p className="likeCount">{postLikes}</p> : null}
+              {postLikes>=0 ? <p className="likeCount">{postLikes}</p> : null}
             </div>
             <div
               className="comments"
