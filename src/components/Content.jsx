@@ -42,7 +42,7 @@ const Content = () => {
                 return <Card post={post} key={i} />;
               })
             ) : (
-              <p className="emptyContent">Loading..</p>
+              <p className="emptyContent">Art...</p>
             )}
           </div>
         </div>
