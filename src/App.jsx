@@ -6,7 +6,7 @@ import { Context } from "./index.js";
 import axios from "axios";
 
 // Backend ServerURI
-export const serverURI = "https://articverse.cyclic.app";
+export const serverURI = "https://articverse.cyclic.cloud";
 
 
 const App = () => {
