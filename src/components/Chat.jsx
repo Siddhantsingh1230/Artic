@@ -4,11 +4,10 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Spinner from "./Spinner";
 import { Context } from "../index.js";
-import io from 'socket.io-client';
-
-const socket = io(serverURI);
+import { io } from 'socket.io-client';
 
 const Chat = ({ setRender }) => {
+  const socket = io(serverURI);
   const { user } = useContext(Context);
   const [inputChat, setInputChat] = useState("");
   const [loading, setLoading] = useState(false);
