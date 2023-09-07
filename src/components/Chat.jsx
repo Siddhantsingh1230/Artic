@@ -7,7 +7,9 @@ import { Context } from "../index.js";
 import { io } from 'socket.io-client';
 
 const Chat = ({ setRender }) => {
-  const socket = io(serverURI);
+  const socket = io(serverURI,{
+    withCredentials: true,
+  });
   const { user } = useContext(Context);
   const [inputChat, setInputChat] = useState("");
   const [loading, setLoading] = useState(false);
