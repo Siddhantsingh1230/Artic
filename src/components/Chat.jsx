@@ -66,7 +66,6 @@ const Chat = ({ setRender }) => {
     <>
       <div className="chatContainer">
         <div className="chatFrame">
-          {loading ? <Spinner /> : null}
           <div className="chatNav">
             <i
               onClick={() => setRender(false)}
@@ -77,6 +76,7 @@ const Chat = ({ setRender }) => {
             </p>
           </div>
           <div className="chatBody">
+          {loading ? <Spinner /> : null}
             {Chats.length !== 0 ? (
               Chats.map((chat, i) => {
                 return <ChatText chat={chat} key={i} />;

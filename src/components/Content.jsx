@@ -2,25 +2,54 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
 import { serverURI } from "../App";
+import Spinner from "./Spinner";
 
 const Content = () => {
   const [content, setContent] = useState([]);
-  const getContent = async () => {
+  let fetchNum = 1;
+  const [loading, setLoading] = useState(false);
+  const getContent = async (item) => {
     try {
-      const { data } = await axios.get(`${serverURI}/content/getAllContent`, {
-        withCredentials: true,
-      });
+      const { data } = await axios.get(
+        `${serverURI}/content/getAllContent/${item}`,
+        {
+          withCredentials: true,
+        }
+      );
       setContent(data.content);
     } catch (error) {
       console.log("error", error);
     }
   };
+  const fetchNextContent = async () => {
+    fetchNum ++;
+    console.log(fetchNum);
+    setLoading(true);
+    try {
+      const { data } = await axios.get(
+        `${serverURI}/content/getAllContent/${fetchNum}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setContent(data.content);
+      setLoading(false);
+    } catch (error) {
+      console.log("error", error);
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    getContent();
+    getContent(1);
   }, []);
   return (
     <>
-      <div className="content">
+      <div className="content" onScroll={(e)=>{
+        const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight < 10;
+        if (bottom) { 
+          fetchNextContent();
+        }
+      }}>
         <div className="trend">
           <div className="trendTitle">
             Play ,Discover,
@@ -44,9 +73,10 @@ const Content = () => {
             ) : (
               <p className="emptyContent">Art</p>
             )}
+            {loading&&<div className="loadingContent"><Spinner/></div>}
           </div>
         </div>
-      </div> 
+      </div>
     </>
   );
 };
