@@ -8,48 +8,58 @@ const Content = () => {
   const [content, setContent] = useState([]);
   let fetchNum = 1;
   const [loading, setLoading] = useState(false);
-  const getContent = async (item) => {
+  const [reachedEnd, setReachedEnd] = useState(false);
+  const [length, setLength] = useState(0);
+  const getContent = async () => {
     try {
-      const { data } = await axios.get(
-        `${serverURI}/content/getAllContent/${item}`,
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.get(`${serverURI}/content/getAllContent/1`, {
+        withCredentials: true,
+      });
       setContent(data.content);
+      setLength(data.length);
     } catch (error) {
       console.log("error", error);
     }
   };
   const fetchNextContent = async () => {
-    fetchNum ++;
-    console.log(fetchNum);
-    setLoading(true);
-    try {
-      const { data } = await axios.get(
-        `${serverURI}/content/getAllContent/${fetchNum}`,
-        {
-          withCredentials: true,
-        }
-      );
-      setContent(data.content);
-      setLoading(false);
-    } catch (error) {
-      console.log("error", error);
-      setLoading(false);
+    if (content.length < length) {
+      fetchNum++;
+      // console.log(fetchNum);
+      setLoading(true);
+      try {
+        const { data } = await axios.get(
+          `${serverURI}/content/getAllContent/${fetchNum}`,
+          {
+            withCredentials: true,
+          }
+        );
+        setContent(data.content);
+        setLoading(false);
+      } catch (error) {
+        console.log("error", error);
+        setLoading(false);
+      }
+    } else {
+      // console.log("End reached");
+      setReachedEnd(true);
     }
   };
   useEffect(() => {
-    getContent(1);
+    getContent();
   }, []);
   return (
     <>
-      <div className="content" onScroll={(e)=>{
-        const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight < 10;
-        if (bottom) { 
-          fetchNextContent();
-        }
-      }}>
+      <div
+        className="content"
+        onScroll={(e) => {
+          const bottom =
+            e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight <
+            10;
+          if (bottom) {
+            fetchNextContent();
+          }
+        }}
+      >
         <div className="trend">
           <div className="trendTitle">
             Play ,Discover,
@@ -73,8 +83,13 @@ const Content = () => {
             ) : (
               <p className="emptyContent">Art</p>
             )}
-            {loading&&<div className="loadingContent"><Spinner/></div>}
+            {loading && (
+              <div className="loadingContent">
+                <Spinner />
+              </div>
+            )}
           </div>
+            {reachedEnd && <p className="reachedEnd">You reached end</p>}
         </div>
       </div>
     </>
