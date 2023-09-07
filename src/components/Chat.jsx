@@ -4,14 +4,8 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Spinner from "./Spinner";
 import { Context } from "../index.js";
-import { io } from "socket.io-client";
 
 const Chat = ({ setRender }) => {
-  const socket = io(serverURI, {
-    withCredentials: true,
-    transports: ["websocket"],
-    secure: true,
-  });
   const { user } = useContext(Context);
   const [inputChat, setInputChat] = useState("");
   const [loading, setLoading] = useState(false);
@@ -49,25 +43,17 @@ const Chat = ({ setRender }) => {
       );
       setChats(data.chats);
       setInputChat("");
-      socket.emit("messageSend");
     } catch (error) {
       if (error) console.log(error.response.data.message);
     }
   };
   useEffect(() => {
-    socket.on("messageReceive", () => {
-      console.log("msg recieved");
-      getChat();
-    });
     getChat();
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         setRender(false);
       }
     });
-    return () => {
-      socket.off("messageReceive");
-    };
   }, []);
 
   return (
