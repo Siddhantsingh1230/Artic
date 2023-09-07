@@ -89,7 +89,7 @@ const Content = () => {
               </div>
             )}
           </div>
-            {reachedEnd && <p className="reachedEnd">You reached end</p>}
+            {reachedEnd && <p className="reachedEnd">Reached end</p>}
         </div>
       </div>
     </>
