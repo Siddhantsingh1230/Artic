@@ -9,6 +9,7 @@ const Chat = ({ setRender }) => {
   const { user } = useContext(Context);
   const [inputChat, setInputChat] = useState("");
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [Chats, setChats] = useState([]);
   const getChat = async () => {
     setLoading(true);
@@ -26,6 +27,7 @@ const Chat = ({ setRender }) => {
   };
   const addChat = async () => {
     try {
+      setDisabled(true);
       const { data } = await axios.post(
         `${serverURI}/chats/addchat`,
         {
@@ -43,8 +45,10 @@ const Chat = ({ setRender }) => {
       );
       setChats(data.chats);
       setInputChat("");
+      setDisabled(false);
     } catch (error) {
       if (error) console.log(error.response.data.message);
+      setDisabled(false);
     }
   };
   useEffect(() => {
@@ -86,7 +90,7 @@ const Chat = ({ setRender }) => {
               type="text"
               placeholder="Type something..."
             />
-            <button onClick={addChat}>Send</button>
+            <button disabled={disabled} onClick={addChat}>Send</button>
           </div>
         </div>
       </div>
