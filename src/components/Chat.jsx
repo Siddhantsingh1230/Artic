@@ -9,7 +9,7 @@ import io from 'socket.io-client';
 const socket = io(serverURI);
 
 const Chat = ({ setRender }) => {
-  const { user, profileURL } = useContext(Context);
+  const { user } = useContext(Context);
   const [inputChat, setInputChat] = useState("");
   const [loading, setLoading] = useState(false);
   const [Chats, setChats] = useState([]);
@@ -61,6 +61,9 @@ const Chat = ({ setRender }) => {
         setRender(false);
       }
     });
+    return () => {
+      socket.off('messageReceive');
+    };
   }, []);
 
   return (
