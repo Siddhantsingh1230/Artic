@@ -21,7 +21,7 @@ const Chat = ({ setRender }) => {
       });
       setChats(data.chats);
       setLoading(false);
-      console.log(data.chats);
+      // console.log(data.chats);
     } catch (error) {
       console.log("warning", error);
       setLoading(false);
@@ -53,6 +53,7 @@ const Chat = ({ setRender }) => {
   };
   useEffect(() => {
     socket.on('messageReceive', () => {
+      console.log("msg recieved");
       getChat();
     });
     getChat();
