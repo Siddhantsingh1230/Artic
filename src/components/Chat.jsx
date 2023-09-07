@@ -4,6 +4,9 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Spinner from "./Spinner";
 import { Context } from "../index.js";
+import io from 'socket.io-client';
+
+const socket = io(serverURI);
 
 const Chat = ({ setRender }) => {
   const { user, profileURL } = useContext(Context);
@@ -41,13 +44,17 @@ const Chat = ({ setRender }) => {
           withCredentials: true,
         }
       );
-
       setChats(data.chats);
+      setInputChat("");
+      socket.emit('messageSend');
     } catch (error) {
       if (error) console.log(error.response.data.message);
     }
   };
   useEffect(() => {
+    socket.on('messageReceive', () => {
+      getChat();
+    });
     getChat();
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
