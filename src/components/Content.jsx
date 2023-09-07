@@ -4,8 +4,9 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Spinner from "./Spinner";
 
-const Content = () => {
+const Content = ({ searchValue }) => {
   const [content, setContent] = useState([]);
+  const [searchContent, setSearchContent] = useState([]);
   let fetchNum = 1;
   const [loading, setLoading] = useState(false);
   const [reachedEnd, setReachedEnd] = useState(false);
@@ -16,6 +17,7 @@ const Content = () => {
         withCredentials: true,
       });
       setContent(data.content);
+      setSearchContent(data.content);
       setLength(data.length);
     } catch (error) {
       console.log("error", error);
@@ -34,6 +36,7 @@ const Content = () => {
           }
         );
         setContent(data.content);
+        setSearchContent(data.content);
         setLoading(false);
       } catch (error) {
         console.log("error", error);
@@ -47,6 +50,14 @@ const Content = () => {
   useEffect(() => {
     getContent();
   }, []);
+  useEffect(()=>{
+    if(!searchValue){
+      setSearchContent(content);
+    }else{
+      const filteredArray = content.filter((post) => post.postCaption.includes(searchValue));
+      setSearchContent([...filteredArray]);
+    }
+  },[searchValue]);
   return (
     <>
       <div
@@ -76,8 +87,8 @@ const Content = () => {
         <div className="tales">
           <p className="topics">Tale Fortune</p>
           <div className="cardContainer">
-            {content.length > 0 ? (
-              content.map((post, i) => {
+            {searchContent.length > 0 ? (
+              searchContent.map((post, i) => {
                 return <Card post={post} key={i} />;
               })
             ) : (

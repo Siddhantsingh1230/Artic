@@ -3,7 +3,7 @@ import { Context } from "../index.js";
 import { useNavigate } from "react-router-dom";
 import Chat from "./Chat.jsx";
 
-const Navbar = () => {
+const Navbar = ({ onInputChange }) => {
   const { user, profileURL } = useContext(Context);
   const [renderChat, setrenderChat] = useState(false);
   const navigate = useNavigate();
@@ -22,10 +22,18 @@ const Navbar = () => {
               className="fa-solid fa-magnifying-glass fa-2xs"
               style={{ color: "#ffffff" }}
             ></i>
-            <input placeholder="Search" type="search" />
+            <input
+              onChange={(e) => onInputChange(e.target.value)}
+              placeholder="Search"
+              type="search"
+            />
           </div>
           <div className="notifications">
-            <i onClick={()=>setrenderChat(true)} data-title="Chat" className="ri-message-2-line"></i>
+            <i
+              onClick={() => setrenderChat(true)}
+              data-title="Chat"
+              className="ri-message-2-line"
+            ></i>
             <i data-title="Notification" className="ri-notification-2-fill"></i>
           </div>
           <div className="user">

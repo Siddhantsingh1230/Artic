@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
@@ -20,6 +20,11 @@ import ProfilePreview from "./ProfilePreview";
 
 const Home = () => {
   const { isAuthenticated,setProfileURL,user } = useContext(Context);
+  // For search Functionality
+  const [searchValue, setSearchValue] = useState('');
+  const handleInputChange = (value) => {
+    setSearchValue(value);
+  };
   useEffect(()=>{
     const getProfilePhoto = async () => {
       try {
@@ -49,11 +54,11 @@ const Home = () => {
           </Routes>
         ) : (
           <div className="homeWrapper">
-            <Navbar />
+            <Navbar onInputChange={handleInputChange} />
             <div className="homeBody">
               <Sidebar />
               <Routes>
-                <Route exact path="/" element={<Content />} />
+                <Route exact path="/" element={<Content searchValue={searchValue} />} />
                 <Route exact path="/posts" element={<Posts />} />
                 <Route exact path="/setting" element={<Setting />} />
                 <Route exact path="/upload" element={<Upload />} />
