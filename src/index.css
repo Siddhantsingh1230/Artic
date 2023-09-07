@@ -2328,16 +2328,18 @@ p.commentCount {
   .commentInput{
     height: 20%;
   }
-  @keyframes expand {
-    0% {
-      height: 0;
-      opacity: 0;
-    }
-  
-    100% {
-      height: 20%;
-      opacity: 1;
-    }
+  .editBoxContainer{
+    height: 40%;
+    width: 90%;
+    align-items: center;
+  }
+  .editBoxContainer textarea{
+    height: 80%;
+    margin: 0.5rem;
+    font-size: 1rem;
+  }
+  .editBoxContainer h2{
+    font-size: 1.25rem;
   }
 }
 
