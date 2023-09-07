@@ -26,29 +26,31 @@ const Chat = ({ setRender }) => {
     }
   };
   const addChat = async () => {
-    try {
-      setDisabled(true);
-      const { data } = await axios.post(
-        `${serverURI}/chats/addchat`,
-        {
-          userID: user._id,
-          userName: user.firstname,
-          userProfileURL: user.profileImageURL,
-          chatMessage: inputChat,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+    if (inputChat.trim().length > 0) {
+      try {
+        setDisabled("disabled");
+        const { data } = await axios.post(
+          `${serverURI}/chats/addchat`,
+          {
+            userID: user._id,
+            userName: user.firstname,
+            userProfileURL: user.profileImageURL,
+            chatMessage: inputChat.trim(),
           },
-          withCredentials: true,
-        }
-      );
-      setChats(data.chats);
-      setInputChat("");
-      setDisabled(false);
-    } catch (error) {
-      if (error) console.log(error.response.data.message);
-      setDisabled(false);
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            withCredentials: true,
+          }
+        );
+        setChats(data.chats);
+        setInputChat("");
+        setDisabled(false);
+      } catch (error) {
+        if (error) console.log(error.response.data.message);
+        setDisabled(false);
+      }
     }
   };
   useEffect(() => {
@@ -90,7 +92,9 @@ const Chat = ({ setRender }) => {
               type="text"
               placeholder="Type something..."
             />
-            <button disabled={disabled} onClick={addChat}>Send</button>
+            <button disabled={disabled} onClick={addChat}>
+              Send
+            </button>
           </div>
         </div>
       </div>

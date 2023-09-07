@@ -1830,7 +1830,14 @@ p.commentCount {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
+  transition: all ease 0.23s;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.65rem;
+}
+.chatTextContainer:hover {
+  background: #111111;
 }
 .chatDetails {
   display: flex;
@@ -1838,19 +1845,19 @@ p.commentCount {
   align-items: center;
 }
 .chatDetails img {
-  height: 1.05rem;
-  width: 1.05rem;
+  height: 1.45rem;
+  width: 1.45rem;
   border-radius: 50%;
   outline: 1px solid #0059d6;
 }
 .chatDetails p {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   color: #0059d6;
   font-weight: 500;
 }
 .chatText {
-  margin-top: 0.25rem;
-  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  font-size: 1rem;
   color: white;
 }
 .chatActions {
