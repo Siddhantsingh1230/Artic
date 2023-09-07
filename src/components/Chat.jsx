@@ -4,11 +4,13 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Spinner from "./Spinner";
 import { Context } from "../index.js";
-import { io } from 'socket.io-client';
+import { io } from "socket.io-client";
 
 const Chat = ({ setRender }) => {
-  const socket = io(serverURI,{
+  const socket = io(serverURI, {
     withCredentials: true,
+    transports: ["websocket"],
+    secure: true,
   });
   const { user } = useContext(Context);
   const [inputChat, setInputChat] = useState("");
@@ -47,13 +49,13 @@ const Chat = ({ setRender }) => {
       );
       setChats(data.chats);
       setInputChat("");
-      socket.emit('messageSend');
+      socket.emit("messageSend");
     } catch (error) {
       if (error) console.log(error.response.data.message);
     }
   };
   useEffect(() => {
-    socket.on('messageReceive', () => {
+    socket.on("messageReceive", () => {
       console.log("msg recieved");
       getChat();
     });
@@ -64,7 +66,7 @@ const Chat = ({ setRender }) => {
       }
     });
     return () => {
-      socket.off('messageReceive');
+      socket.off("messageReceive");
     };
   }, []);
 
