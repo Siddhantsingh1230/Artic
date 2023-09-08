@@ -172,10 +172,10 @@ a {
   padding: 0.5rem 0.5rem;
   border-radius: 0.35rem;
 }
-.searchIcon{
+.searchIcon {
   display: none;
 }
-.ri-close-line{
+.ri-close-line {
   display: none;
 }
 
@@ -2113,14 +2113,14 @@ p.commentCount {
     position: fixed;
     width: 75%;
     top: 0;
-    left:0;
+    left: 0;
     margin: 0.95rem;
     height: -100%;
   }
-  .searchIcon{
+  .searchIcon {
     display: flex;
   }
-  .ri-close-line{
+  .ri-close-line {
     display: flex;
   }
   .user .userName {
@@ -2141,7 +2141,7 @@ p.commentCount {
   .tales p {
     margin-bottom: 1rem;
   }
-  .notifications{
+  .notifications {
     margin-right: 0;
   }
 
@@ -2371,7 +2371,7 @@ p.commentCount {
   .editBoxContainer h2 {
     font-size: 1.25rem;
   }
-  
+
   @keyframes expand {
     0% {
       height: 0;
@@ -2383,7 +2383,10 @@ p.commentCount {
       opacity: 1;
     }
   }
-
+  .commentInput button {
+    font-size: 0.65rem;
+    padding: 0.55rem;
+  }
 }
 
 .LoginMain #googleLoginBtn {
