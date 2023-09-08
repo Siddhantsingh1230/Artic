@@ -44,8 +44,6 @@ const Navbar = ({ onInputChange }) => {
             <input
               onChange={(e) => onInputChange(e.target.value)}
               placeholder="Search"
-              type="search"
-              
             />
             <i className="ri-close-line" style={{color :"&#xEB99"}} onClick={closeSearch}></i>
           </div>
@@ -65,6 +63,7 @@ const Navbar = ({ onInputChange }) => {
             <i
               data-title="search"
               className="fa-solid fa-magnifying-glass fa-xs searchIcon"
+              style={{fontSize:"1rem"}}
               ref={searchRef}
               onClick={startSearchBar}
             ></i>
