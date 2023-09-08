@@ -2353,6 +2353,7 @@ p.commentCount {
   .commentSection {
     width: 100%;
     border-radius: 1rem 1rem 0 0;
+    padding-bottom: 10%;
   }
   .commentInput {
     height: 20%;
@@ -2370,16 +2371,7 @@ p.commentCount {
   .editBoxContainer h2 {
     font-size: 1.25rem;
   }
-  .commentInput input {
-    font-size: 1rem;
-  }
-  .mediaDetails {
-    bottom: 5% !important;
-  }
-  .commentUser #text{
-    font-size: 1rem;
-  }
-
+  
   @keyframes expand {
     0% {
       height: 0;
@@ -2391,6 +2383,7 @@ p.commentCount {
       opacity: 1;
     }
   }
+
 }
 
 .LoginMain #googleLoginBtn {
