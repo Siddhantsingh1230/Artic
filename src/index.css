@@ -172,6 +172,12 @@ a {
   padding: 0.5rem 0.5rem;
   border-radius: 0.35rem;
 }
+.searchIcon{
+  display: none;
+}
+.ri-close-line{
+  display: none;
+}
 
 .search input {
   background: transparent;
@@ -2104,6 +2110,18 @@ p.commentCount {
   }
   .navBar .search {
     display: none;
+    position: fixed;
+    width: 75%;
+    top: 0;
+    left:0;
+    margin: 0.95rem;
+    height: -100%;
+  }
+  .searchIcon{
+    display: flex;
+  }
+  .ri-close-line{
+    display: flex;
   }
   .user .userName {
     display: none;
@@ -2122,6 +2140,9 @@ p.commentCount {
 
   .tales p {
     margin-bottom: 1rem;
+  }
+  .notifications{
+    margin-right: 0;
   }
 
   /* upload page */
@@ -2348,6 +2369,15 @@ p.commentCount {
   }
   .editBoxContainer h2 {
     font-size: 1.25rem;
+  }
+  .commentInput input {
+    font-size: 1rem;
+  }
+  .mediaDetails {
+    bottom: 5% !important;
+  }
+  .commentUser #text{
+    font-size: 1rem;
   }
 
   @keyframes expand {

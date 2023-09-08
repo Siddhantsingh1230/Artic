@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { Context } from "../index.js";
 import { useNavigate } from "react-router-dom";
 import Chat from "./Chat.jsx";
@@ -6,6 +6,25 @@ import Chat from "./Chat.jsx";
 const Navbar = ({ onInputChange }) => {
   const { user, profileURL } = useContext(Context);
   const [renderChat, setrenderChat] = useState(false);
+  const searchBarRef = useRef(null);
+  const searchRef = useRef(null);
+  const chatRef = useRef(null);
+  const notiRef = useRef(null);
+  const userRef =useRef(null)
+  const startSearchBar=()=>{
+    searchBarRef.current.style.display="flex";
+    chatRef.current.style.display="none";
+    notiRef.current.style.display="none";
+    searchRef.current.style.display="none";
+    userRef.current.style.margin="-1rem"
+  }
+  const closeSearch=()=>{
+    searchBarRef.current.style.display="none";
+    chatRef.current.style.display="flex";
+    notiRef.current.style.display="flex";
+    searchRef.current.style.display="flex";
+    userRef.current.style.margin="0rem"
+  }
   const navigate = useNavigate();
   return (
     <>
@@ -17,7 +36,7 @@ const Navbar = ({ onInputChange }) => {
           </div>
         </div>
         <div className="navUtils">
-          <div className="search">
+          <div className="search" ref={searchBarRef}>
             <i
               className="fa-solid fa-magnifying-glass fa-2xs"
               style={{ color: "#ffffff" }}
@@ -26,22 +45,36 @@ const Navbar = ({ onInputChange }) => {
               onChange={(e) => onInputChange(e.target.value)}
               placeholder="Search"
               type="search"
+              
             />
+            <i className="ri-close-line" style={{color :"&#xEB99"}} onClick={closeSearch}></i>
           </div>
           <div className="notifications">
+
             <i
               onClick={() => setrenderChat(true)}
               data-title="Chat"
               className="ri-message-2-line"
+              ref={chatRef}
             ></i>
-            <i data-title="Notification" className="ri-notification-2-fill"></i>
+            <i 
+              data-title="Notification" 
+              className="ri-notification-2-fill"
+              ref={notiRef}
+            ></i>
+            <i
+              data-title="search"
+              className="fa-solid fa-magnifying-glass fa-xs searchIcon"
+              ref={searchRef}
+              onClick={startSearchBar}
+            ></i>
           </div>
           <div className="user">
             <div className="userName">
               {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img
+            <img ref={userRef}
               onClick={() => navigate("/setting")}
               src={profileURL}
               className="userSprite"
