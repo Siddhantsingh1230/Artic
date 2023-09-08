@@ -2326,28 +2326,40 @@ p.commentCount {
     font-weight: 550;
   }
   /* popup card styling */
-  .popupCard{
+  .popupCard {
     flex-direction: column;
-  } 
-  .commentSection{
+  }
+  .commentSection {
     width: 100%;
     border-radius: 1rem 1rem 0 0;
   }
-  .commentInput{
+  .commentInput {
     height: 20%;
   }
-  .editBoxContainer{
+  .editBoxContainer {
     height: 40%;
     width: 90%;
     align-items: center;
   }
-  .editBoxContainer textarea{
+  .editBoxContainer textarea {
     height: 80%;
     margin: 0.5rem;
     font-size: 1rem;
   }
-  .editBoxContainer h2{
+  .editBoxContainer h2 {
     font-size: 1.25rem;
+  }
+
+  @keyframes expand {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+
+    100% {
+      height: 100%;
+      opacity: 1;
+    }
   }
 }
 
@@ -2639,26 +2651,25 @@ select:-webkit-autofill:focus {
   }
 }
 
-
 /* Content Loading Spinner */
-.loadingContent{
+.loadingContent {
   position: absolute;
   height: 10%;
   width: 100%;
   bottom: 0;
 }
 
-.reachedEnd{
+.reachedEnd {
   opacity: 0.35 !important;
   width: 100% !important;
   text-align: center !important;
-  font-size: .85rem !important;
+  font-size: 0.85rem !important;
   transition: all ease 0.3s !important;
   font-family: Arial, Helvetica, sans-serif !important;
   font-weight: 550;
   color: #ffffff;
   margin-top: 1rem;
 }
-.reachedEnd:hover{
+.reachedEnd:hover {
   opacity: 1 !important;
 }
