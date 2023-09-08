@@ -23,7 +23,8 @@ const Navbar = ({ onInputChange }) => {
     chatRef.current.style.display="flex";
     notiRef.current.style.display="flex";
     searchRef.current.style.display="flex";
-    userRef.current.style.margin="0rem"
+    userRef.current.style.margin="0rem";
+    onInputChange("");
   }
   const navigate = useNavigate();
   return (
