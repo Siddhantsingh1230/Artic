@@ -14,12 +14,12 @@ const ForgotPassword = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `${serverURI}/factory/forgotpassword`,
+        `https://articmailserver.onrender.com/forgotpassword`,
         { email: email.trim() },
         {
           headers: {
             "Content-Type": "application/json",
-          }
+          },
         }
       );
       toast.success(data.message);
