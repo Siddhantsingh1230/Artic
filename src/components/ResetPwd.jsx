@@ -24,30 +24,30 @@ const ResetPwd = () => {
   };
 
   const resetPass = async () => {
-    // if (password === confirmpassword && password.trim().length !== 0) {
-    //   try {
-    //     setLoading(true);
-    //     const { data } = await axios.post(
-    //       `https://articmailserver.onrender.com/resetpassword`,
-    //       { password,id,token },
-    //       {
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         }
-    //       }
-    //     );
-    //     toast.success(data.message);
-    //     setLoading(false);
-    //   } catch (error) {
-    //     if (error.response.data) {
-    //       toast.error(error.response.data.message);
-    //     }
-    //     setLoading(false);
-    //   }
-    // } else {
-    //   toast.error("Check your inputs !");
-    // }
-    console.log(id,"-", token);
+    if (password === confirmpassword && password.trim().length !== 0) {
+      try {
+        setLoading(true);
+        const { data } = await axios.post(
+          `https://articmailserver.onrender.com/resetpassword`,
+          { password,id,token },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            }
+          }
+        );
+        toast.success(data.message);
+        setLoading(false);
+      } catch (error) {
+        if (error.response.data) {
+          toast.error(error.response.data.message);
+        }
+        setLoading(false);
+      }
+    } else {
+      toast.error("Check your inputs !");
+    }
+    // console.log(id,"-", token);
   };
   return (
     <div className="resetDiv">
