@@ -47,7 +47,7 @@ const ResetPwd = () => {
     // } else {
     //   toast.error("Check your inputs !");
     // }
-    alert(id, token);
+    console.log(id,"-", token);
   };
   return (
     <div className="resetDiv">
