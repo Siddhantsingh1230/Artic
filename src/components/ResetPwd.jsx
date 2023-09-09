@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Spinner from "./Spinner";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const ResetPwd = () => {
   const [eyeClass, setEyeClass] = useState("fa-solid fa-eye-slash fa-xs");
@@ -11,6 +11,7 @@ const ResetPwd = () => {
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
   const togglePass = () => {
     if (eyeClass === "fa-solid fa-eye fa-xs") {
       setEyeClass("fa-solid fa-eye-slash fa-xs");
@@ -38,6 +39,7 @@ const ResetPwd = () => {
         );
         toast.success(data.message);
         setLoading(false);
+        navigate('/');
       } catch (error) {
         if (error.response.data) {
           toast.error(error.response.data.message);
