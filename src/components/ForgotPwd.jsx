@@ -15,12 +15,11 @@ const ForgotPassword = () => {
       setLoading(true);
       const { data } = await axios.post(
         `${serverURI}/factory/forgotpassword`,
-        { email: email.trim()},
+        { email: email.trim() },
         {
           headers: {
             "Content-Type": "application/json",
-          },
-          withCredentials: true,
+          }
         }
       );
       toast.success(data.message);
