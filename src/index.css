@@ -2047,6 +2047,7 @@ p.commentCount {
   opacity: 0.55;
   transition: all ease 0.3s;
   transform: translateY(-50%);
+  display: block !important;
 }
 .notiCancel:hover {
   opacity: 1;
@@ -2510,7 +2511,6 @@ p.commentCount {
     font-size: 1.25rem;
   }
   .notificationDiv {
-    display: block;
     height: 100%;
     width: 100%;
     margin: 0;

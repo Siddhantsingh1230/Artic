@@ -21,6 +21,7 @@ const Navbar = ({ onInputChange }) => {
     userRef.current.style.margin = "-1rem";
   };
   const showHideTab = () => {
+    console.log("CALLED");
     if (notiboxRef.current.style.display == "block") {
       notiboxRef.current.style.display = "none";
     } else {
@@ -99,7 +100,7 @@ const Navbar = ({ onInputChange }) => {
       <div className="notificationDiv" ref={notiboxRef}>
         <div className="notiTitle">
           <p>Notification</p>
-          <i onClick={()=>showHideTab()} className="ri-close-line notiCancel"></i>
+          <i onClick={showHideTab} className="ri-close-fill notiCancel"></i>
         </div>
         <div className="notiContent">
           <div className="notiItem"> Hey there is message for you </div>
