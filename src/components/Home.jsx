@@ -53,7 +53,7 @@ const Home = () => {
             <Route exact path="/" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/forgotpwd" element={<ForgotPwd />} />
-            <Route exact path="/resetpwd" element={<ResetPwd />} />
+            <Route exact path="/resetpwd/:id/:token" element={<ResetPwd />} />
             <Route exact path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (

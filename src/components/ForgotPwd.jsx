@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { serverURI } from "../App";
 import toast from "react-hot-toast";
 import Spinner from "./Spinner";
 
@@ -58,7 +57,7 @@ const ForgotPassword = () => {
           </div>
 
           <button onClick={sendMail} className="resetPwdBtn">
-            Send password reset email
+            Send Email
             {loading && <Spinner />}
           </button>
         </div>
