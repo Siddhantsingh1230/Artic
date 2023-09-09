@@ -144,7 +144,7 @@ const Login = () => {
                 />
                 <label htmlFor="remember">Remember me</label>
               </div>
-              <Link to="no-referer" className="borderLessbtn atag">
+              <Link to="/forgotpwd" className="borderLessbtn atag">
                 Forgot Password ?
               </Link>
             </div>

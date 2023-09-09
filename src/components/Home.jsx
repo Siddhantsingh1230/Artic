@@ -7,6 +7,8 @@ import Setting from "./Setting";
 import Upload from "./Upload";
 import Login from "./Login";
 import Signup from "./Signup";
+import ForgotPwd from "./ForgotPwd";
+import ResetPwd from "./ResetPwd";
 import axios from "axios";
 import { serverURI } from "../App";
 import {
@@ -50,6 +52,8 @@ const Home = () => {
           <Routes>
             <Route exact path="/" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/forgotpwd" element={<ForgotPwd />} />
+            <Route exact path="/resetpwd" element={<ResetPwd />} />
             <Route exact path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
