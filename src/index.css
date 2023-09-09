@@ -2521,7 +2521,8 @@ p.commentCount {
   }
   
   .notiTitle {
-    height: 10%;
+    height: 7%;
+    font-size: 1.2rem;
     border-radius: 0;
   }
 
