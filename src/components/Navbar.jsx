@@ -11,32 +11,30 @@ const Navbar = ({ onInputChange }) => {
   const chatRef = useRef(null);
   const notiRef = useRef(null);
   const notiboxRef = useRef(null);
-  const userRef =useRef(null);
+  const userRef = useRef(null);
 
-  const startSearchBar=()=>{
-    searchBarRef.current.style.display="flex";
-    chatRef.current.style.display="none";
-    notiRef.current.style.display="none";
-    searchRef.current.style.display="none";
-    userRef.current.style.margin="-1rem"
-  }
-  const showHideTab=()=>{
-    if(notiboxRef.current.style.display=="block"){
-      notiboxRef.current.style.display="none"
+  const startSearchBar = () => {
+    searchBarRef.current.style.display = "flex";
+    chatRef.current.style.display = "none";
+    notiRef.current.style.display = "none";
+    searchRef.current.style.display = "none";
+    userRef.current.style.margin = "-1rem";
+  };
+  const showHideTab = () => {
+    if (notiboxRef.current.style.display == "block") {
+      notiboxRef.current.style.display = "none";
+    } else {
+      notiboxRef.current.style.display = "block";
     }
-    else{
-      notiboxRef.current.style.display="block"
-    }
-    
-  }
-  const closeSearch=()=>{
-    searchBarRef.current.style.display="none";
-    chatRef.current.style.display="flex";
-    notiRef.current.style.display="flex";
-    searchRef.current.style.display="flex";
-    userRef.current.style.margin="0rem";
+  };
+  const closeSearch = () => {
+    searchBarRef.current.style.display = "none";
+    chatRef.current.style.display = "flex";
+    notiRef.current.style.display = "flex";
+    searchRef.current.style.display = "flex";
+    userRef.current.style.margin = "0rem";
     onInputChange("");
-  }
+  };
   const navigate = useNavigate();
   return (
     <>
@@ -57,18 +55,21 @@ const Navbar = ({ onInputChange }) => {
               onChange={(e) => onInputChange(e.target.value)}
               placeholder="Search"
             />
-            <i className="ri-close-line" style={{color :"&#xEB99"}} onClick={closeSearch}></i>
+            <i
+              className="ri-close-line"
+              style={{ color: "&#xEB99" }}
+              onClick={closeSearch}
+            ></i>
           </div>
           <div className="notifications">
-
             <i
               onClick={() => setrenderChat(true)}
               data-title="Chat"
               className="ri-message-2-line"
               ref={chatRef}
             ></i>
-            <i 
-              data-title="Notification" 
+            <i
+              data-title="Notification"
               className="ri-notification-2-fill"
               ref={notiRef}
               onClick={showHideTab}
@@ -76,7 +77,7 @@ const Navbar = ({ onInputChange }) => {
             <i
               data-title="search"
               className="fa-solid fa-magnifying-glass fa-xs searchIcon"
-              style={{fontSize:"1rem"}}
+              style={{ fontSize: "1rem" }}
               ref={searchRef}
               onClick={startSearchBar}
             ></i>
@@ -86,7 +87,8 @@ const Navbar = ({ onInputChange }) => {
               {user.firstname}
               <div className="tooltip">User</div>
             </div>
-            <img ref={userRef}
+            <img
+              ref={userRef}
               onClick={() => navigate("/setting")}
               src={profileURL}
               className="userSprite"
@@ -97,7 +99,8 @@ const Navbar = ({ onInputChange }) => {
       <div className="notificationDiv" ref={notiboxRef}>
         <div className="notiTitle">
           <p>Notification</p>
-          </div>
+          <i onClick={showHideTab} className="ri-close-line notiCancel"></i>
+        </div>
         <div className="notiContent">
           <div className="notiItem"> Hey there is message for you </div>
           <div className="notiItem"> Hey there is message for you </div>
