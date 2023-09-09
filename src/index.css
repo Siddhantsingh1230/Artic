@@ -1961,6 +1961,7 @@ p.commentCount {
 }
 .resetPwdBtn{
   width: 100%;
+  position: relative;
   font-size: 1rem;
   font-weight: 550;
   padding: 0.5rem;
