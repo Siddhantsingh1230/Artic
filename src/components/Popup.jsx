@@ -6,7 +6,7 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Comment from "./Comments";
 
-const Popup = ({ content, setContent, setRender, post, imgURL }) => {
+const Popup = ({ content, setContent, setRender, post, imgURL , editPosts }) => {
   const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
@@ -58,6 +58,20 @@ const Popup = ({ content, setContent, setRender, post, imgURL }) => {
       setContent(newContent);
       console.log(content);
       
+    }
+    if(editPosts !== undefined){
+      editPosts((prevPosts) => {
+        return prevPosts.map((post) => {
+          if (post._id === _id) {
+            if (action === "INC") {
+              return { ...post, postLikes: post.postLikes + 1 };
+            } else if (action === "DEC") {
+              return { ...post, postLikes: post.postLikes - 1 };
+            }
+          }
+          return post;
+        });
+      });
     }
   };
   const isLiked = async () => {

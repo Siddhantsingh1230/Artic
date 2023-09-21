@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
 import { ConfirmBox } from "../utils/ConfirmBox";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post,editPosts }) => {
   const [renderPopup, setRenderPopup] = useState(false);
   const navigate = useNavigate();
   const [renderEditPage, setRenderEditPage] = useState(false);
@@ -79,7 +79,7 @@ const PostCard = ({ post }) => {
             />
           </div>
           {renderPopup ? (
-            <Popup imgURL={imgURL} post={post} setRender={setRenderPopup} />
+            <Popup imgURL={imgURL} editPosts={editPosts} post={post} setRender={setRenderPopup} />
           ) : null}
           <div
             onClick={() => {
