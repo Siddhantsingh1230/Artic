@@ -4,7 +4,7 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Spinner from "./Spinner";
 
-const Card = ({ post }) => {
+const Card = ({ post , content , setContent }) => {
   const [render, setRender] = useState(false);
   const [loading, setLoading] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
@@ -50,7 +50,7 @@ const Card = ({ post }) => {
   return (
     <>
       {render ? (
-        <Popup post={post} imgURL={photoURL} setRender={setRender} />
+        <Popup content={content} setContent={setContent} post={post} imgURL={photoURL} setRender={setRender} />
       ) : (
         <div
           className="card"

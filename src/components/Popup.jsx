@@ -6,7 +6,7 @@ import axios from "axios";
 import { serverURI } from "../App";
 import Comment from "./Comments";
 
-const Popup = ({ setRender, post, imgURL }) => {
+const Popup = ({ content, setContent, setRender, post, imgURL }) => {
   const { profileURL, user } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
@@ -41,6 +41,25 @@ const Popup = ({ setRender, post, imgURL }) => {
       setRender(false);
     }
   });
+  const changePostLikes = (_id, action = "INC") => {
+    if (setContent !== undefined) {
+      let newContent=content.map((post) => {
+        if (post._id === _id) {
+          if (action === "INC") {
+            return { ...post, postLikes: post.postLikes + 1 };
+          } else if (action === "DEC") {
+            return { ...post, postLikes: post.postLikes - 1 };
+          }
+        }
+        
+        return post;
+      });
+      console.log(newContent);
+      setContent(newContent);
+      console.log(content);
+      
+    }
+  };
   const isLiked = async () => {
     try {
       setLoading(true);
@@ -69,6 +88,7 @@ const Popup = ({ setRender, post, imgURL }) => {
   const like = async () => {
     setLiked(true);
     setPostLikes(postLikes + 1);
+    changePostLikes(post._id,"INC");
     setBigHeartStyle({
       display: "block",
       textShadow: "0 0 10px black",
@@ -103,6 +123,7 @@ const Popup = ({ setRender, post, imgURL }) => {
   };
   const unlike = async () => {
     setLiked(false);
+    changePostLikes(post._id,"DEC");
     setBigHeartStyle({
       display: "none",
       textShadow: "0 0 10px black",
@@ -167,7 +188,7 @@ const Popup = ({ setRender, post, imgURL }) => {
           postID: post._id,
           userName: user.firstname,
           comment: commentText,
-          userProfileURL:user.profileImageURL,
+          userProfileURL: user.profileImageURL,
         },
         {
           headers: {
@@ -249,7 +270,7 @@ const Popup = ({ setRender, post, imgURL }) => {
               ) : (
                 <i className="ri-heart-line"></i>
               )}
-              {postLikes>=0 ? <p className="likeCount">{postLikes}</p> : null}
+              {postLikes >= 0 ? <p className="likeCount">{postLikes}</p> : null}
             </div>
             <div
               className="comments"

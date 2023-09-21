@@ -47,6 +47,9 @@ const Content = ({ searchValue }) => {
       setReachedEnd(true);
     }
   };
+  useEffect(()=>{
+    setSearchContent(content);
+  },[content]);
   useEffect(() => {
     getContent();
   }, []);
@@ -89,7 +92,7 @@ const Content = ({ searchValue }) => {
           <div className="cardContainer">
             {searchContent.length > 0 ? (
               searchContent.map((post, i) => {
-                return <Card post={post} key={i} />;
+                return <Card content={content} setContent={setContent} post={post} key={i} />;
               })
             ) : (
               <p className="emptyContent">Art</p>
