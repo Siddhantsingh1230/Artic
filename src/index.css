@@ -2033,9 +2033,17 @@ p.commentCount {
   background: #161616;
   border-radius: 0.15rem;
   transition: all 0.3s ease;
+  position: relative;
 }
 .notiItem:hover {
   background: #044eb5;
+}
+.notiDate{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  right: 10px;
 }
 .notiCancel {
   position: absolute;
@@ -2519,7 +2527,7 @@ p.commentCount {
     left: 0;
     border-radius: 0px;
   }
-  
+
   .notiTitle {
     height: 7%;
     font-size: 1.2rem;
@@ -2547,6 +2555,12 @@ p.commentCount {
     padding: 0.55rem;
   }
   /* Media End */
+
+  /* Styling scroll bars for mobile */
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+  }
 }
 
 .LoginMain #googleLoginBtn {

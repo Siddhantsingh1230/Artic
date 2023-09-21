@@ -131,9 +131,15 @@ const Navbar = ({ onInputChange }) => {
         <div className="notiContent">
           {notifications.length > 0 ? (
             notifications.map((item, i) => {
+              let date = new Date(item.createdAt) .toLocaleString('en-US', {
+                month: '2-digit',
+                day: '2-digit',
+                year: 'numeric',
+              });
               return (
                 <div key={i} className="notiItem">
                   {item.notification}
+                  <div className="notiDate"> {date}</div>
                 </div>
               );
             })
