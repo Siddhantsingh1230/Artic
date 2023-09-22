@@ -57,7 +57,7 @@ const Content = ({ searchValue }) => {
     if(!searchValue){
       setSearchContent(content);
     }else{
-      const filteredArray = content.filter((post) => post.postCaption.includes(searchValue));
+      const filteredArray = content.filter((post) => post.postCaption.toLowerCase().includes(searchValue));
       setSearchContent([...filteredArray]);
     }
   },[searchValue]);

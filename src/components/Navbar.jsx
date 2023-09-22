@@ -9,6 +9,7 @@ const Navbar = ({ onInputChange }) => {
   const { user, profileURL } = useContext(Context);
   const [renderChat, setrenderChat] = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
   const searchBarRef = useRef(null);
   const searchRef = useRef(null);
   const chatRef = useRef(null);
@@ -38,6 +39,7 @@ const Navbar = ({ onInputChange }) => {
     searchRef.current.style.display = "flex";
     userRef.current.style.margin = "0rem";
     onInputChange("");
+    setSearchValue("");
   };
   const navigate = useNavigate();
   const fetchNotifications = async () => {
@@ -79,7 +81,11 @@ const Navbar = ({ onInputChange }) => {
               style={{ color: "#ffffff" }}
             ></i>
             <input
-              onChange={(e) => onInputChange(e.target.value)}
+              onChange={(e) => {
+                onInputChange((e.target.value).toLowerCase());
+                setSearchValue(e.target.value);
+              }}
+              value={searchValue}
               placeholder="Search"
             />
             <i
@@ -131,10 +137,10 @@ const Navbar = ({ onInputChange }) => {
         <div className="notiContent">
           {notifications.length > 0 ? (
             notifications.map((item, i) => {
-              let date = new Date(item.createdAt) .toLocaleString('en-US', {
-                month: '2-digit',
-                day: '2-digit',
-                year: 'numeric',
+              let date = new Date(item.createdAt).toLocaleString("en-US", {
+                month: "2-digit",
+                day: "2-digit",
+                year: "numeric",
               });
               return (
                 <div key={i} className="notiItem">
