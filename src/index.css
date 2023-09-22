@@ -988,7 +988,9 @@ circle {
   outline: none;
   background: transparent;
 }
-
+.userSettingEmail .ri-verified-badge-line{
+  color:#006aff;
+}
 .userDetails small {
   color: #7d8590;
   font-size: 0.9rem;
