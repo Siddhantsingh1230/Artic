@@ -92,10 +92,10 @@ const Content = ({ searchValue }) => {
           <div className="cardContainer">
             {searchContent.length > 0 ? (
               searchContent.map((post, i) => {
-                return <Card content={content} setContent={setContent} post={post} key={i} />;
+                return <Card content={content} setContent={setContent} post={post} key={post._id} />;
               })
             ) : (
-              <p className="emptyContent">Art</p>
+              <p className="emptyContent">void 🔺</p>
             )}
             {loading && (
               <div className="loadingContent">
