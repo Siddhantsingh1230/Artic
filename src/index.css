@@ -2537,7 +2537,7 @@ p.commentCount {
     }
 
     100% {
-      height: 90%;
+      height: 80%;
       opacity: 1;
     }
   }
