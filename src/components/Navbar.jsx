@@ -24,6 +24,10 @@ const Navbar = ({ onInputChange }) => {
     notiRef.current.style.display = "none";
     searchRef.current.style.display = "none";
     userRef.current.style.margin = "-1rem";
+    const searchInputElement = searchBarRef.current.querySelector('input');
+      if (searchInputElement) {
+        searchInputElement.focus();
+      }
   };
   const showHideTab = () => {
     if (notiboxRef.current.style.display == "block") {
