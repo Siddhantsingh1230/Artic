@@ -39,17 +39,14 @@ const Card = ({ post, content, setContent }) => {
       console.log(post);
     }
   };
-  const [isNew,setIsNew] = useState(false);
+  const [isNew, setIsNew] = useState(false);
   useEffect(() => {
     getPhoto();
     getProfilePhoto();
     const currentDate = new Date();
-    const postCreatedAt = new Date(""+post.createdAt);
-    console.log(postCreatedAt+post.postCaption);
-    console.log(currentDate);
+    const postCreatedAt = new Date("" + post.createdAt);
     // Calculate the time difference in milliseconds
     const timeDifference = currentDate - postCreatedAt;
-    console.log(timeDifference+"o");
     // Calculate the time difference in minutes
     const minutesDifference = timeDifference / (1000 * 60);
     // Check if the time difference is less than or equal to 15 minutes
