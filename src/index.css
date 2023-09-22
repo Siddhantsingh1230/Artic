@@ -104,27 +104,29 @@ a {
   overflow-x: hidden;
 }
 
-/* Styling scroll bars */
-*::-webkit-scrollbar {
-  width: 10px;
-  /* Width of the scrollbar */
-}
+@media (min-width: 650px)  {
+  /* Styling scroll bars */
+  *::-webkit-scrollbar {
+    width: 10px;
+    /* Width of the scrollbar */
+  }
 
-*::-webkit-scrollbar-track {
-  background: #1e1e1e;
-  /* Background color of the track */
-}
+  *::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    /* Background color of the track */
+  }
 
-*::-webkit-scrollbar-thumb {
-  background: #444;
-  /* Color of the scrollbar thumb */
-  border-radius: 5px;
-  /* Rounded corners for the thumb */
-}
+  *::-webkit-scrollbar-thumb {
+    background: #444;
+    /* Color of the scrollbar thumb */
+    border-radius: 5px;
+    /* Rounded corners for the thumb */
+  }
 
-*::-webkit-scrollbar-thumb:hover {
-  background: #666;
-  /* Color of the thumb on hover */
+  *::-webkit-scrollbar-thumb:hover {
+    background: #666;
+    /* Color of the thumb on hover */
+  }
 }
 
 /* Navbar.js */
@@ -2555,21 +2557,6 @@ p.commentCount {
     padding: 0.55rem;
   }
   /* Media End */
-
-  /* Styling scroll bars for mobile */
-  *::-webkit-scrollbar {
-    width: 12px; 
-    display: auto;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color of the track */
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the thumb */
-    border-radius: 6px; /* Roundness of the thumb */
-  }
 }
 
 .LoginMain #googleLoginBtn {
