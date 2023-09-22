@@ -44,13 +44,16 @@ const Card = ({ post, content, setContent }) => {
     getPhoto();
     getProfilePhoto();
     const currentDate = new Date();
-    const postCreatedAt = new Date(post.createdAt);
+    const postCreatedAt = new Date(""+post.createdAt);
+    console.log(postCreatedAt+post.postCaption);
+    console.log(currentDate);
     // Calculate the time difference in milliseconds
     const timeDifference = currentDate - postCreatedAt;
+    console.log(timeDifference+"o");
     // Calculate the time difference in minutes
     const minutesDifference = timeDifference / (1000 * 60);
     // Check if the time difference is less than or equal to 15 minutes
-    if (minutesDifference <= 15) {
+    if (minutesDifference <= 1440) {
       setIsNew(true);
     }
   }, []);
