@@ -2038,7 +2038,7 @@ p.commentCount {
 .notiItem:hover {
   background: #044eb5;
 }
-.notiDate{
+.notiDate {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -2558,8 +2558,17 @@ p.commentCount {
 
   /* Styling scroll bars for mobile */
   *::-webkit-scrollbar {
-    display: none;
-    width: 0px;
+    width: 12px; 
+    display: auto;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 6px; /* Roundness of the thumb */
   }
 }
 
