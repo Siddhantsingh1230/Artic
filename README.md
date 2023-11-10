@@ -40,7 +40,7 @@ storytellers by leaving comments on their posts.
 6. Delete Posts: Maintain control over your content by having the option to delete posts
 whenever you choose.
 
-7.Toggle Through Notifications: Customize your notification preferences to receive updates
+7. Toggle Through Notifications: Customize your notification preferences to receive updates
 on likes, comments, and interactions as they happen.
 
 8. Messages and Global Chat: Connect with other users through the Artic Global Chat
