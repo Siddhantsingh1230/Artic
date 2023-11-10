@@ -1,5 +1,7 @@
 # Artic: The Social Platform for Sharing Your Tales with the World
 
+![Artic Home page](images/home.png)
+
 In a world brimming with stories waiting to be heard, Artic emerges as a unique social platform designed to connect individuals through the art of storytelling. In the digital age, where social media reigns supreme, we've taken inspiration from popular applications like Instagram and other social networks to create an innovative space where your tales come to life.
 
 Artic is more than just a platform; it's a canvas where your stories take center stage. Whether you're an aspiring writer, a passionate traveler, an art enthusiast, or simply someone with a story to tell, Artic is your stage to share, inspire, and connect with a global audience.
