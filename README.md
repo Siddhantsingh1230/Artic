@@ -61,7 +61,7 @@ audience.
 
 **Artic Whisperer (Frontend):**
 - Repository Link: [https://github.com/KhushiiAggrawal/ArticWhisperer](https://github.com/KhushiiAggrawal/ArticWhisperer)
-- Maintainer: Khushi Kandoi (Team Lead)
+- Maintainer: Khushi Kandoi 
 
 **Artic Backend (Backend):**
 - Repository Link: [https://github.com/Siddhantsingh1230/articbackend](https://github.com/Siddhantsingh1230/articbackend)
@@ -69,7 +69,7 @@ audience.
 
 **Artic (Frontend):**
 - Repository Link: [https://github.com/Siddhantsingh1230/Artic](https://github.com/Siddhantsingh1230/Artic)
-- Maintainer: Siddhant Singh & Khushi Kandoi (Team Lead)
+- Maintainer: Siddhant Singh & Khushi Kandoi
 
 **Artic Mail Server:**
 - Repository Link: [https://github.com/Siddhantsingh1230/ArticMailServer](https://github.com/Siddhantsingh1230/ArticMailServer)
