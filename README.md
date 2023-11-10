@@ -14,6 +14,7 @@ Play, Discover, Follow Popular Tales. Embark on a journey where imagination meet
 2. [Usage](#usage)
 3. [Project Maintainers](#project-maintainers)
 4. [Contact](#contact)
+5. [Contributions](#contributions)
 
 ## Getting Started
 Artic is hosted live, and you can join the platform by creating an account using your email. No need to install the project locally. Simply visit the [Artic Live Platform](#) and sign up to start sharing your tales.
@@ -76,6 +77,19 @@ audience.
 ## Contact
 - Siddhant Singh <siddhantsingh9023134084@gmail.com>
 - Khushi Kandoi <khushikandoii09@gmail.com>
+
+## Contributions
+
+Contributions are always welcome! Please read the contribution guidelines first.
+
+Please ensure your pull request adheres to the following guidelines:
+
+-Suggested Github Profile READMEs should be beautiful or stand out in some way.
+-Make an individual pull request for each suggestion.
+-Check your spelling and grammar.
+-Make sure your text editor is set to remove trailing whitespace.
+
+Thank you for your suggestions!
 
 ## Welcome to Artic, where the world listens to your tales.
 
