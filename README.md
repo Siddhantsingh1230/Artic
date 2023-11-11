@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Artic: The Social Platform for Sharing Your Tales with the World
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Artic Home page](images/home.png)
 
-## Available Scripts
+In a world brimming with stories waiting to be heard, Artic emerges as a unique social platform designed to connect individuals through the art of storytelling. In the digital age, where social media reigns supreme, we've taken inspiration from popular applications like Instagram and other social networks to create an innovative space where your tales come to life.
 
-In the project directory, you can run:
+Artic is more than just a platform; it's a canvas where your stories take center stage. Whether you're an aspiring writer, a passionate traveler, an art enthusiast, or simply someone with a story to tell, Artic is your stage to share, inspire, and connect with a global audience.
 
-### `npm start`
+With Artic, your tales are not limited to words; they are brought to life through a blend of creativity and technology. Join us in this exciting journey as we empower storytellers to share their experiences, passions, and perspectives, and make the world a more interconnected, expressive, and imaginative place.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Motto
+Play, Discover, Follow Popular Tales. Embark on a journey where imagination meets craftsmanship.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
+1. [Getting Started](#getting-started)
+2. [Usage](#usage)
+3. [Project Maintainers](#project-maintainers)
+4. [Contact](#contact)
+5. [Contributions](#contributions)
 
-### `npm test`
+## Getting Started
+Artic is hosted live, and you can join the platform by creating an account using your email. No need to install the project locally. Simply visit the [Artic Live Platform](#) and sign up to start sharing your tales.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
+1. Create an Account:Users can easily create an Artic account, complete with a profile that
+showcases their storytelling style and interests.
 
-### `npm run build`
+2. Post a Tale:Share your stories, experiences, and creativity through text, images, videos,
+and more. Craft your narrative and add visual elements to make your tales stand out.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Search Through Posts:Explore a wide range of tales by searching for keywords, genres, or
+storytellers, ensuring you discover content that resonates with your interests.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Like Posts:Show appreciation for fellow storytellers by liking their tales, fostering a
+supportive and positive community.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Comment on Posts: Engage in discussions, provide feedback, and connect with
+storytellers by leaving comments on their posts.
 
-### `npm run eject`
+6. Delete Posts: Maintain control over your content by having the option to delete posts
+whenever you choose.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+7. Toggle Through Notifications: Customize your notification preferences to receive updates
+on likes, comments, and interactions as they happen.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+8. Messages and Global Chat: Connect with other users through the Artic Global Chat
+feature to engage in conversations with storytellers from around the world.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+9. Change User Settings: Tailor your Artic experience by adjusting settings such as privacy
+controls, notification preferences, and profile information.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+10. Manage Posts: Easily organize and manage your posted tales, whether you want to edit,
+archive, or delete them, ensuring your content remains relevant and meaningful to your
+audience.
 
-## Learn More
+## Project Maintainers
+- Khushi Kandoi
+- Siddhant Singh
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Artic Project Repositories
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Artic Whisperer (Frontend):**
+- Repository Link: [https://github.com/KhushiiAggrawal/ArticWhisperer](https://github.com/KhushiiAggrawal/ArticWhisperer)
+- Maintainer: Khushi Kandoi 
 
-### Code Splitting
+**Artic Backend (Backend):**
+- Repository Link: [https://github.com/Siddhantsingh1230/articbackend](https://github.com/Siddhantsingh1230/articbackend)
+- Maintainer: Siddhant Singh
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Artic (Frontend):**
+- Repository Link: [https://github.com/Siddhantsingh1230/Artic](https://github.com/Siddhantsingh1230/Artic)
+- Maintainer: Siddhant Singh & Khushi Kandoi
 
-### Analyzing the Bundle Size
+**Artic Mail Server:**
+- Repository Link: [https://github.com/Siddhantsingh1230/ArticMailServer](https://github.com/Siddhantsingh1230/ArticMailServer)
+- Maintainer: Siddhant Singh
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Contact
+- Siddhant Singh <siddhantsingh9023134084@gmail.com>
+- Khushi Kandoi <khushikandoii09@gmail.com>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributions
 
-### Advanced Configuration
+Contributions are always welcome! Please read the contribution guidelines first.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Please ensure your pull request adheres to the following guidelines:
 
-### Deployment
+-Suggested Github Profile READMEs should be beautiful or stand out in some way.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-Make an individual pull request for each suggestion.
 
-### `npm run build` fails to minify
+-Check your spelling and grammar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-Make sure your text editor is set to remove trailing whitespace.
+
+Thank you for your suggestions!
+
+## Welcome to Artic, where the world listens to your tales.
+
